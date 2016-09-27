@@ -9,15 +9,15 @@ public class Elfo {
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", 42);
     }
-
+    
     public void setNome(String n) {
         nome = n;
     }
-
+    
     public String getNome() {
         return nome;
     }
-
+    
     public void atirarFlecha() {
         flecha.setQuantidade(flecha.getQuantidade() - 1);
         experiencia++;
@@ -38,5 +38,12 @@ public class Elfo {
         flecha.setQuantidade(flecha.getQuantidade()-1);
     }*/
 }
+
+
+
+
+
+
+
 
 
