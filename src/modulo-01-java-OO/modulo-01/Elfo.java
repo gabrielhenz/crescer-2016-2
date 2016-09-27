@@ -23,6 +23,10 @@ public class Elfo {
         experiencia++;
     }
     
+    public Item getArco(){
+        return arco;
+    }
+    
     /*
     public atirarFlechaRefactory(this.flechas, this.experiencia){
     if(boolean acertar == true){
