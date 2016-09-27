@@ -3,21 +3,23 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * The test class ElfoTest.
- *
- * @author  (your name)
- * @version (a version number or a date)
- */
 public class ElfoTest
 {
     @Test
-    public void elfoNasceComNome(){
-        //Arrange
-        Item arco = new Item("Arco", 1);
-        //Act
+    public void elfoNasceComNome() {
+        // Arrange
+        String nomeEsperado = "Bruce Wayne";
+        // Act
+        Elfo elfoDoTeste = new Elfo(nomeEsperado);
+        // Assert
+        assertEquals(nomeEsperado, elfoDoTeste.getNome());
+    }
+
+    @Test
+    public void elfoNasceComArco() {
+        // Act
         Elfo elfoDoTeste = new Elfo("Elrond");
-        //Assert
+        // Assert
         assertEquals("Arco", elfoDoTeste.getArco().getDescricao());
         assertEquals(1, elfoDoTeste.getArco().getQuantidade());
     }

@@ -15,7 +15,7 @@ public class Item {
         return quantidade;
     }
     
-    public String getDescricao(){
+    public String getDescricao() {
         return descricao;
     }
 }
