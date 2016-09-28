@@ -66,7 +66,8 @@ public class Elfo {
     }
     
     public String toString(){
-        return (nome + " possui " + flecha.getQuantidade() + " flechas e " + experiencia + " níveis de experiência.");
+        return String.format("%s possui %d flechas e %d níveis de experiência.", nome, flecha.getQuantidade(), experiencia);
+        //return (nome + " possui " + flecha.getQuantidade() + " flechas e " + experiencia + " níveis de experiência.");
     }
 }
 
