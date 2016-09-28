@@ -61,7 +61,7 @@ public class Elfo {
         if((flecha.getQuantidade()-1)>0){
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
-            dwarf.setVida(1 * 10);
+            dwarf.setVida(1);
         }
     }
     
@@ -69,7 +69,7 @@ public class Elfo {
         if(flechas <= flecha.getQuantidade()){
             flecha.setQuantidade(flecha.getQuantidade() - flechas);
             experiencia+= flechas;
-            dwarf.setVida(flechas * 10);
+            dwarf.setVida(flechas);
         }
     }
 }
