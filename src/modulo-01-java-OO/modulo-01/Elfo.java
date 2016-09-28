@@ -3,6 +3,7 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
+    private static int qtdeInicialDeFlechas = 42;
     
     public Elfo(String n) {
         //Alterar o código para que todo Elfo 
@@ -10,16 +11,13 @@ public class Elfo {
         //ganhe 42 flechas (valor default).
         
         //EU QUERO INFORMAR.
-       this(n, 42);
+       this(n, qtdeInicialDeFlechas);
     }
     
     public Elfo(String n, int flechas){
         nome = n;
         arco = new Item("Arco", 1);
-        if(flechas >= 0)
-        flecha = new Item("Flechas", flechas);
-        else
-        flecha = new Item("Flechas", 0);
+        flecha = new Item("Flechas", flechas >= 0 ? flechas : qtdeInicialDeFlechas);
    }
     
     public void setNome(String n) {

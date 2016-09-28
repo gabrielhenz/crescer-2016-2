@@ -58,7 +58,7 @@ public class ElfoTest
         Elfo elfoDoTeste = new Elfo("bilbo", -10);
         // Assert
         assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
-        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(42, elfoDoTeste.getFlecha().getQuantidade());
     }
     
     
@@ -127,7 +127,7 @@ public class ElfoTest
         elfoDoTeste.atirarFlecha(new Dwarf(), 0);
         // Assert
         assertEquals(0, elfoDoTeste.getExperiencia());
-        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(42, elfoDoTeste.getFlecha().getQuantidade());
     }
     
     @Test
@@ -136,8 +136,8 @@ public class ElfoTest
         Elfo elfoDoTeste = new Elfo("bilbo", -10);
         elfoDoTeste.atirarFlecha(new Dwarf(), 15);
         // Assert
-        assertEquals(0, elfoDoTeste.getExperiencia());
-        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(15, elfoDoTeste.getExperiencia());
+        assertEquals(27, elfoDoTeste.getFlecha().getQuantidade());
     }
     
     @Test
@@ -147,7 +147,7 @@ public class ElfoTest
         elfoDoTeste.atirarFlecha(new Dwarf(), -15);
         // Assert
         assertEquals(0, elfoDoTeste.getExperiencia());
-        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(42, elfoDoTeste.getFlecha().getQuantidade());
     }
     
     @Test
@@ -213,7 +213,7 @@ public class ElfoTest
         // Act & Arrange
         Elfo elfoDoTeste = new Elfo("bilbo", -12);
         // Assert
-        assertEquals("bilbo possui 0 flechas e 0 níveis de experiência.", elfoDoTeste.toString());
+        assertEquals("bilbo possui 42 flechas e 0 níveis de experiência.", elfoDoTeste.toString());
     }
     
     @Test
