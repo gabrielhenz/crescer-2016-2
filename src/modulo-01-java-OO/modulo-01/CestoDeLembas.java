@@ -9,6 +9,10 @@ public class CestoDeLembas
 {
    private int quantidade;
    
+   public int getQuantidade(){
+       return quantidade;
+    }
+    
    public boolean divisao(){
        boolean ehDivisivel;
        if(quantidade <= 100 && quantidade >= 1){
