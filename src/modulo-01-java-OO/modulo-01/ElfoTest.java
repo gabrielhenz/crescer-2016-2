@@ -202,18 +202,36 @@ public class ElfoTest
     
     @Test
     public void elfoNasceSemFlechasToString(){
+        // Act & Arrange
+        Elfo elfoDoTeste = new Elfo("bilbo", 0);
+        // Assert
+        assertEquals("bilbo possui 0 flechas e 0 níveis de experiência.", elfoDoTeste.toString());
     }
     
     @Test
     public void elfoNasceComFlechasNegativasToString(){
+        // Act & Arrange
+        Elfo elfoDoTeste = new Elfo("bilbo", -12);
+        // Assert
+        assertEquals("bilbo possui 0 flechas e 0 níveis de experiência.", elfoDoTeste.toString());
     }
     
     @Test
     public void elfoNasceAtiraUmaFlechaToString(){
+        // Act & Arrange
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha(new Dwarf());
+        // Assert
+        assertEquals("bilbo possui 41 flechas e 1 nível de experiência.", elfoDoTeste.toString());
     }
     
     @Test
-    public void elfoNasceAtira10FlechasToString(){
+    public void elfoNasceAtira41FlechasToString(){
+        // Act & Arrange
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha(new Dwarf(), 41);
+        // Assert
+        assertEquals("bilbo possui 1 flecha e 41 níveis de experiência.", elfoDoTeste.toString());
     }
     
     
