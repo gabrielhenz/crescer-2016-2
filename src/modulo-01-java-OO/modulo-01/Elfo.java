@@ -31,6 +31,10 @@ public class Elfo {
         return arco;
     }
     
+    public Item getFlecha(){
+        return flecha;
+    }
+    
     public void atirarFlecha(){
         flecha.setQuantidade(flecha.getQuantidade() - 1);
         experiencia++;
