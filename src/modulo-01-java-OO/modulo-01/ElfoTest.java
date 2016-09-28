@@ -121,4 +121,24 @@ public class ElfoTest
         assertEquals(1, elfoDoTeste.getExperiencia());
         assertEquals(52, elfoDoTeste.getFlecha().getQuantidade());
     }
+    
+    @Test
+    public void elfoAtiraZeroFlechasComElfoDeFlechasNegativas(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo", -10);
+        elfoDoTeste.atirarFlecha(0);
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraFlechasComElfoDeFlechasNegativas(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo", -10);
+        elfoDoTeste.atirarFlecha(0);
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(-10, elfoDoTeste.getFlecha().getQuantidade());
+    }
 }
