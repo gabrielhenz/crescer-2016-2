@@ -7,12 +7,16 @@ public class Dwarf {
         vida = 110;
     }
 
-    public void perderVida() {
-        vida -= 10;
-    }
-
     public int getVida() {
         return vida;
     }
+    
+    public void fuiAtingido(){
+        vida -= 10;
+    }
+    
+    public void fuiAtingido(int flechas){ 
+        vida -= flechas*10; 
+    } 
 }
 // Dwarf gimli;

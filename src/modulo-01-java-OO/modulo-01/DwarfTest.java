@@ -14,41 +14,41 @@ public class DwarfTest
     @Test
     public void dwarfPerdeVidaUmaVez() {
         Dwarf gimli = new Dwarf();
-        gimli.perderVida();
+        gimli.fuiAtingido();
         assertEquals(100, gimli.getVida());
     }
 
     @Test
     public void dwarfPerdeVidaDuasVezes() {
         Dwarf gimli = new Dwarf();
-        gimli.perderVida();
-        gimli.perderVida();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
         assertEquals(90, gimli.getVida());
     }
 
     @Test
     public void dwarfPerdeVidaVinteVezes() {
         Dwarf gimli = new Dwarf();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
         assertEquals(-90, gimli.getVida());
     }
 }
