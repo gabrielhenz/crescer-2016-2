@@ -43,6 +43,15 @@ public class ElfoTest
     }
     
     @Test
+    public void elfoNasceComZeroFlechas(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo", 0);
+        // Assert
+        assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
+        assertEquals(10, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
     public void elfoAtiraUmaFlecha(){
         // Act
         Elfo elfoDoTeste = new Elfo("bilbo");
