@@ -42,27 +42,8 @@ public class Elfo {
         return experiencia;
     }
     
-    public void atirarFlecha(){
-        if((flecha.getQuantidade()-1)>0){ 
-            flecha.setQuantidade(flecha.getQuantidade() - 1);
-            experiencia++;
-       }
-    }
     
-    public void atirarFlecha(int flechas) {
-        if(flechas > 0 && flecha.getQuantidade() > 0){
-            if(flechas <= flecha.getQuantidade()){
-                flecha.setQuantidade(flecha.getQuantidade() - flechas);
-                experiencia+= flechas;
-            }else{
-                flecha.setQuantidade(flecha.getQuantidade() - 42);
-                experiencia+= 42;
-            }
-        }
-        
-    }
-    
-    public void atirarFlechaEmDwarf(Dwarf dwarf){
+    public void atirarFlecha(Dwarf dwarf){
         if((flecha.getQuantidade()-1) > 0){
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
@@ -70,7 +51,7 @@ public class Elfo {
         }
     }
     
-    public void atirarFlechasEmDwarf(Dwarf dwarf, int flechas){
+    public void atirarFlecha(Dwarf dwarf, int flechas){
         if(flechas > 0 && flecha.getQuantidade() > 0){
             if(flechas <= flecha.getQuantidade()){
                 flecha.setQuantidade(flecha.getQuantidade() - flechas);
@@ -85,7 +66,7 @@ public class Elfo {
     }
     
     public String toString(){
-        return (nome + " possui " + flecha + " flechas e " + experiencia + " níveis de experiência.");
+        return (nome + " possui " + flecha.getQuantidade() + " flechas e " + experiencia + " níveis de experiência.");
     }
 }
 
