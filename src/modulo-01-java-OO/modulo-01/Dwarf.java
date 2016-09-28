@@ -20,8 +20,8 @@ public class Dwarf
         return vida;
     }
     
-    public void setVida(int vida){
-        this.vida = vida;
+    public void fuiAtingido(int flechas){
+        vida -= flechas*10;
     }
     
     public Item getMachado(){
