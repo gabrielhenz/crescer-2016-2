@@ -1,45 +1,59 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-/**
- * A classe de teste CestoDeLembasTest.
- *
- * @author  (seu nome)
- * @version (um número de versão ou data)
- */
 public class CestoDeLembasTest
 {
     @Test
-    public void cestoCom2Lembas(){
-        // Act
-        CestoDeLembas doisSemGluten = new CestoDeLembas(2);
-        // deve retornar false, pois 2 = 1 + 1
-        // Assert
-        assertEquals(2, doisSemGluten.getQuantidade());
-        assertEquals(false, doisSemGluten.podeDividirEmPares());
+    public void dividirCestoComUmPao() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(1);
+        // Act & Assert
+        assertFalse(cesto.podeDividirEmPares());
     }
     
     @Test
-    public void cestoCom6Lembas(){
-        // Act
-        CestoDeLembas seisSemGluten = new CestoDeLembas(6);
-        // true, pois 6 = 2 + 4
-        // Assert
-        assertEquals(6, seisSemGluten.getQuantidade());
-        assertEquals(true, seisSemGluten.podeDividirEmPares());
+    public void dividirCestoComDoisPaes() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(2);
+        // Act & Assert
+        assertFalse(cesto.podeDividirEmPares());
     }
     
     @Test
-    public void cestoComMenos6Lembas(){
-        // Act
-        CestoDeLembas menosSeisSemGluten = new CestoDeLembas(-6);
-        // true, pois 6 = 2 + 4
-        // Assert
-        assertEquals(6, menosSeisSemGluten.getQuantidade());
-        assertTrue(menosSeisSemGluten.podeDividirEmPares());
+    public void dividirCestoComQuatroPaes() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(4);
+        // Act & Assert
+        assertTrue(cesto.podeDividirEmPares());
+    }
+    
+    @Test
+    public void dividirCestoCom101Paes() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(101);
+        // Act & Assert
+        assertFalse(cesto.podeDividirEmPares());
+    }
+    
+    @Test
+    public void dividirCestoComMenos6Paes() {
+        // Arrange
+        CestoDeLembas cesto = new CestoDeLembas(-6);
+        // Act & Assert
+        assertFalse(cesto.podeDividirEmPares());
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
