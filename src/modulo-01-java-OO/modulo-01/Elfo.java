@@ -16,7 +16,10 @@ public class Elfo {
     public Elfo(String n, int flechas){
         nome = n;
         arco = new Item("Arco", 1);
+        if(flechas >= 0)
         flecha = new Item("Flechas", flechas);
+        else
+        flecha = new Item("Flechas", 0);
    }
     
     public void setNome(String n) {
@@ -40,13 +43,18 @@ public class Elfo {
     }
     
     public void atirarFlecha(){
-        flecha.setQuantidade(flecha.getQuantidade() - 1);
-        experiencia++;
+        if((flecha.getQuantidade()-1)>0){
+            flecha.setQuantidade(flecha.getQuantidade() - 1);
+            experiencia++;
+        }
     }
     
     public void atirarFlecha(int flechas) {
-        flecha.setQuantidade(flecha.getQuantidade() - flechas);
-        experiencia+= flechas;
+        if(flechas <= flecha.getQuantidade()){
+            flecha.setQuantidade(flecha.getQuantidade() - flechas);
+            experiencia+= flechas;
+        }
+        
     }
 }
 
