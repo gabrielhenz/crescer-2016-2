@@ -23,151 +23,173 @@ public class ElfoTest
         assertEquals("Arco", elfoDoTeste.getArco().getDescricao());
         assertEquals(1, elfoDoTeste.getArco().getQuantidade());
     }
-
+    
     @Test
-    public void elfoNasceCom42Flechas() {
+    public void elfoNasceComFlecha(){
         // Act
-        Elfo elfoDoTeste = new Elfo("Elrond");
+        Elfo elfoDoTeste = new Elfo("bilbo");
         // Assert
         assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
         assertEquals(42, elfoDoTeste.getFlecha().getQuantidade());
     }
-
+    
     @Test
-    public void elfoAtiraUmaFlecha() {
-        // Arrange
-        Elfo legolas = new Elfo("Elfo");
+    public void elfoNasceComFlechas(){
         // Act
-        legolas.atirarFlecha();
+        Elfo elfoDoTeste = new Elfo("bilbo", 10);
         // Assert
-        assertEquals(41, legolas.getFlecha().getQuantidade());
-        assertEquals(1, legolas.getExperiencia());
-    }
-
-    @Test
-    public void elfoAtiraDuasFlecha() {
-        // Arrange
-        Elfo legolas = new Elfo("Elfo");
-        // Act
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        // Assert
-        assertEquals(40, legolas.getFlecha().getQuantidade());
-        assertEquals(2, legolas.getExperiencia());
+        assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
+        assertEquals(10, elfoDoTeste.getFlecha().getQuantidade());
     }
     
     @Test
-    public void elfoNaoAtiraFlecha() {
-        // Arrange & Act
-        Elfo legolas = new Elfo("Elfo");
-        // Assert
-        assertEquals(42, legolas.getFlecha().getQuantidade());
-        assertEquals(0, legolas.getExperiencia());
-    }
-
-    @Test
-    public void elfoAtira42Flechas() {
-        // Arrange
-        Elfo legolas = new Elfo("Elfo");
+    public void elfoNasceComZeroFlechas(){
         // Act
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
+        Elfo elfoDoTeste = new Elfo("bilbo", 0);
         // Assert
-        assertEquals(0, legolas.getFlecha().getQuantidade());
-        assertEquals(42, legolas.getExperiencia());
+        assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
+        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
     }
-
-    @Test
-    public void elfoAtira43Flechas() {
-        // Arrange
-        Elfo legolas = new Elfo("Elfo");
+    
+    
+     @Test
+    public void elfoNasceComFlechasNegativas(){
         // Act
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
-        legolas.atirarFlecha();
+        Elfo elfoDoTeste = new Elfo("bilbo", -10);
         // Assert
-        assertEquals(-1, legolas.getFlecha().getQuantidade());
-        assertEquals(43, legolas.getExperiencia());
+        assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
+        assertEquals(-10, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    
+    @Test
+    public void elfoAtiraUmaFlecha(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha();
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraUmaFlechaDiferenteDe42(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo", 10);
+        elfoDoTeste.atirarFlecha();
+        // Assert
+    }
+    
+    @Test
+    public void elfoAtiraVariasFlechas(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha(10);
+        // Assert
+        assertEquals(10, elfoDoTeste.getExperiencia());
+        assertEquals(32, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtira42FlechasComElfoDeFlechasDefault(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha(42);
+        // Assert
+        assertEquals(42, elfoDoTeste.getExperiencia());
+        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraMaisQue42FlechasComElfoDeFlechasDefault(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha(43);
+        // Assert
+        assertEquals(43, elfoDoTeste.getExperiencia());
+        assertEquals(-1, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraMenosQueZeroComFlechasDefault(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha(-10);
+        // Assert
+        assertEquals(-10, elfoDoTeste.getExperiencia());
+        assertEquals(52, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraZeroFlechasComElfoDeFlechasNegativas(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo", -10);
+        elfoDoTeste.atirarFlecha(0);
+        // Assert
+        assertEquals(0, elfoDoTeste.getExperiencia());
+        assertEquals(-10, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraFlechasComElfoDeFlechasNegativas(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo", -10);
+        elfoDoTeste.atirarFlecha(15);
+        // Assert
+        assertEquals(15, elfoDoTeste.getExperiencia());
+        assertEquals(-25, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraFlechasNegativasComElfoDeFlechasNegativas(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo", -10);
+        elfoDoTeste.atirarFlecha(-15);
+        // Assert
+        assertEquals(-15, elfoDoTeste.getExperiencia());
+        assertEquals(5, elfoDoTeste.getFlecha().getQuantidade());
+    }
+    
+    @Test
+    public void elfoAtiraFlechaNoDwarfX(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        Dwarf X = new Dwarf();
+        elfoDoTeste.atirarFlechaEmDwarf(X);
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(100, X.getVida());
+    }
+    
+    @Test
+    public void elfoAtiraFlechaNoDwarfX_Y(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        Dwarf X = new Dwarf();
+        Dwarf Y = new Dwarf();
+        elfoDoTeste.atirarFlechaEmDwarf(X);
+        elfoDoTeste.atirarFlechaEmDwarf(Y);
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(100, X.getVida());
+        assertEquals(100, Y.getVida());
+    }
+    
+    @Test
+    public void elfoAtiraFlechasNoDwarfX_Y(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        Dwarf X = new Dwarf();
+        Dwarf Y = new Dwarf();
+        elfoDoTeste.atirarFlechasEmDwarf(X, 10);
+        elfoDoTeste.atirarFlechasEmDwarf(Y, 11);
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(10, X.getVida());
+        assertEquals(0, Y.getVida());
     }
 }
 
