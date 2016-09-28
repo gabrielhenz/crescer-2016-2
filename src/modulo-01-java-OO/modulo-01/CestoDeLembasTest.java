@@ -32,4 +32,14 @@ public class CestoDeLembasTest
         assertEquals(6, seisSemGluten.getQuantidade());
         assertEquals(true, seisSemGluten.podeDividirEmPares());
     }
+    
+    @Test
+    public void cestoComMenos6Lembas(){
+        // Act
+        CestoDeLembas menosSeisSemGluten = new CestoDeLembas(-6);
+        // true, pois 6 = 2 + 4
+        // Assert
+        assertEquals(6, menosSeisSemGluten.getQuantidade());
+        assertTrue(menosSeisSemGluten.podeDividirEmPares());
+    }
 }
