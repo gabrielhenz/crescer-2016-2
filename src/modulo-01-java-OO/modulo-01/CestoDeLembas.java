@@ -9,6 +9,10 @@ public class CestoDeLembas
 {
    private int quantidade;
    
+   public CestoDeLembas(int q){
+       quantidade = q;
+    }
+    
    public int getQuantidade(){
        return quantidade;
     }
