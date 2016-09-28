@@ -1,12 +1,23 @@
+
+/**
+ * Escreva a descrição da classe CestoDeLembas aqui.
+ * 
+ * @author (seu nome) 
+ * @version (número de versão ou data)
+ */
 public class CestoDeLembas
 {
-    private int numeroPaes;
-    
-    public CestoDeLembas(int numeroPaes) {
-        this.numeroPaes = numeroPaes;
+   private int quantidade;
+   
+   public CestoDeLembas(int q){
+       quantidade = q;
     }
     
-    public boolean podeDividirEmPares() {
-        return numeroPaes > 2 && numeroPaes % 2 == 0 && numeroPaes <= 100;
+   public int getQuantidade(){
+       return quantidade;
+    }
+    
+   public boolean podeDividirEmPares(){
+       return quantidade >= 1 && quantidade <= 100 && quantidade % 2 == 0;
     }
 }
