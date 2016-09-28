@@ -149,4 +149,16 @@ public class ElfoTest
         assertEquals(-15, elfoDoTeste.getExperiencia());
         assertEquals(5, elfoDoTeste.getFlecha().getQuantidade());
     }
+    
+    @Test
+    public void elfoAtiraFlechaNoDwarfX(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        Dwarf X = new Dwarf();
+        elfoDoTeste.atirarFlechaEmDwarf(X);
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(100, X.getVida());
+    }
 }
