@@ -83,6 +83,10 @@ public class Elfo {
             }
         }
     }
+    
+    public String toString(){
+        return (nome + " possui " + flecha + " flechas e " + experiencia + " níveis de experiência.");
+    }
 }
 
 
