@@ -20,7 +20,7 @@ public class CestoDeLembas
    public boolean podeDividirEmPares(){
        boolean ehDivisivel;
        if(quantidade <= 100 && quantidade >= 1){
-           ehDivisivel = ((quantidade / 2) % 2 == 0)?true:false;
+           ehDivisivel = ((quantidade % 2 == 0)?true:false);
         }else{
             ehDivisivel = false;
         }
