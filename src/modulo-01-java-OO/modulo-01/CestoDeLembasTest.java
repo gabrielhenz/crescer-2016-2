@@ -17,17 +17,19 @@ public class CestoDeLembasTest
     public void cestoCom2Lembas(){
         // Act
         CestoDeLembas doisSemGluten = new CestoDeLembas(2);
-         // deve retornar false, pois 2 = 1 + 1
+        // deve retornar false, pois 2 = 1 + 1
         // Assert
-        assertEquals(2, doisSemGlutem.getQuantidade());
+        assertEquals(2, doisSemGluten.getQuantidade());
         assertEquals(false, doisSemGluten.podeDividirEmPares());
     }
     
     @Test
     public void cestoCom6Lembas(){
         // Act
-        CestoDeLembras seisSemGluten = new CestoDeLembas(6);
-        seisSemGluten.podeDividirEmPares(); // true, pois 6 = 2 + 4
-        assertEquals(true, doisSemGluten.podeDividirEmPares());
+        CestoDeLembas seisSemGluten = new CestoDeLembas(6);
+        // true, pois 6 = 2 + 4
+        // Assert
+        assertEquals(6, seisSemGluten.getQuantidade());
+        assertEquals(true, seisSemGluten.podeDividirEmPares());
     }
 }
