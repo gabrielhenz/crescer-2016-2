@@ -43,22 +43,27 @@ public class Elfo {
     }
     
     public void atirarFlecha(){
-        if((flecha.getQuantidade()-1)>0){
+        if((flecha.getQuantidade()-1)>0){ 
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
-        }
+       }
     }
     
     public void atirarFlecha(int flechas) {
-        if(flechas <= flecha.getQuantidade()){
-            flecha.setQuantidade(flecha.getQuantidade() - flechas);
-            experiencia+= flechas;
+        if(flechas > 0 && flecha.getQuantidade() > 0){
+            if(flechas <= flecha.getQuantidade()){
+                flecha.setQuantidade(flecha.getQuantidade() - flechas);
+                experiencia+= flechas;
+            }else{
+                flecha.setQuantidade(flecha.getQuantidade() - 42);
+                experiencia+= 42;
+            }
         }
         
     }
     
     public void atirarFlechaEmDwarf(Dwarf dwarf){
-        if((flecha.getQuantidade()-1)>0){
+        if((flecha.getQuantidade()-1) > 0){
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
             dwarf.fuiAtingido(1);
@@ -66,10 +71,16 @@ public class Elfo {
     }
     
     public void atirarFlechasEmDwarf(Dwarf dwarf, int flechas){
-        if(flechas <= flecha.getQuantidade()){
-            flecha.setQuantidade(flecha.getQuantidade() - flechas);
-            experiencia+= flechas;
-            dwarf.fuiAtingido(flechas);
+        if(flechas > 0 && flecha.getQuantidade() > 0){
+            if(flechas <= flecha.getQuantidade()){
+                flecha.setQuantidade(flecha.getQuantidade() - flechas);
+                experiencia+= flechas;
+                dwarf.fuiAtingido(flechas);
+            }else{
+                flecha.setQuantidade(flecha.getQuantidade() - 42);
+                experiencia+= 42;
+                dwarf.fuiAtingido(42);
+            }
         }
     }
 }
