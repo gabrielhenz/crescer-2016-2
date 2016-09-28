@@ -48,7 +48,7 @@ public class ElfoTest
         Elfo elfoDoTeste = new Elfo("bilbo", 0);
         // Assert
         assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
-        assertEquals(10, elfoDoTeste.getFlecha().getQuantidade());
+        assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
     }
     
     @Test
