@@ -41,4 +41,14 @@ public class ElfoTest
         assertEquals("Flechas", elfoDoTeste.getFlecha().getDescricao());
         assertEquals(10, elfoDoTeste.getFlecha().getQuantidade());
     }
+    
+    @Test
+    public void elfoAtiraUmaFlecha(){
+        // Act
+        Elfo elfoDoTeste = new Elfo("bilbo");
+        elfoDoTeste.atirarFlecha();
+        // Assert
+        assertEquals(1, elfoDoTeste.getExperiencia());
+        assertEquals(41, elfoDoTeste.getFlecha().getQuantidade());
+    }
 }
