@@ -46,7 +46,7 @@ public class Elfo {
     
     public void atirarFlecha(int flechas) {
         flecha.setQuantidade(flecha.getQuantidade() - flechas);
-        experiencia++;
+        experiencia+= flechas;
     }
 }
 
