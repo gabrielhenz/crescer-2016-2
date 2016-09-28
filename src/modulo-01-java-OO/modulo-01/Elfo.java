@@ -61,7 +61,15 @@ public class Elfo {
         if((flecha.getQuantidade()-1)>0){
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
-            dwarf.setVida(-1);
+            dwarf.setVida(1 * 10);
+        }
+    }
+    
+    public void atirarFlechasEmDwarf(Dwarf dwarf, int flechas){
+        if(flechas <= flecha.getQuantidade()){
+            flecha.setQuantidade(flecha.getQuantidade() - flechas);
+            experiencia+= flechas;
+            dwarf.setVida(flechas * 10);
         }
     }
 }
