@@ -382,6 +382,11 @@ public class ElfoTest
         Elfo elfo = new Elfo("Cobaia");
         assertEquals(Status.VIVO, elfo.getStatus());
     }
+    
+    @Test public void elfoNasceVivo() {
+        Elfo elfo = new Elfo("Cobaia");
+        assertEquals(Status.VIVO, elfo.getStatus());
+    }
 }
 
 
