@@ -36,14 +36,14 @@ public class Elfo {
     
     
     public void atirarFlecha(Dwarf dwarf){
-        if((flecha.getQuantidade()-1) > 0){
+        if((flecha.getQuantidade()-1) >= 0){
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
             dwarf.fuiAtingido(1);
         }
     }
     
-    public void atirarFlecha(Dwarf dwarf, int flechas){
+    /*public void atirarFlecha(Dwarf dwarf, int flechas){
         if(flechas > 0 && flecha.getQuantidade() > 0){
             if(flechas <= flecha.getQuantidade()){
                 flecha.setQuantidade(flecha.getQuantidade() - flechas);
@@ -55,7 +55,7 @@ public class Elfo {
                 dwarf.fuiAtingido(42);
             }
         }
-    }
+    }*/
     
     public String toString(){
         boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
