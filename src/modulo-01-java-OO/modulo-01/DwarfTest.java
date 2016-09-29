@@ -29,7 +29,26 @@ public class DwarfTest
     @Test
     public void dwarfPerdeVidaVinteVezes() {
         Dwarf gimli = new Dwarf();
-        gimli.fuiAtingido(20);
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
         assertEquals(-90, gimli.getVida());
     }
     

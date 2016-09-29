@@ -39,7 +39,7 @@ public class Elfo {
         if((flecha.getQuantidade()-1) >= 0){
             flecha.setQuantidade(flecha.getQuantidade() - 1);
             experiencia++;
-            dwarf.fuiAtingido(1);
+            dwarf.fuiAtingido();
         }
     }
     

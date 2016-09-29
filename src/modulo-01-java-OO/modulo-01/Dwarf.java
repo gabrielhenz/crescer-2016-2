@@ -37,15 +37,6 @@ public class Dwarf {
         vida -= 10;
     }
     
-    public void fuiAtingido(int flechas){ 
-        double numeroSorte = this.getNumeroSorte();
-        if(numeroSorte < 0)
-        experiencia += 2 * flechas;
-        
-        if(numeroSorte > 100)
-        vida -= 10 * flechas;
-    } 
-    
     public double getNumeroSorte(){
         double numeroSorte = 101.0;
         if(dataNascimento.ehBissexto() && vida >= 80 && vida <= 90){
