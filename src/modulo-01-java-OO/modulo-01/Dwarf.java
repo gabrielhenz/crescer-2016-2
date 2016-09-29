@@ -1,6 +1,7 @@
 public class Dwarf {
     private int vida;
     private String nome;
+    private int experiencia;
     private DataTerceiraEra dataNascimento;
     // java type initializer
     // vai ser replicado para cada construtor
@@ -32,5 +33,18 @@ public class Dwarf {
     public void fuiAtingido(int flechas){ 
         vida -= flechas*10; 
     } 
+    
+    public double getNumeroSorte(){
+        double numeroSorte = 101.0;
+        if(dataNascimento.ehBissexto()){
+            if(vida >= 80 && vida <= 90) numeroSorte *= -33;
+        }else{
+            if(nome.equals("Seixas") || nome.equals("Meireles")){
+                numeroSorte *= 33;
+                numeroSorte %= 100;
+            }
+        }
+        return numeroSorte;
+    }
 }
 // Dwarf gimli;
