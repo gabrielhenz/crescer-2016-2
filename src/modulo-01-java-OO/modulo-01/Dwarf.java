@@ -8,24 +8,16 @@ public class Dwarf {
     {
         vida = 110;
     }
-<<<<<<<
+
     public Dwarf(){
         this(null, new DataTerceiraEra(1, 1, 1));
-    };
+    }
     public Dwarf(String nome, DataTerceiraEra dataNascimento){
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-=======
-
-    public Dwarf() {
-        this(null, new DataTerceiraEra(1,1,1));
     }
 
-    public Dwarf(String nome, DataTerceiraEra dataNascimento) {
-        this.nome = nome;
-        this.dataNascimento = dataNascimento;
-    }
-
+  
     public void perderVida() {
         double numero = this.getNumeroSorte();
         if (numero < 0) {
@@ -34,7 +26,6 @@ public class Dwarf {
         if (numero > 100) {
             vida -= 10;
         }
->>>>>>>
     }
     
     public int getVida() {
@@ -43,6 +34,10 @@ public class Dwarf {
     
     public String getNome(){
         return nome;
+    }
+    
+    public int getExperiencia(){
+        return experiencia;
     }
     
     public DataTerceiraEra getDataNascimento(){

@@ -71,9 +71,6 @@ public class DwarfTest
         assertEquals(1, gimli.getDataNascimento().getMes());
         assertEquals(1, gimli.getDataNascimento().getAno());
     }
-    
-   
-}
 
     @Test
     public void dwarfCriadoInformandoNomeENascimento() {
