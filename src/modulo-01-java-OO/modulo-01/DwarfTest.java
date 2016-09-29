@@ -104,9 +104,9 @@ public class DwarfTest
     public void gerarElfoCom80DeVida() {
         // Arrange
         Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2013));
-        bernardin.perderVida();
-        bernardin.perderVida();
-        bernardin.perderVida();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
         // Act
         double resultado = bernardin.getNumeroSorte();
         // Assert
@@ -117,8 +117,8 @@ public class DwarfTest
     public void gerarElfoCom90DeVida() {
         // Arrange
         Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2015));
-        bernardin.perderVida();
-        bernardin.perderVida();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
         // Act
         double resultado = bernardin.getNumeroSorte();
         // Assert
@@ -129,9 +129,9 @@ public class DwarfTest
     public void gerarElfoCom80DeVidaEAnoBissexto() {
         // Arrange
         Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2000));
-        bernardin.perderVida();
-        bernardin.perderVida();
-        bernardin.perderVida();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
         // Act
         double resultado = bernardin.getNumeroSorte();
         // Assert
@@ -142,8 +142,8 @@ public class DwarfTest
     public void gerarElfoCom90DeVidaEAnoBissexto() {
         // Arrange
         Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 4000));
-        bernardin.perderVida();
-        bernardin.perderVida();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
         // Act
         double resultado = bernardin.getNumeroSorte();
         // Assert
@@ -154,9 +154,9 @@ public class DwarfTest
     public void gerarNumeroAnoBissextoVidaEntre80e90() {
         // Arrange
         Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2016));
-        bernardin.perderVida();
-        bernardin.perderVida();
-        bernardin.perderVida();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
+        bernardin.fuiAtingido();
         // Act
         double resultado = bernardin.getNumeroSorte();
         // Assert
@@ -214,30 +214,30 @@ public class DwarfTest
     }
 
     @Test
-    public void dwarfPerderVidaComNumeroSorteNegativo() {
+    public void dwarffuiAtingidoComNumeroSorteNegativo() {
         // Arrange
         Dwarf dwarf = new Dwarf("Gimli", new DataTerceiraEra(1,1,2000));
-        dwarf.perderVida();
-        dwarf.perderVida();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
         // Act
-        dwarf.perderVida();
+        dwarf.fuiAtingido();
         // Assert
         assertEquals(2, dwarf.getExperiencia());
         assertEquals(90, dwarf.getVida(), .0);   
     }
 
     @Test
-    public void dwarfPerderVidaComAnoNaoBissextoMeirelesNaoPerde() {
+    public void dwarffuiAtingidoComAnoNaoBissextoMeirelesNaoPerde() {
         Dwarf meireles = new Dwarf("Meireles", new DataTerceiraEra(2, 3, 2015));
-        meireles.perderVida();
+        meireles.fuiAtingido();
         assertEquals(0, meireles.getExperiencia());
         assertEquals(110, meireles.getVida(), .0);
     }
 
     @Test
-    public void dwarfPerderVidaNormal(){
+    public void dwarffuiAtingidoNormal(){
         Dwarf dwarf = new Dwarf("André Nunin", new DataTerceiraEra(2, 3, 2015));
-        dwarf.perderVida();
+        dwarf.fuiAtingido();
         assertEquals(100, dwarf.getVida(), .0);
         assertEquals(0, dwarf.getExperiencia());
     }
