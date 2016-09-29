@@ -29,27 +29,18 @@ public class DwarfTest
     @Test
     public void dwarfPerdeVidaVinteVezes() {
         Dwarf gimli = new Dwarf();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
-        gimli.fuiAtingido();
+        gimli.fuiAtingido(20);
         assertEquals(-90, gimli.getVida());
+    }
+    
+    @Test
+    public void dwarfNasceComVidaComNomeEDataNascimento(){
+        Dwarf gimli = new Dwarf("gimli", new DataTerceiraEra(1, 12, 3019));
+        assertEquals(110, gimli.getVida());
+        assertEquals("gimli", gimli.getNome());
+        assertEquals(1, gimli.getDataNascimento().getDia());
+        assertEquals(12, gimli.getDataNascimento().getMes());
+        assertEquals(3019, gimli.getDataNascimento().getAno());
     }
 }
 
