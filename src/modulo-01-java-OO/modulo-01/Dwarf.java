@@ -52,8 +52,7 @@ public class Dwarf {
             if(vida >= 80 && vida <= 90) numeroSorte *= -33;
         }else{
             if(nome.equals("Seixas") || nome.equals("Meireles")){
-                numeroSorte *= 33;
-                numeroSorte %= 100;
+                numeroSorte = numeroSorte * 33 % 100;
             }
         }
         return numeroSorte;
