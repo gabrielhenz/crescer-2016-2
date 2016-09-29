@@ -23,22 +23,7 @@ public class DataTerceiraEra
         return ano;
     }
     
-    public boolean ehBissexto(){
-        boolean ehBissexto;
-        
-        if(ano % 4 == 0){
-            if(ano % 100 == 0){
-                if(ano % 400 == 0){
-                    ehBissexto = true;
-                }else{
-                    ehBissexto = false;
-                }
-            }else{
-                ehBissexto = false;
-            }
-        }else{
-            ehBissexto = false;
-        }
-        return ehBissexto;
+    public boolean ehBissexto(){        
+        return (ano % 4 == 0 && ano % 100 == 0 && ano % 400 == 0)?true:false;
     }
 }
