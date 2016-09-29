@@ -81,10 +81,20 @@ public class ElfoTest
     }
     
     @Test
-    public void elfoAtiraVariasFlechas(){
+    public void elfoAtira10Flechas(){
         // Act
         Elfo elfoDoTeste = new Elfo("bilbo");
-        elfoDoTeste.atirarFlecha(new Dwarf(), 10);
+        Dwarf gimli = new Dwarf();
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
         // Assert
         assertEquals(10, elfoDoTeste.getExperiencia());
         assertEquals(32, elfoDoTeste.getFlecha().getQuantidade());
@@ -94,7 +104,49 @@ public class ElfoTest
     public void elfoAtira42FlechasComElfoDeFlechasDefault(){
         // Act
         Elfo elfoDoTeste = new Elfo("bilbo");
-        elfoDoTeste.atirarFlecha(new Dwarf(), 42);
+        Dwarf gimli = new Dwarf();
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
         // Assert
         assertEquals(42, elfoDoTeste.getExperiencia());
         assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
@@ -104,51 +156,81 @@ public class ElfoTest
     public void elfoAtiraMaisQue42FlechasComElfoDeFlechasDefault(){
         // Act
         Elfo elfoDoTeste = new Elfo("bilbo");
-        elfoDoTeste.atirarFlecha(new Dwarf(), 43);
+        Dwarf gimli = new Dwarf();
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli); // "flechas 43"
         // Assert
         assertEquals(42, elfoDoTeste.getExperiencia());
         assertEquals(0, elfoDoTeste.getFlecha().getQuantidade());
     }
     
-    @Test
-    public void elfoAtiraMenosQueZeroComFlechasDefault(){
-        // Act
-        Elfo elfoDoTeste = new Elfo("bilbo");
-        elfoDoTeste.atirarFlecha(new Dwarf(), -10);
-        // Assert
-        assertEquals(0, elfoDoTeste.getExperiencia());
-        assertEquals(42, elfoDoTeste.getFlecha().getQuantidade());
-    }
-    
-    @Test
-    public void elfoAtiraZeroFlechasComElfoDeFlechasNegativas(){
-        // Act
-        Elfo elfoDoTeste = new Elfo("bilbo", -10);
-        elfoDoTeste.atirarFlecha(new Dwarf(), 0);
-        // Assert
-        assertEquals(0, elfoDoTeste.getExperiencia());
-        assertEquals(42, elfoDoTeste.getFlecha().getQuantidade());
-    }
     
     @Test
     public void elfoAtiraFlechasComElfoDeFlechasNegativas(){
         // Act
         Elfo elfoDoTeste = new Elfo("bilbo", -10);
-        elfoDoTeste.atirarFlecha(new Dwarf(), 15);
+        Dwarf gimli = new Dwarf();
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
         // Assert
         assertEquals(15, elfoDoTeste.getExperiencia());
         assertEquals(27, elfoDoTeste.getFlecha().getQuantidade());
     }
     
-    @Test
-    public void elfoAtiraFlechasNegativasComElfoDeFlechasNegativas(){
-        // Act
-        Elfo elfoDoTeste = new Elfo("bilbo", -10);
-        elfoDoTeste.atirarFlecha(new Dwarf(), -15);
-        // Assert
-        assertEquals(0, elfoDoTeste.getExperiencia());
-        assertEquals(42, elfoDoTeste.getFlecha().getQuantidade());
-    }
     
     @Test
     public void elfoAtiraFlechaNoDwarfX(){
@@ -178,13 +260,33 @@ public class ElfoTest
     }
     
     @Test
-    public void elfoAtiraFlechasNoDwarfX_Y(){
+    public void elfoAtira10FlechasNoDwarfXE11FlechasNoDwarfY(){
         // Act
         Elfo elfoDoTeste = new Elfo("bilbo");
         Dwarf X = new Dwarf();
         Dwarf Y = new Dwarf();
-        elfoDoTeste.atirarFlecha(X, 10);
-        elfoDoTeste.atirarFlecha(Y, 11);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        elfoDoTeste.atirarFlecha(X);
+        
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
+        elfoDoTeste.atirarFlecha(Y);
         // Assert
         assertEquals(21, elfoDoTeste.getExperiencia());
         assertEquals(21, elfoDoTeste.getFlecha().getQuantidade());
@@ -229,14 +331,55 @@ public class ElfoTest
     public void elfoNasceAtira41FlechasToString(){
         // Act & Arrange
         Elfo elfoDoTeste = new Elfo("bilbo");
-        elfoDoTeste.atirarFlecha(new Dwarf(), 41);
+        Dwarf gimli = new Dwarf();
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
+        elfoDoTeste.atirarFlecha(gimli);
         // Assert
         assertEquals("bilbo possui 1 flecha e 41 níveis de experiência.", elfoDoTeste.toString());
     }
     
     
 }
->>>>>>> Temporary merge branch 2
+
 
 
 
