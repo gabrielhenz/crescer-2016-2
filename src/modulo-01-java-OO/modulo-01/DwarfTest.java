@@ -47,7 +47,7 @@ public class DwarfTest
     public void dwarfNasceComVidaEComDataNascimentoPadrao(){
         Dwarf gimli = new Dwarf();
         assertEquals(110, gimli.getVida());
-        assertEquals("", gimli.getNome());
+        assertEquals(null, gimli.getNome());
         assertEquals(1, gimli.getDataNascimento().getDia());
         assertEquals(1, gimli.getDataNascimento().getMes());
         assertEquals(1, gimli.getDataNascimento().getAno());

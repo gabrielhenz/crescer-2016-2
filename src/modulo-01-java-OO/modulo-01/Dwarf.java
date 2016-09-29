@@ -9,7 +9,7 @@ public class Dwarf {
         vida = 110;
     }
     public Dwarf(){
-        this("", new DataTerceiraEra(1, 1, 1));
+        this(null, new DataTerceiraEra(1, 1, 1));
     };
     public Dwarf(String nome, DataTerceiraEra dataNascimento){
         this.nome = nome;
@@ -48,12 +48,11 @@ public class Dwarf {
     
     public double getNumeroSorte(){
         double numeroSorte = 101.0;
-        if(dataNascimento.ehBissexto()){
-            if(vida >= 80 && vida <= 90) numeroSorte *= -33;
-        }else{
-            if(nome.equals("Seixas") || nome.equals("Meireles")){
-                numeroSorte = numeroSorte * 33 % 100;
-            }
+        if(dataNascimento.ehBissexto() && vida >= 80 && vida <= 90){
+            numeroSorte *= -33;
+        }
+        if(("Seixas".equals(nome) || "Meireles".equals(nome)) && !dataNascimento.ehBissexto()){
+            numeroSorte = numeroSorte * 33 % 100;
         }
         return numeroSorte;
     }
