@@ -3,8 +3,7 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
-    private static int qtdeInicialDeFlechas = 42;
-    
+
     public Elfo(String n) {
         //Alterar o código para que todo Elfo 
         //criado SEEEEEM INFORMAR quantidade flechas
