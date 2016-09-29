@@ -22,17 +22,6 @@ public class Dwarf {
     public Status getStatus(){
         return status;
     }
-
-  
-    public void perderVida() {
-        double numero = this.getNumeroSorte();
-        if (numero < 0) {
-            this.experiencia += 2;
-        }
-        if (numero > 100) {
-            vida -= 10;
-        }
-    }
     
     public int getVida() {
         return vida;
@@ -51,6 +40,9 @@ public class Dwarf {
     }
     
     public void fuiAtingido(){
+        boolean estaMorto = status.equals(Status.MORTO);
+        if(estaMorto) return;
+        //sai do método
         double numeroSorte = this.getNumeroSorte();
         if(numeroSorte < 0)
         experiencia += 2;  
