@@ -3,6 +3,7 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
+    private Status status;
     
     public Elfo(String n) {
        this(n, 42);
@@ -12,6 +13,7 @@ public class Elfo {
         nome = n;
         arco = new Item("Arco", 1);
         flecha = new Item("Flechas", flechas >= 0 ? flechas : 42);
+        status = Status.VIVO;
    }
     
     public void setNome(String n) {
@@ -34,6 +36,9 @@ public class Elfo {
         return experiencia;
     }
     
+    public Status getStatus(){
+        return status;
+    }
     
     public void atirarFlecha(Dwarf dwarf){
         if((flecha.getQuantidade()-1) >= 0){
@@ -42,20 +47,6 @@ public class Elfo {
             dwarf.fuiAtingido();
         }
     }
-    
-    /*public void atirarFlecha(Dwarf dwarf, int flechas){
-        if(flechas > 0 && flecha.getQuantidade() > 0){
-            if(flechas <= flecha.getQuantidade()){
-                flecha.setQuantidade(flecha.getQuantidade() - flechas);
-                experiencia+= flechas;
-                dwarf.fuiAtingido(flechas);
-            }else{
-                flecha.setQuantidade(flecha.getQuantidade() - 42);
-                experiencia+= 42;
-                dwarf.fuiAtingido(42);
-            }
-        }
-    }*/
     
     public String toString(){
         boolean flechaNoSingular = this.flecha.getQuantidade() == 1;
