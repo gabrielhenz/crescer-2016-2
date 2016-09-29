@@ -49,7 +49,7 @@ public class DwarfTest
         gimli.fuiAtingido();
         gimli.fuiAtingido();
         gimli.fuiAtingido();
-        assertEquals(-90, gimli.getVida());
+        assertEquals(0, gimli.getVida());
     }
     
     @Test
@@ -160,6 +160,49 @@ public class DwarfTest
         dwarf.perderVida();
         assertEquals(100, dwarf.getVida(), .0);
         assertEquals(0, dwarf.getExperiencia());
+    }
+    
+    @Test
+    public void dwarfNasceVivo(){
+        Dwarf dwarf = new Dwarf();
+        assertEquals(Status.VIVO, dwarf.getStatus());
+    }
+    
+    @Test
+    public void dwarfNasceVivoPerde110DeVidaEMorre(){
+        Dwarf dwarf = new Dwarf();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        assertEquals(0, dwarf.getVida());
+        assertEquals(Status.MORTO, dwarf.getStatus());
+    }
+    
+    @Test
+    public void dwarfNasceVivoEPerde120DeVidaEMorreSemFicarComVidaNegativa(){
+        Dwarf dwarf = new Dwarf();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        assertEquals(0, dwarf.getVida());
+        assertEquals(Status.MORTO, dwarf.getStatus());
     }
 }
 
