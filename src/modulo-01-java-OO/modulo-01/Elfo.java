@@ -3,21 +3,15 @@ public class Elfo {
     private Item arco;
     private Item flecha;
     private int experiencia;
-    private static int qtdeInicialDeFlechas = 42;
     
     public Elfo(String n) {
-        //Alterar o código para que todo Elfo 
-        //criado SEEEEEM INFORMAR quantidade flechas
-        //ganhe 42 flechas (valor default).
-        
-        //EU QUERO INFORMAR.
-       this(n, qtdeInicialDeFlechas);
+       this(n, 42);
     }
     
     public Elfo(String n, int flechas){
         nome = n;
         arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", flechas >= 0 ? flechas : qtdeInicialDeFlechas);
+        flecha = new Item("Flechas", flechas >= 0 ? flechas : 42);
    }
     
     public void setNome(String n) {
