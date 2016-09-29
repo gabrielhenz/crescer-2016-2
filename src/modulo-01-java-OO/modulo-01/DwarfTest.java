@@ -91,6 +91,66 @@ public class DwarfTest
     }
 
     @Test
+    public void gerarNumeroAnoBissexto() {
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2016));
+        // Act
+        double resultado = bernardin.getNumeroSorte();
+        // Assert
+        assertEquals(101.0, resultado, .0);
+    }
+    
+    @Test
+    public void gerarElfoCom80DeVida() {
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2013));
+        bernardin.perderVida();
+        bernardin.perderVida();
+        bernardin.perderVida();
+        // Act
+        double resultado = bernardin.getNumeroSorte();
+        // Assert
+        assertEquals(101.0, resultado, .0);
+    }
+    
+    @Test
+    public void gerarElfoCom90DeVida() {
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2015));
+        bernardin.perderVida();
+        bernardin.perderVida();
+        // Act
+        double resultado = bernardin.getNumeroSorte();
+        // Assert
+        assertEquals(101.0, resultado, .0);
+    }
+    
+    @Test
+    public void gerarElfoCom80DeVidaEAnoBissexto() {
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2000));
+        bernardin.perderVida();
+        bernardin.perderVida();
+        bernardin.perderVida();
+        // Act
+        double resultado = bernardin.getNumeroSorte();
+        // Assert
+        assertEquals(-3333.0, resultado, .0);
+    }
+    
+    @Test
+    public void gerarElfoCom90DeVidaEAnoBissexto() {
+        // Arrange
+        Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 4000));
+        bernardin.perderVida();
+        bernardin.perderVida();
+        // Act
+        double resultado = bernardin.getNumeroSorte();
+        // Assert
+        assertEquals(-3333.0, resultado, .0);
+    }
+    
+    @Test
     public void gerarNumeroAnoBissextoVidaEntre80e90() {
         // Arrange
         Dwarf bernardin = new Dwarf("Bernardin", new DataTerceiraEra(01, 01, 2016));
@@ -121,6 +181,26 @@ public class DwarfTest
         double resultado = seixas.getNumeroSorte();
         // Assert
         assertEquals(33.0, resultado, .0);
+    }
+    
+    @Test
+    public void gerarNumeroAnoBissextoNomeSeixas() {
+        // Arrange
+        Dwarf seixas = new Dwarf("Seixas", new DataTerceiraEra(01, 01, 2016));
+        // Act
+        double resultado = seixas.getNumeroSorte();
+        // Assert
+        assertEquals(101.0, resultado, .0);
+    }
+    
+    @Test
+    public void gerarNumeroAnoBissextoNomeMeireles() {
+        // Arrange
+        Dwarf seixas = new Dwarf("Meireles", new DataTerceiraEra(01, 01, 2000));
+        // Act
+        double resultado = seixas.getNumeroSorte();
+        // Assert
+        assertEquals(101.0, resultado, .0);
     }
 
     @Test
@@ -204,5 +284,6 @@ public class DwarfTest
         assertEquals(0, dwarf.getVida());
         assertEquals(Status.MORTO, dwarf.getStatus());
     }
+    
 }
 
