@@ -377,7 +377,11 @@ public class ElfoTest
         assertEquals("bilbo possui 1 flecha e 41 níveis de experiência.", elfoDoTeste.toString());
     }
     
-    
+    @Test
+    public void elfoNasceVivo(){
+        Elfo elfo = new Elfo("Cobaia");
+        assertEquals(Status.VIVO, elfo.getStatus());
+    }
 }
 
 
