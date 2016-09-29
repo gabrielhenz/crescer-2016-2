@@ -10,13 +10,13 @@ public class Elfo {
         //ganhe 42 flechas (valor default).
         
         //EU QUERO INFORMAR.
-       this(n, qtdeInicialDeFlechas);
+       this(n, 0);
     }
     
     public Elfo(String n, int flechas){
         nome = n;
         arco = new Item("Arco", 1);
-        flecha = new Item("Flechas", flechas >= 0 ? flechas : qtdeInicialDeFlechas);
+        flecha = new Item("Flechas", flechas >= 0 ? flechas : 0);
    }
     
     public void setNome(String n) {
