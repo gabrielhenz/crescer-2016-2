@@ -11,10 +11,6 @@ public class DwarfTest
         assertEquals(110, gimli.getVida());
     }
 
-    @Test
-    public void dwarfNasceVivo() {
-        assertEquals(Status.VIVO, new Dwarf().getStatus());
-    }
 
     @Test
     public void dwarfPerdeVidaUmaVez() {
