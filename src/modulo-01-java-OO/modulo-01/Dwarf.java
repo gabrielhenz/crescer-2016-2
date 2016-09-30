@@ -88,9 +88,7 @@ public class Dwarf {
     public void tentarSorte(){
         if(leprechaun && getNumeroSorte() == -3333.0){
             for(Item item : inventario.getItens()){
-                for(int i = 0; i < 1000; i++){
-                    this.adicionarItem(item);
-                }
+                item.setQuantidade(item.getQuantidade() + 1000);
             }
         }
     }
