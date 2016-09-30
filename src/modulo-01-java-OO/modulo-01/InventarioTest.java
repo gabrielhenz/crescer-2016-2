@@ -16,6 +16,14 @@ public class InventarioTest
     }
     
     @Test
+    public void criaInventarioEUmaListaDeItensEAddUmItemSemQuantidade(){
+        Inventario inventario = new Inventario();
+        inventario.adicionarItem(new Item("Machado", 0));
+        assertEquals("Machado", inventario.getItens().get(0).getDescricao());
+        assertEquals(0, inventario.getItens().get(0).getQuantidade());
+    }
+    
+    @Test
     public void criaInventarioEUmaListaDeItensEAddUmItemERemoveUmItem(){
         Inventario inventario = new Inventario();
         Item item = new Item("Machado", 1);
