@@ -51,4 +51,10 @@ public class InventarioTest
         inventario.adicionarItem(item3);
         assertEquals("Machado,Arco,Poção de vida", inventario.getDescricoesItens());
     }
+    
+    @Test
+    public void criaInventarioSemItensETentaImprimir(){
+        Inventario inventario = new Inventario();
+        assertEquals(null, inventario.getDescricoesItens());
+    }
 }

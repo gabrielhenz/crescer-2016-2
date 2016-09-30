@@ -20,10 +20,14 @@ public class Inventario
     }
     
     public String getDescricoesItens(){
-        String imprime = itens.get(0).getDescricao();
-        for(int i = 1; i < itens.size(); i++){
-            imprime += String.format(",%s", itens.get(i).getDescricao());
+        if(itens.size() > 0){
+            String imprime = itens.get(0).getDescricao();
+            for(int i = 1; i < itens.size(); i++){
+                imprime += String.format(",%s", itens.get(i).getDescricao());
+            }
+            return imprime;
+        }else{
+            return null;
         }
-        return imprime;
     }
 }
