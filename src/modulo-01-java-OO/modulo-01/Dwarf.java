@@ -38,6 +38,10 @@ public class Dwarf {
         return nome;
     }
     
+    public Status getStatus(){
+        return status;
+    }
+    
     public int getExperiencia(){
         return experiencia;
     }
