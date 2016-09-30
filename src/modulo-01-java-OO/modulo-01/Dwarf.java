@@ -92,4 +92,12 @@ public class Dwarf {
             }
         }
     }
+    
+    public void tentarSorte() {
+        boolean temSorte = getNumeroSorte() == -3333;
+        if (temSorte) {
+            // aumenta 1000 unidades para todos itens do inventario
+            inventario.aumentarUnidadesDosItens(1000);
+        }
+    }
 }
