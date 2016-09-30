@@ -3,6 +3,7 @@ public class Dwarf {
     private DataTerceiraEra dataNascimento;
     private String nome;
     private Status status; //= Status.VIVO;
+    private Inventario inventario;
 
     // java type initializer
     // vai ser replicado para cada construtor
@@ -18,16 +19,19 @@ public class Dwarf {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.status = Status.VIVO;
+        inventario = new Inventario();
     }
-
-    public void perderVida() {
-        double numero = this.getNumeroSorte();
-        if (numero < 0) {
-            this.experiencia += 2;
-        }
-        if (numero > 100) {
-            vida -= 10;
-        }
+    
+    public void adicionarItem(Item item){
+        inventario.adicionarItem(item);
+    }
+    
+    public void perderItem(Item item){
+        inventario.removerItem(item);
+    }
+    
+    public Inventario getInventario(){
+        return inventario;
     }
     
     public int getVida() {

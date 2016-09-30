@@ -77,17 +77,17 @@ public class DwarfTest
     @Test
     public void dwarfPerdeVidaOnzeVezesZeraVidaEMorre() {
         Dwarf gimli = new Dwarf();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
-        gimli.perderVida();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
+        gimli.fuiAtingido();
         assertEquals(0, gimli.getVida());
         assertEquals(Status.MORTO, gimli.getStatus());
     }
@@ -305,5 +305,28 @@ public class DwarfTest
         assertEquals(Status.MORTO, dwarf.getStatus());
     }
     
+    @Test
+    public void dwarfNasceCriaInventarioEAdicionaDoisItens(){
+        Dwarf dwarf = new Dwarf();
+        dwarf.adicionarItem(new Item("Machado", 1));
+        dwarf.adicionarItem(new Item("Poção de vida", 1));
+        assertEquals(2, dwarf.getInventario().getItens().size());
+        assertEquals("Machado", dwarf.getInventario().getItens().get(0).getDescricao());
+        assertEquals(1, dwarf.getInventario().getItens().get(0).getQuantidade());
+        assertEquals("Poção de vida", dwarf.getInventario().getItens().get(1).getDescricao());
+        assertEquals(1, dwarf.getInventario().getItens().get(1).getQuantidade());
+    }
+    
+    @Test
+    public void dwarfNasceCriaInventarioEAdicionaDoisItensERemoveUm(){
+        Dwarf dwarf = new Dwarf();
+        Item item = new Item("Poção de vida", 1);
+        dwarf.adicionarItem(new Item("Machado", 1));
+        dwarf.adicionarItem(item);
+        dwarf.perderItem(item);
+        assertEquals(1, dwarf.getInventario().getItens().size());
+        assertEquals("Machado", dwarf.getInventario().getItens().get(0).getDescricao());
+        assertEquals(1, dwarf.getInventario().getItens().get(0).getQuantidade());
+    }
 }
 
