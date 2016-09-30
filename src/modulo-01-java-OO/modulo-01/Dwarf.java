@@ -4,7 +4,7 @@ public class Dwarf {
     private String nome;
     private Status status; //= Status.VIVO;
     private Inventario inventario;
-
+    private boolean leprechaun;
     // java type initializer
     // vai ser replicado para cada construtor
     {
@@ -16,10 +16,14 @@ public class Dwarf {
         this(null, new DataTerceiraEra(1, 1, 1));
     }
     public Dwarf(String nome, DataTerceiraEra dataNascimento){
+        this(nome, dataNascimento, false);
+    }
+    public Dwarf(String nome, DataTerceiraEra dataNascimento, boolean leprechaun){
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.status = Status.VIVO;
         inventario = new Inventario();
+        this.leprechaun = leprechaun;
     }
     
     public void adicionarItem(Item item){
@@ -79,6 +83,16 @@ public class Dwarf {
             numeroSorte = numeroSorte * 33 % 100;
         }
         return numeroSorte;
+    }
+    
+    public void tentarSorte(){
+        if(leprechaun && getNumeroSorte() == -3333.0){
+            for(Item item : inventario.getItens()){
+                for(int i = 0; i < 1000; i++){
+                    this.adicionarItem(item);
+                }
+            }
+        }
     }
 }
 // Dwarf gimli;

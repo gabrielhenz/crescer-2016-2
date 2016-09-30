@@ -328,5 +328,26 @@ public class DwarfTest
         assertEquals("Machado", dwarf.getInventario().getItens().get(0).getDescricao());
         assertEquals(1, dwarf.getInventario().getItens().get(0).getQuantidade());
     }
+    
+    @Test
+    public void dwarfNasceCriaInventarioEAdicionaDoisItensETentaASorteEConsegue(){
+        Dwarf dwarf = new Dwarf("Gimlin", new DataTerceiraEra(1, 12, 2000), true);
+        dwarf.fuiAtingido();
+        dwarf.fuiAtingido();
+        dwarf.adicionarItem(new Item("Machado", 1));
+        dwarf.adicionarItem(new Item("Poção de vida", 1));
+        dwarf.tentarSorte();
+        assertEquals(1001, dwarf.getInventario().getItens().get(0).getQuantidade());
+        assertEquals(1001, dwarf.getInventario().getItens().get(1).getQuantidade());
+    }
+    @Test
+    public void dwarfNasceCriaInventarioEAdicionaDoisItensETentaASorteENaoConsegue(){
+        Dwarf dwarf = new Dwarf("Gimlin", new DataTerceiraEra(1, 12, 2002), true);
+        dwarf.adicionarItem(new Item("Machado", 1));
+        dwarf.adicionarItem(new Item("Poção de vida", 1));
+        dwarf.tentarSorte();
+        assertEquals(1, dwarf.getInventario().getItens().get(0).getQuantidade());
+        assertEquals(1, dwarf.getInventario().getItens().get(1).getQuantidade());
+    }
 }
 
