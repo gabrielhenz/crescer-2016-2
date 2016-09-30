@@ -353,7 +353,7 @@ public class DwarfTest
 
     @Test
     public void aumentar1000Unidades3Itens() {
-        Dwarf dwarf = new Dwarf("Sortudo", new DataTerceiraEra(1, 1, 2016));
+        Dwarf dwarf = new Dwarf("Sortudo", new DataTerceiraEra(1, 1, 2016), true);
         dwarf.fuiAtingido();
         dwarf.fuiAtingido();
         dwarf.fuiAtingido();
