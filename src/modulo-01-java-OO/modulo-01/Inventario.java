@@ -30,4 +30,21 @@ public class Inventario
             return null;
         }
     }
+    
+    public Item itemMaisPopular(){
+        if(itens.size() > 1){
+            Item itemMaisPopular = new Item();
+            int maiorQtde = itens.get(0).getQuantidade();
+            for(Item item : itens){
+                if(maiorQtde < item.getQuantidade())
+                    maiorQtde = item.getQuantidade();
+                    itemMaisPopular = item;
+            }
+            return itemMaisPopular;
+        }else if(itens.size() == 1){
+            return itens.get(0);
+        }else{
+            return null;
+        }
+    }
 }

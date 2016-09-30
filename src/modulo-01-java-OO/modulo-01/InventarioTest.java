@@ -57,4 +57,27 @@ public class InventarioTest
         Inventario inventario = new Inventario();
         assertEquals(null, inventario.getDescricoesItens());
     }
+    
+    @Test 
+    public void criaInventarioAdd2ItensEVerificaMaisPopular(){
+        Inventario inventario = new Inventario();
+        Item item = new Item("Arco", 2);
+        inventario.adicionarItem(new Item("Machado", 1));
+        inventario.adicionarItem(item);
+        assertEquals(item, inventario.itemMaisPopular());
+    }
+    
+    @Test 
+    public void criaInventarioAdd1ItensEVerificaMaisPopular(){
+        Inventario inventario = new Inventario();
+        Item item = new Item("Arco", 2);
+        inventario.adicionarItem(item);
+        assertEquals(item, inventario.itemMaisPopular());
+    }
+    
+    @Test 
+    public void criaInventarioSemItensEVerificaMaisPopular(){
+        Inventario inventario = new Inventario();
+        assertEquals(null, inventario.itemMaisPopular());
+    }
 }
