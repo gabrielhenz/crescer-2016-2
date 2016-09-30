@@ -18,4 +18,12 @@ public class Inventario
     public void removerItem(Item item){
         itens.remove(item);
     }
+    
+    public String getDescricoesItens(){
+        String imprime = itens.get(0).getDescricao();
+        for(int i = 1; i < itens.size(); i++){
+            imprime += String.format(",%s", itens.get(i).getDescricao());
+        }
+        return imprime;
+    }
 }

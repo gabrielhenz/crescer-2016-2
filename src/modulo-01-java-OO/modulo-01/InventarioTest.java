@@ -39,4 +39,16 @@ public class InventarioTest
         assertEquals("Poção de vida", inventario.getItens().get(1).getDescricao());
         assertEquals(1, inventario.getItens().get(1).getQuantidade());
     }
+    
+    @Test
+    public void criaInventarioAdd3ItensEImprime(){
+        Inventario inventario = new Inventario();
+        Item item1 = new Item("Machado", 1);
+        Item item2 = new Item("Arco", 1);
+        Item item3 = new Item("Poção de vida", 1);
+        inventario.adicionarItem(item1);
+        inventario.adicionarItem(item2);
+        inventario.adicionarItem(item3);
+        assertEquals("Machado,Arco,Poção de vida", inventario.getDescricoesItens());
+    }
 }
