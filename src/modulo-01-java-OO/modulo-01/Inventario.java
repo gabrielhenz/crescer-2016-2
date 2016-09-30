@@ -34,7 +34,7 @@ public class Inventario
     public Item itemMaisPopular(){
         if(itens.size() > 1){
             Item itemMaisPopular = new Item();
-            int maiorQtde = itens.get(0).getQuantidade();
+            int maiorQtde = 0;
             for(Item item : itens){
                 if(maiorQtde < item.getQuantidade())
                     maiorQtde = item.getQuantidade();
