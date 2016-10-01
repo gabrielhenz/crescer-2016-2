@@ -69,16 +69,14 @@ public class Inventario
     
     public void ordenarItens(){
         Item temp, atual, proximo;
-        for(int j = 0; j < itens.size(); j++){
-            for(int i = 0; i < itens.size() - 1; i++){
-                atual = itens.get(i);
-                proximo = itens.get(i+1);
+        for(int i = 0; i < itens.size(); i++){
+            for(int j = 0; j < itens.size() - 1; j++){
+                atual = itens.get(j);
+                proximo = itens.get(j+1);
                 if(atual.getQuantidade() > proximo.getQuantidade()){
-                    temp = proximo;
-                    itens.set(i+1, atual); 
-                    itens.set(i, temp);
-                }else{
-                    continue;
+                    temp = atual;
+                    itens.set(j, proximo); 
+                    itens.set(j+1, temp);
                 }
             }
         }
