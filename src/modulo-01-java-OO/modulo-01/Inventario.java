@@ -81,4 +81,44 @@ public class Inventario
             }
         }
    }
+   
+   public void ordenarItens(TipoOrdenacao tipoOrdenacao){
+        Item temp, atual, proximo;
+        if(tipoOrdenacao.equals(TipoOrdenacao.ASCENDENTE)){
+            for(int i = 0; i < itens.size(); i++){
+                for(int j = 0; j < itens.size() - 1; j++){
+                    atual = itens.get(j);
+                    proximo = itens.get(j+1);
+                    if(atual.getQuantidade() > proximo.getQuantidade()){
+                        temp = atual;
+                        itens.set(j, proximo); 
+                        itens.set(j+1, temp);
+                    }
+                }
+            }
+        }else{
+            for(int i = 0; i < itens.size(); i++){
+                for(int j = 0; j < itens.size() - 1; j++){
+                    atual = itens.get(j);
+                    proximo = itens.get(j+1);
+                    if(atual.getQuantidade() < proximo.getQuantidade()){
+                        temp = atual;
+                        itens.set(j, proximo); 
+                        itens.set(j+1, temp);
+                    }
+                }
+            }
+            /*for(int i = 0; i > itens.size(); i++){
+                for(int j = itens.size() - 1; j > 0; j--){
+                    atual = itens.get(j);
+                    proximo = itens.get(j-1);
+                    if(atual.getQuantidade() > proximo.getQuantidade()){
+                        temp = atual;
+                        itens.set(j, proximo); 
+                        itens.set(j-1, temp);
+                    }
+                }
+            }*/
+        }
+   }
 }

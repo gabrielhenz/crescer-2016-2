@@ -176,6 +176,47 @@ public class InventarioTest
         assertEquals(8, inventario.getItens().get(8).getQuantidade());
     }
     
+    @Test
+    public void cria9tensEOrdenaDescendente(){
+        Inventario inventario = new Inventario();
+        inventario.adicionarItem(new Item("Espada de aço", 1));
+        inventario.adicionarItem(new Item("Poção polissuco", 8));
+        inventario.adicionarItem(new Item("Lucky egg", 4));
+        inventario.adicionarItem(new Item("Toddynho", 7));
+        inventario.adicionarItem(new Item("Poção de vida", 6));
+        inventario.adicionarItem(new Item("Giphy", 5));
+        inventario.adicionarItem(new Item("Arco", 0));
+        inventario.adicionarItem(new Item("Flechas", 3));
+        inventario.adicionarItem(new Item("Machado", 2));
+        inventario.ordenarItens(TipoOrdenacao.DESCENDENTE);
+        assertEquals("Poção polissuco", inventario.getItens().get(0).getDescricao());
+        assertEquals(8, inventario.getItens().get(0).getQuantidade());
+        assertEquals("Toddynho", inventario.getItens().get(1).getDescricao());
+        assertEquals(7, inventario.getItens().get(1).getQuantidade());
+        assertEquals("Poção de vida", inventario.getItens().get(2).getDescricao());
+        assertEquals(6, inventario.getItens().get(2).getQuantidade());
+        assertEquals("Giphy", inventario.getItens().get(3).getDescricao());
+        assertEquals(5, inventario.getItens().get(3).getQuantidade());
+        assertEquals("Lucky egg", inventario.getItens().get(4).getDescricao());
+        assertEquals(4, inventario.getItens().get(4).getQuantidade());
+        assertEquals("Flechas", inventario.getItens().get(5).getDescricao());
+        assertEquals(3, inventario.getItens().get(5).getQuantidade());
+        assertEquals("Machado", inventario.getItens().get(6).getDescricao());
+        assertEquals(2, inventario.getItens().get(6).getQuantidade());
+        assertEquals("Espada de aço", inventario.getItens().get(7).getDescricao());
+        assertEquals(1, inventario.getItens().get(7).getQuantidade());
+        assertEquals("Arco", inventario.getItens().get(8).getDescricao());
+        assertEquals(0, inventario.getItens().get(8).getQuantidade());
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
     private Inventario criarInventarioCom3Itens() {
         Inventario inventario = new Inventario();
         inventario.adicionarItem(new Item("Espada de aço", 2));
