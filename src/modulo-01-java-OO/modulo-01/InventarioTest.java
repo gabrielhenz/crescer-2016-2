@@ -145,7 +145,7 @@ public class InventarioTest
     
     @Test
     public void cria9tensEOrdenaAscendente(){
-        Inventario inventario = criarInventarioCom3Itens();
+        Inventario inventario = new Inventario();
         inventario.adicionarItem(new Item("Espada de aço", 1));
         inventario.adicionarItem(new Item("Poção polissuco", 8));
         inventario.adicionarItem(new Item("Lucky egg", 4));
@@ -173,7 +173,7 @@ public class InventarioTest
         assertEquals("Toddynho", inventario.getItens().get(7).getDescricao());
         assertEquals(7, inventario.getItens().get(7).getQuantidade());
         assertEquals("Poção polissuco", inventario.getItens().get(8).getDescricao());
-        assertEquals(8, inventario.getItens().get(9).getQuantidade());
+        assertEquals(8, inventario.getItens().get(8).getQuantidade());
     }
     
     private Inventario criarInventarioCom3Itens() {
