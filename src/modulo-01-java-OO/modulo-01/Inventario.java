@@ -28,7 +28,39 @@ public class Inventario
             return imprime;
         }else{
             return null;
+
+    public String getDescricoesItens() {
+        //"Adaga,Escudo,Bracelete"
+        StringBuilder resultado = new StringBuilder("");
+
+        /*for (int i = 0; i < itens.size(); i++) {
+        Item itemAtual = itens.get(i);
+        resultado += String.format("%s,", itemAtual.getDescricao());
+        }*/
+
+        /*int i = 0;
+        while (i < itens.size()) {
+        Item itemAtual = itens.get(i);
+        resultado += String.format("%s,", itemAtual.getDescricao());
+        i++;
+        }*/
+
+        /*int i = 0;
+        do {
+        Item itemAtual = itens.get(i);
+        resultado += String.format("%s,", itemAtual.getDescricao());
+        i++;
+        } while (i < itens.size());*/
+
+        for (Item itemAtual : itens) {
+            resultado.append(String.format("%s,", itemAtual.getDescricao()));
         }
+<<<<<<<
+
+=======
+
+        return resultado.length() == 0 ? resultado.toString() : resultado.substring(0, resultado.length() - 1);
+>>>>>>>
     }
     
     public Item itemMaisPopular(){
@@ -47,14 +79,20 @@ public class Inventario
             return null;
         }
     }
-    
+
+    public void aumentarUnidadesProporcionalQuantidadePorItem() {
+        for (Item item : this.itens) {
+            item.aumentarProporcionalQuantidade();
+        }
+    }
+
     public Item getItemComMaiorQuantidade() {
         // maiorAteAgora = 0
         // percorro todos os itens verificando se existe alguém maior que o até agora
         // caso existir, atualiza a variável
         // retorna no final
         int indice = 0, maiorQtdAteAgora = 0;
-        
+
         for (int i = 0; i < itens.size(); i++) {
             int qtdAtual = itens.get(i).getQuantidade();
             if (qtdAtual > maiorQtdAteAgora) {
@@ -62,63 +100,72 @@ public class Inventario
                 indice = i;
             }
         }
-        
+
         boolean temItens = !itens.isEmpty();
         return temItens ? itens.get(indice) : null;
     }
-    
-    public void ordenarItens(){
-        Item temp, atual, proximo;
-        for(int i = 0; i < itens.size(); i++){
-            for(int j = 0; j < itens.size() - 1; j++){
-                atual = itens.get(j);
-                proximo = itens.get(j+1);
-                if(atual.getQuantidade() > proximo.getQuantidade()){
-                    temp = atual;
-                    itens.set(j, proximo); 
-                    itens.set(j+1, temp);
+
+    public void ordenarItens() {
+        // Versão mais estável do Bubblesort - Melhor caso O(n), Pior caso O(n^2)
+        // homenagem ao do-while: para forçar entrada na lógica
+        boolean posicoesSendoTrocadas;
+        do {
+            posicoesSendoTrocadas = false;
+            for (int j = 0; j < this.itens.size() - 1; j++) {
+                Item itemAtual = this.itens.get(j);
+                Item proximo = this.itens.get(j + 1);
+
+                boolean precisaTrocar = 
+                    itemAtual.getQuantidade() > proximo.getQuantidade();
+
+                if (precisaTrocar) {
+                    this.itens.set(j, proximo);
+                    this.itens.set(j + 1, itemAtual);
+                    posicoesSendoTrocadas = true;
                 }
             }
+        } while (posicoesSendoTrocadas);
+    }
+
+    public void ordenarItens(TipoOrdenacao tipoOrdenacao) {
+        if (tipoOrdenacao == TipoOrdenacao.ASCENDENTE) {
+            // Versão mais estável do Bubblesort - Melhor caso O(n), Pior caso O(n^2)
+            // homenagem ao do-while: para forçar entrada na lógica
+            boolean posicoesSendoTrocadas;
+            do {
+                posicoesSendoTrocadas = false;
+                for (int j = 0; j < this.itens.size() - 1; j++) {
+                    Item itemAtual = this.itens.get(j);
+                    Item proximo = this.itens.get(j + 1);
+
+                    boolean precisaTrocar = itemAtual.getQuantidade() > proximo.getQuantidade();
+
+                    if (precisaTrocar) {
+                        this.itens.set(j, proximo);
+                        this.itens.set(j + 1, itemAtual);
+                        posicoesSendoTrocadas = true;
+                    }
+                }
+            } while (posicoesSendoTrocadas);
+        } else if (tipoOrdenacao == TipoOrdenacao.DESCENDENTE) {
+            // Versão mais estável do Bubblesort - Melhor caso O(n), Pior caso O(n^2)
+            // homenagem ao do-while: para forçar entrada na lógica
+            boolean posicoesSendoTrocadas;
+            do {
+                posicoesSendoTrocadas = false;
+                for (int j = 0; j < this.itens.size() - 1; j++) {
+                    Item itemAtual = this.itens.get(j);
+                    Item proximo = this.itens.get(j + 1);
+
+                    boolean precisaTrocar = itemAtual.getQuantidade() < proximo.getQuantidade();
+
+                    if (precisaTrocar) {
+                        this.itens.set(j, proximo);
+                        this.itens.set(j + 1, itemAtual);
+                        posicoesSendoTrocadas = true;
+                    }
+                }
+            } while (posicoesSendoTrocadas);
         }
-   }
-   
-   public void ordenarItens(TipoOrdenacao tipoOrdenacao){
-        Item temp, atual, proximo;
-        if(tipoOrdenacao.equals(TipoOrdenacao.ASCENDENTE)){
-            for(int i = 0; i < itens.size(); i++){
-                for(int j = 0; j < itens.size() - 1; j++){
-                    atual = itens.get(j);
-                    proximo = itens.get(j+1);
-                    if(atual.getQuantidade() > proximo.getQuantidade()){
-                        temp = atual;
-                        itens.set(j, proximo); 
-                        itens.set(j+1, temp);
-                    }
-                }
-            }
-        }else{
-            for(int i = 0; i < itens.size(); i++){
-                for(int j = 0; j < itens.size() - 1; j++){
-                    atual = itens.get(j);
-                    proximo = itens.get(j+1);
-                    if(atual.getQuantidade() < proximo.getQuantidade()){
-                        temp = atual;
-                        itens.set(j, proximo); 
-                        itens.set(j+1, temp);
-                    }
-                }
-            }
-            /*for(int i = 0; i > itens.size(); i++){
-                for(int j = itens.size() - 1; j > 0; j--){
-                    atual = itens.get(j);
-                    proximo = itens.get(j-1);
-                    if(atual.getQuantidade() > proximo.getQuantidade()){
-                        temp = atual;
-                        itens.set(j, proximo); 
-                        itens.set(j-1, temp);
-                    }
-                }
-            }*/
-        }
-   }
+    }
 }
