@@ -17,7 +17,7 @@ public class HobbitContadorTest {
         assertEquals(840, contador.calcularDiferenca(arrayDePares));
     }
 
-    @Test
+    /*@Test
     public void calcularDiferencaComZeroEUm() {
         ArrayList<ArrayList<Integer>> arrayDePares = new ArrayList<>();
         arrayDePares.add(new ArrayList<>(Arrays.asList(13, 91)));
@@ -26,7 +26,7 @@ public class HobbitContadorTest {
 
         HobbitContador contador = new HobbitContador();
         assertEquals(1092, contador.calcularDiferenca(arrayDePares));
-    }
+    }*/
 
     @Test
     public void calcularDiferencaSemDiferenca() {
