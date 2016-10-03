@@ -1,10 +1,7 @@
-public class Dwarf {
-    private int vida, experiencia;
+public class Dwarf extends Personagem {
+    private int vida;
     private DataTerceiraEra dataNascimento;
-    private String nome;
-    private Status status; //= Status.VIVO;
-    private Inventario inventario;
-    private boolean leprechaun;
+
     // java type initializer
     // vai ser replicado para cada construtor
     {
@@ -15,15 +12,10 @@ public class Dwarf {
     public Dwarf(){
         this(null, new DataTerceiraEra(1, 1, 1));
     }
-    public Dwarf(String nome, DataTerceiraEra dataNascimento){
-        this(nome, dataNascimento, false);
-    }
-    public Dwarf(String nome, DataTerceiraEra dataNascimento, boolean leprechaun){
-        this.nome = nome;
+
+    public Dwarf(String nome, DataTerceiraEra dataNascimento) {
+        super(nome);
         this.dataNascimento = dataNascimento;
-        this.status = Status.VIVO;
-        inventario = new Inventario();
-        this.leprechaun = leprechaun;
     }
     
     public void adicionarItem(Item item){
@@ -41,21 +33,9 @@ public class Dwarf {
     public int getVida() {
         return vida;
     }
-    
-    public String getNome(){
-        return nome;
-    }
-    
-    public Status getStatus(){
-        return status;
-    }
-    
-    public int getExperiencia(){
-        return experiencia;
-    }
-    
-    public DataTerceiraEra getDataNascimento(){
-        return dataNascimento;
+
+    public DataTerceiraEra getDataNascimento() {
+        return this.dataNascimento;
     }
     
     public void fuiAtingido(){

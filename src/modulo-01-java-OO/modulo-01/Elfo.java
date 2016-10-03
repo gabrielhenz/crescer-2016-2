@@ -1,48 +1,27 @@
-public class Elfo {
-    private String nome;
-    private int experiencia;
-    private Status status;
-    private Inventario inventario;
-    
+public class Elfo extends Personagem {
     public Elfo(String n) {
        this(n, 42);
     }
-    
-    public Elfo(String n, int flechas){
-        nome = n;
-        inventario = new Inventario();
-        this.adicionarItem(new Item("Arco", 1));
-        this.adicionarItem(new Item("Flechas", flechas >= 0 ? flechas : 42));
-        status = Status.VIVO;
-   }
-    
-    public void setNome(String n) {
-        nome = n;
+
+    public Elfo(String nome, int quantidadeFlechas) {
+        super(nome);
+        this.inventario.adicionarItem(new Item("Arco", 1));
+        this.inventario.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
-    
-    public String getNome() {
-        return nome;
+
+    public Item getArco() {
+        return this.inventario.getItens().get(0);
     }
-    
-    public int getExperiencia(){
-        return experiencia;
+
+    public Item getFlecha() {
+        return this.inventario.getItens().get(1);
     }
-    
-    public Status getStatus(){
-        return status;
-    }
-    
-    public Inventario getInventario(){
-        return inventario;
-    }
-    
-    public void adicionarItem(Item item){
-        inventario.adicionarItem(item);
-    }
-    
-    public void atirarFlecha(Dwarf dwarf){
-        if((inventario.getItens().get(1).getQuantidade()-1) >= 0){
-            inventario.getItens().get(1).setQuantidade(inventario.getItens().get(1).getQuantidade() - 1);
+
+    public void atirarFlecha(Dwarf dwarf) {
+        int quantidadeFlechas = getFlecha().getQuantidade();
+        boolean temFlecha = quantidadeFlechas > 0;
+        if (temFlecha) {
+            getFlecha().setQuantidade(quantidadeFlechas - 1);
             experiencia++;
             dwarf.fuiAtingido();
         }
