@@ -386,8 +386,8 @@ public class ElfoTest
     @Test
     public void elfoNasceECriaInventarioEAddArcoEFlechas(){
         Elfo elfo = new Elfo("Legolas", 12);
-        elfo.adicionarItem(elfo.getInventario().getItens().get(0));
-        elfo.adicionarItem(elfo.getInventario().getItens().get(1));
+        elfo.getInventario().adicionarItem(elfo.getInventario().getItens().get(0));
+        elfo.getInventario().adicionarItem(elfo.getInventario().getItens().get(1));
         assertEquals(4, elfo.getInventario().getItens().size());
         assertEquals("Arco", elfo.getInventario().getItens().get(0).getDescricao());
         assertEquals(1, elfo.getInventario().getItens().get(0).getQuantidade());
