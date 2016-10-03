@@ -28,40 +28,36 @@ public class Inventario
             return imprime;
         }else{
             return null;
-
-    public String getDescricoesItens() {
-        //"Adaga,Escudo,Bracelete"
+        }
+    }
+    /*public String getDescricoesItens() {
+        "Adaga,Escudo,Bracelete"
         StringBuilder resultado = new StringBuilder("");
 
-        /*for (int i = 0; i < itens.size(); i++) {
+        for (int i = 0; i < itens.size(); i++) {
         Item itemAtual = itens.get(i);
         resultado += String.format("%s,", itemAtual.getDescricao());
-        }*/
+        }
 
-        /*int i = 0;
+        int i = 0;
         while (i < itens.size()) {
         Item itemAtual = itens.get(i);
         resultado += String.format("%s,", itemAtual.getDescricao());
         i++;
-        }*/
+        }
 
-        /*int i = 0;
+        int i = 0;
         do {
         Item itemAtual = itens.get(i);
         resultado += String.format("%s,", itemAtual.getDescricao());
         i++;
-        } while (i < itens.size());*/
+        } while (i < itens.size());
 
         for (Item itemAtual : itens) {
             resultado.append(String.format("%s,", itemAtual.getDescricao()));
         }
-<<<<<<<
-
-=======
-
         return resultado.length() == 0 ? resultado.toString() : resultado.substring(0, resultado.length() - 1);
->>>>>>>
-    }
+    }*/
     
     public Item itemMaisPopular(){
         if(itens.size() > 1){
@@ -103,6 +99,12 @@ public class Inventario
 
         boolean temItens = !itens.isEmpty();
         return temItens ? itens.get(indice) : null;
+    }
+    
+    public void aumentarUnidadesDosItens(int quantidade){
+        for(Item item : itens){
+            item.aumentarUnidades(quantidade);
+        }
     }
 
     public void ordenarItens() {
