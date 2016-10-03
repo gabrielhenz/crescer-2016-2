@@ -93,7 +93,7 @@ public class InventarioTest
     @Test
     public void getDescricoesItensSemItens() {
         Inventario inventario = new Inventario();
-        assertEquals("", inventario.getDescricoesItens());
+        assertEquals(null, inventario.getDescricoesItens());
     }
 
     @Test
@@ -125,7 +125,7 @@ public class InventarioTest
 
     @Test
     public void aumentarUnidadeSemItens() {
-    
+    }
     @Test 
     public void criaInventarioSemItensEVerificaMaisPopular(){
         Inventario inventario = new Inventario();
