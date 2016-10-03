@@ -332,7 +332,7 @@ public class DwarfTest
     
     @Test
     public void dwarfNasceCriaInventarioEAdicionaDoisItensETentaASorteEConsegue(){
-        Dwarf dwarf = new Dwarf("Gimlin", new DataTerceiraEra(1, 12, 2000), true);
+        Dwarf dwarf = new Dwarf("Gimlin", new DataTerceiraEra(1, 12, 2000));
         dwarf.fuiAtingido();
         dwarf.fuiAtingido();
         dwarf.adicionarItem(new Item("Machado", 1));
@@ -343,7 +343,7 @@ public class DwarfTest
     }
     @Test
     public void dwarfNasceCriaInventarioEAdicionaDoisItensETentaASorteENaoConsegue(){
-        Dwarf dwarf = new Dwarf("Gimlin", new DataTerceiraEra(1, 12, 2002), true);
+        Dwarf dwarf = new Dwarf("Gimlin", new DataTerceiraEra(1, 12, 2002));
         dwarf.adicionarItem(new Item("Machado", 1));
         dwarf.adicionarItem(new Item("Poção de vida", 1));
         dwarf.tentarSorte();
@@ -353,7 +353,7 @@ public class DwarfTest
 
     @Test
     public void aumentar1000Unidades3Itens() {
-        Dwarf dwarf = new Dwarf("Sortudo", new DataTerceiraEra(1, 1, 2016), true);
+        Dwarf dwarf = new Dwarf("Sortudo", new DataTerceiraEra(1, 1, 2016));
         dwarf.fuiAtingido();
         dwarf.fuiAtingido();
         dwarf.fuiAtingido();

@@ -66,7 +66,7 @@ public class Dwarf extends Personagem {
     }
     
     public void tentarSorte(){
-        if(leprechaun && getNumeroSorte() == -3333.0){
+        if(getNumeroSorte() == -3333.0){
             for(Item item : inventario.getItens()){
                 item.setQuantidade(item.getQuantidade() + 1000);
             }
