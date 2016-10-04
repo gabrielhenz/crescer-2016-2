@@ -18,14 +18,6 @@ public class Dwarf extends Personagem {
         this.dataNascimento = dataNascimento;
     }
     
-    public void adicionarItem(Item item){
-        inventario.adicionarItem(item);
-    }
-    
-    public void perderItem(Item item){
-        inventario.removerItem(item);
-    }
-    
     public Inventario getInventario(){
         return inventario;
     }

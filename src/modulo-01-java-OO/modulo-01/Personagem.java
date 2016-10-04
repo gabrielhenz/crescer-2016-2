@@ -29,4 +29,12 @@ public class Personagem {
     public int getExperiencia() {
         return experiencia;
     }
+    
+    public void adicionarItem(Item item){
+        inventario.adicionarItem(item);
+    }
+    
+    public void perderItem(Item item){
+        inventario.removerItem(item);
+    }
 }
