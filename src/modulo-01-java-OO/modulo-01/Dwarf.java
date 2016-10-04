@@ -16,14 +16,6 @@ public class Dwarf extends Personagem {
         super(nome);
         this.dataNascimento = dataNascimento;
     }
-    
-    public Inventario getInventario(){
-        return inventario;
-    }
-    
-    public int getVida() {
-        return vida;
-    }
 
     public DataTerceiraEra getDataNascimento() {
         return this.dataNascimento;
@@ -38,10 +30,10 @@ public class Dwarf extends Personagem {
         experiencia += 2;  
         
         if(numeroSorte > 100 && status.equals(Status.VIVO))
-        vida -= 10;
+        setVida(getVida() - 10);
         
         if(vida == 0){
-            status = Status.MORTO;
+            setStatus(Status.MORTO);
         }
     }
     
