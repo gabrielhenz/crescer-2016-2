@@ -394,6 +394,12 @@ public class ElfoTest
         assertEquals("Flechas", elfo.getInventario().getItens().get(1).getDescricao());
         assertEquals(12, elfo.getInventario().getItens().get(1).getQuantidade());
     }
+    
+    @Test
+    public void elfoNasceCom100DeVida(){
+        Elfo elfo = new Elfo("Legolas");
+        assertEquals(100, elfo.getVida());
+    }
 }
 
 
