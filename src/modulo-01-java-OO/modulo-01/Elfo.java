@@ -1,4 +1,7 @@
 public class Elfo extends Personagem {
+    {
+        vida = 100;
+    }
     public Elfo(String n) {
        this(n, 42);
     }

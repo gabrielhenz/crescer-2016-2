@@ -1,5 +1,4 @@
 public class Dwarf extends Personagem {
-    private int vida;
     private DataTerceiraEra dataNascimento;
 
     // java type initializer

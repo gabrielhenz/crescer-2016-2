@@ -3,7 +3,8 @@ public class Personagem {
     protected int experiencia;
     protected Inventario inventario;
     protected Status status; //= Status.VIVO;
-
+    protected int vida;
+    
     public Personagem(String nome) {
         this.nome = nome;
         this.status = Status.VIVO;
@@ -28,6 +29,10 @@ public class Personagem {
 
     public int getExperiencia() {
         return experiencia;
+    }
+    
+    public int getVida(){
+        return vida;
     }
     
     public void adicionarItem(Item item){
