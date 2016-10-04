@@ -5,10 +5,14 @@ public class Elfo extends Personagem {
 
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
+        this.adicionarItens(quantidadeFlechas);
+    }
+    
+    public void adicionarItens(int quantidadeFlechas){
         this.inventario.adicionarItem(new Item("Arco", 1));
         this.inventario.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
-
+    
     public Item getArco() {
         return this.inventario.getItens().get(0);
     }
