@@ -241,7 +241,7 @@ public class ElfoTest
         // Assert
         assertEquals(1, elfoDoTeste.getExperiencia());
         assertEquals(41, elfoDoTeste.getInventario().getItens().get(1).getQuantidade());
-        assertEquals(100, X.getVida());
+        assertEquals(100, X.getVida(), .0);
     }
     
     @Test
@@ -255,8 +255,8 @@ public class ElfoTest
         // Assert
         assertEquals(2, elfoDoTeste.getExperiencia());
         assertEquals(40, elfoDoTeste.getInventario().getItens().get(1).getQuantidade());
-        assertEquals(100, X.getVida());
-        assertEquals(100, Y.getVida());
+        assertEquals(100, X.getVida(), .0);
+        assertEquals(100, Y.getVida(), .0);
     }
     
     @Test
@@ -290,8 +290,8 @@ public class ElfoTest
         // Assert
         assertEquals(21, elfoDoTeste.getExperiencia());
         assertEquals(21, elfoDoTeste.getInventario().getItens().get(1).getQuantidade());
-        assertEquals(10, X.getVida());
-        assertEquals(0, Y.getVida());
+        assertEquals(10, X.getVida(), .0);
+        assertEquals(0, Y.getVida(), .0);
     }
     
     @Test
@@ -398,7 +398,7 @@ public class ElfoTest
     @Test
     public void elfoNasceCom100DeVida(){
         Elfo elfo = new Elfo("Legolas");
-        assertEquals(100, elfo.getVida());
+        assertEquals(100, elfo.getVida(), .0);
     }
 }
 
