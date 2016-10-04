@@ -1,7 +1,7 @@
 public class ElfoVerde extends Elfo
 {
     public ElfoVerde(String n) {
-       this(n, 42);
+       super(n);
     }
     
     public ElfoVerde(String nome, int quantidadeFlechas){
