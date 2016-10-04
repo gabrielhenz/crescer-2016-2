@@ -39,10 +39,29 @@ public class ElfoVerdeTest
     }
     
     @Test
-    public void elfoVerdeNasceComArcoDeVidroE42FlechasDeVidroEAtira1Flecha(){
+    public void elfoVerdeNasceComArcoDeVidroEMenos10FlechasDeVidroEAtira1Flecha(){
         ElfoVerde elfoVerde = new ElfoVerde("Legolas", -10);
         elfoVerde.atirarFlecha(new Dwarf());
         assertEquals(41, elfoVerde.getInventario().getItens().get(1).getQuantidade());
         assertEquals(2, elfoVerde.getExperiencia());
+    }
+    
+    @Test
+    public void elfoVerdeNasceComArcoDeVidroE0FlechasDeVidroEAtira1Flecha(){
+        ElfoVerde elfoVerde = new ElfoVerde("Legolas", 0);
+        elfoVerde.atirarFlecha(new Dwarf());
+        assertEquals(0, elfoVerde.getInventario().getItens().get(1).getQuantidade());
+        assertEquals(0, elfoVerde.getExperiencia());
+    }
+    
+    @Test
+    public void elfoVerdeNasceComArcoDeVidroE42FlechasDeVidroEAtira43Flechas(){
+        ElfoVerde elfoVerde = new ElfoVerde("Legolas", 42);
+        Dwarf dwarf = new Dwarf();
+        for(int i = 0; i < 43; i++){
+            elfoVerde.atirarFlecha(dwarf);
+        }
+        assertEquals(0, elfoVerde.getInventario().getItens().get(1).getQuantidade());
+        assertEquals(84, elfoVerde.getExperiencia());
     }
 }
