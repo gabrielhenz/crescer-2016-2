@@ -10,7 +10,6 @@ public class ElfoVerde extends Elfo {
         super(nome, quantidadeFlechas);
     }
 
-    @Override
     public void atirarFlecha(Dwarf dwarf) {
         super.atirarFlechas(dwarf, 2);
     }
