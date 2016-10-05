@@ -8,13 +8,9 @@ public class Elfo extends Personagem {
 
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
-        this.adicionarItens(quantidadeFlechas);
+        this.inicializarInventario(quantidadeFlechas);
     }
     
-    public void adicionarItens(int quantidadeFlechas){
-        this.inventario.adicionarItem(new Item("Arco", 1));
-        this.inventario.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
-    }
     
     public Item getArco() {
         return this.inventario.getItens().get(0);
@@ -25,17 +21,17 @@ public class Elfo extends Personagem {
     }
     
     public void atirarFlecha(Dwarf dwarf){
+        atirarFlechas(dwarf, 1);
+    }
+    
+    public void atirarFlechas(Dwarf dwarf, int fatorExperiencia){
         int quantidadeFlechas = getFlecha().getQuantidade();
         boolean temFlecha = quantidadeFlechas > 0;
         if (temFlecha) {
-            this.atirarFlecha(dwarf, quantidadeFlechas);
+            getFlecha().setQuantidade(quantidadeFlechas - 1);
+            experiencia += 1 * fatorExperiencia;
+            dwarf.fuiAtingido();
         }
-    }
-    
-    public void atirarFlecha(Dwarf dwarf, int quantidadeFlechas) {
-        getFlecha().setQuantidade(quantidadeFlechas - 1);
-        experiencia++;
-        dwarf.fuiAtingido();
     }
     
     public String toString(){
@@ -49,6 +45,12 @@ public class Elfo extends Personagem {
         experiencia,
         nivelNoSingular ? "nível" : "níveis");
         //return (nome + " possui " + flecha.getQuantidade() + " flechas e " + experiencia + " níveis de experiência.");
+    }
+    
+    @Override
+    protected void inicializarInventario(int quantidadeFlechas) {
+        this.inventario.adicionarItem(new Item("Arco", 1));
+        this.inventario.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
 }
 
