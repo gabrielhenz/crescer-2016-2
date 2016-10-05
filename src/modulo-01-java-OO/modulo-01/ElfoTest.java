@@ -5,6 +5,12 @@ import org.junit.Test;
 
 public class ElfoTest
 {
+    @After
+    // executa após cada cenário de testes.
+    public void tearDown(){
+        System.gc();
+    }
+    
     @Test
     public void elfoNasceComNome() {
         // Arrange
@@ -245,6 +251,32 @@ public class ElfoTest
         assertEquals(1, elfo.getInventario().getItens().get(0).getQuantidade());
         assertEquals("Flechas", elfo.getInventario().getItens().get(1).getDescricao());
         assertEquals(12, elfo.getInventario().getItens().get(1).getQuantidade());
+    }
+    
+    @Test
+    public void contadorDeElfoCom5ElfosNascidos(){
+        Elfo elfo1 = new Elfo("elfo1");
+        Elfo elfo2 = new Elfo("elfo2");
+        Elfo elfo3 = new Elfo("elfo3");
+        Elfo elfo4 = new Elfo("elfo4");
+        Elfo elfo5 = new Elfo("elfo5");
+        assertEquals(5, Elfo.getContadorDeElfos());
+    }
+    
+    @Test
+    public void contadorDeElfoCom2ElfosNoturnosE2ElfosVerdesE2Elfos(){
+        ElfoNoturno elfoNoturno1 = new ElfoNoturno("elfoNoturno1");
+        ElfoNoturno elfoNoturno2 = new ElfoNoturno("elfoNoturno1");
+        ElfoVerde elfoVerde1 = new ElfoVerde("elfoVerde1");
+        ElfoVerde elfoVerde2 = new ElfoVerde("elfoVerde2");
+        Elfo elfo1 = new Elfo("elfo1");
+        Elfo elfo2 = new Elfo("elfo2");
+        assertEquals(6, Elfo.getContadorDeElfos());
+    }
+    
+    @Test
+    public void contadorDeElfoSemElfosNascidos(){
+        assertEquals(0, Elfo.getContadorDeElfos());
     }
 }
 

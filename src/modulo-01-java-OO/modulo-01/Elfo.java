@@ -1,4 +1,6 @@
 public class Elfo extends Personagem {
+    private static int CONTADOR_DE_ELFOS = 0;
+    
     {
         vida = 100;
     }
@@ -9,8 +11,16 @@ public class Elfo extends Personagem {
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
         this.inicializarInventario(quantidadeFlechas);
+        CONTADOR_DE_ELFOS++;
     }
     
+    protected void finalize() throws Throwable{
+        CONTADOR_DE_ELFOS--;
+    }
+    
+    public static int getContadorDeElfos(){
+        return CONTADOR_DE_ELFOS;
+    }
     
     public Item getArco() {
         return this.inventario.getItens().get(0);
