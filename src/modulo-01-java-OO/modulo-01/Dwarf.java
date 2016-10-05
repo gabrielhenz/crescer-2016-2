@@ -30,7 +30,7 @@ public class Dwarf extends Personagem {
         experiencia += 2;  
         
         if(numeroSorte > 100 && status.equals(Status.VIVO))
-        setVida(getVida() - 10);
+        vida -= 10;
         
         if(vida == 0){
             setStatus(Status.MORTO);
@@ -56,5 +56,7 @@ public class Dwarf extends Personagem {
         }
     }
     
+    @Override
     public void inicializarInventario(int quantidadeFlechas) { }
+    
 }
