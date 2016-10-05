@@ -9,6 +9,8 @@ public class ExercitoDeElfos
     
     public ArrayList<Elfo> getElfosExercito(){
         return elfosExercito;
+    public Elfo[] getElfosExercito(){
+        return elfosExercito.toArray(new Elfo[elfosExercito.size()]);
     }
     
     public void alistarElfo(Elfo elfo){
