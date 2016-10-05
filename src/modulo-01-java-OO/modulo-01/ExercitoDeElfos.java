@@ -23,11 +23,16 @@ public class ExercitoDeElfos
     }
     
     public Elfo buscarPorNome(String nome){
+        //Elfo resultado = null;
         for(Elfo elfo : elfosExercito){
             if(elfo.getNome().equals(nome))
+            if(nome.equals(elfo.getNome()))
                 return elfo;
+                //resultado = elfo;
+                //break;
         }
         return null;
+        //return resultado;
     }
     
     public ArrayList<Elfo> buscarPorStatus(Status status){
