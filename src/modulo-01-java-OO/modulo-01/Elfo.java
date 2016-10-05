@@ -52,6 +52,17 @@ public class Elfo extends Personagem {
         this.inventario.adicionarItem(new Item("Arco", 1));
         this.inventario.adicionarItem(new Item("Flechas", quantidadeFlechas >= 0 ? quantidadeFlechas : 42));
     }
+    
+    @Override 
+    public boolean equals(Object obj){ 
+        Elfo elfo = (Elfo)obj; 
+        return 
+            this.nome.equals(elfo.nome) && 
+            this.inventario.equals(elfo.inventario) &&
+            this.experiencia == elfo.experiencia &&
+            this.vida == elfo.vida &&
+            this.status.equals(elfo.status);
+    } 
 }
 
 
