@@ -9,43 +9,43 @@ public class ExercitoDeElfosTest
     @Test
     public void exercitoCom1Elfo(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarPersonagem(new Elfo("legolas"));
-        assertEquals(0, exercitoDeElfos.getPersonagensExercito().size());
+        exercitoDeElfos.alistarElfo(new Elfo("legolas"));
+        assertEquals(0, exercitoDeElfos.getElfosExercito().size());
     }
     
     @Test
     public void exercitoCom1ElfoNoturnoE1ElfoVerde(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarPersonagem(new ElfoVerde("legolas"));
-        exercitoDeElfos.alistarPersonagem(new ElfoNoturno("legolas"));
-        assertEquals(2, exercitoDeElfos.getPersonagensExercito().size());
+        exercitoDeElfos.alistarElfo(new ElfoVerde("legolas"));
+        exercitoDeElfos.alistarElfo(new ElfoNoturno("legolas"));
+        assertEquals(2, exercitoDeElfos.getElfosExercito().size());
     }
     
     @Test
     public void exercitoCom1ElfoVerdeEAtiraFlecha(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarPersonagem(new ElfoVerde("legolas"));
-        ((ElfoVerde)exercitoDeElfos.getPersonagensExercito().get(0)).atirarFlecha(new Dwarf());
-        assertEquals(41, exercitoDeElfos.getPersonagensExercito().get(0).getInventario().getItens().get(1).getQuantidade());
+        exercitoDeElfos.alistarElfo(new ElfoVerde("legolas"));
+        exercitoDeElfos.getElfosExercito().get(0).atirarFlecha(new Dwarf());
+        assertEquals(41, exercitoDeElfos.getElfosExercito().get(0).getInventario().getItens().get(1).getQuantidade());
     }
     
     @Test
     public void exercitoCom1ElfoNoturnoE1ElfoVerdeEBuscaNoturnoPorNome(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarPersonagem(new ElfoVerde("legolas"));
-        exercitoDeElfos.alistarPersonagem(new ElfoNoturno("legolasDemonio"));
+        exercitoDeElfos.alistarElfo(new ElfoVerde("legolas"));
+        exercitoDeElfos.alistarElfo(new ElfoNoturno("legolasDemonio"));
         assertEquals(new ElfoNoturno("legolasDemonio"), exercitoDeElfos.buscarPorNome("legolasDemonio"));
     }
     
-    /*@Test
+    @Test
     public void exercitoCom1ElfoNoturnoMortoE1ElfoVerdeVivo(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarPersonagem(new ElfoNoturno("legolas"));
-        exercitoDeElfos.alistarPersonagem(new ElfoVerde("legolas"));
-        Dwarf dwarf = new Dwarf();
+        ElfoNoturno elfoNoturno = new ElfoNoturno("legolasDemonio", 100);
+        exercitoDeElfos.alistarElfo(elfoNoturno);
+        exercitoDeElfos.alistarElfo(new ElfoVerde("legolas"));
         for(int i = 0; i < 100; i++){
-            exercitoDeElfos.getPersonagensExercito().get(0).atirarFlecha(dwarf);
+            exercitoDeElfos.getElfosExercito().get(0).atirarFlecha(new Dwarf());
         }
-        assertEquals(new ElfoVerde("legolas"), exercitoDeElfos.buscarPorStatus(Status.MORTO).get(0));
-    }*/
+        assertTrue(exercitoDeElfos.buscarPorStatus(Status.MORTO).contains(elfoNoturno));
+    }
 }

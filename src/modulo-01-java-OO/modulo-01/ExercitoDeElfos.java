@@ -1,27 +1,35 @@
 import java.util.ArrayList;
-public class ExercitoDeElfos extends Exercito
+public class ExercitoDeElfos 
 {
-    @Override
-    public void alistarPersonagem(Personagem personagem){
-        if(personagem instanceof ElfoVerde || personagem instanceof ElfoNoturno)
-            personagensExercito.add(personagem);
+    {
+        elfosExercito = new ArrayList<Elfo>();
     }
     
-    @Override
-    public Personagem buscarPorNome(String nome){
-        for(Personagem personagem : personagensExercito){
-            if(personagem.getNome().equals(nome))
-                return personagem;
+    private ArrayList<Elfo> elfosExercito;
+    
+    public ArrayList<Elfo> getElfosExercito(){
+        return elfosExercito;
+    }
+    
+    public void alistarElfo(Elfo elfo){
+        if(elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno)
+            elfosExercito.add(elfo);
+    }
+    
+    public Elfo buscarPorNome(String nome){
+        for(Elfo elfo : elfosExercito){
+            if(elfo.getNome().equals(nome))
+                return elfo;
         }
         return null;
     }
     
-    @Override
-    public ArrayList<Personagem> buscarPorStatus(Status status){
-        ArrayList<Personagem> elfos = new ArrayList<Personagem>();
-        for(Personagem personagem : personagensExercito){
-            if(personagem.getStatus().equals(status))
-                elfos.add(personagem);
+    public ArrayList<Elfo> buscarPorStatus(Status status){
+        ArrayList<Elfo> elfos = new ArrayList<Elfo>();
+        for(Elfo elfo : elfosExercito){
+            if(elfo.status.equals(status)){
+                elfos.add(elfo);
+            }
         }
         return elfos;
     }
