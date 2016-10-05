@@ -49,9 +49,4 @@ public abstract class Personagem{
     
     abstract void inicializarInventario(int quantidadeFlechas);
     
-    @Override 
-    public boolean equals(Object obj){ 
-        Personagem personagem = (Personagem)obj; 
-        return this.getNome().equals(personagem.getNome()); 
-    } 
 }
