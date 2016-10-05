@@ -1,4 +1,4 @@
-public abstract class Personagem {
+public abstract class Personagem{
     protected String nome;
     protected int experiencia;
     protected Inventario inventario;
@@ -48,4 +48,10 @@ public abstract class Personagem {
     }
     
     abstract void inicializarInventario(int quantidadeFlechas);
+    
+    @Override 
+    public boolean equals(Object obj){ 
+        Personagem personagem = (Personagem)obj; 
+        return this.getNome().equals(personagem.getNome()); 
+    } 
 }
