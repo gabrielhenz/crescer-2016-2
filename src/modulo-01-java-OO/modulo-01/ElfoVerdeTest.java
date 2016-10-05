@@ -1,67 +1,56 @@
-
-
 import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import java.util.ArrayList;
 
-public class ElfoVerdeTest
-{
+public class ElfoVerdeTest {
+
     @Test
-    public void elfoVerdeNasceComArcoDeVidroE42FlechasDeVidro(){
-        ElfoVerde elfoVerde = new ElfoVerde("Legolas");
-        ArrayList<Item> itens = elfoVerde.getInventario().getItens();
-        assertEquals("Arco de Vidro", itens.get(0).getDescricao());
-        assertEquals(1, itens.get(0).getQuantidade());
-        assertEquals("Flechas de Vidro", itens.get(1).getDescricao());
-        assertEquals(42, itens.get(1).getQuantidade());
+    public void elfoVerdeAdicionaEspadaValiriana() {
+        ElfoVerde sortudo = new ElfoVerde("Sortudo");
+        Item espada = new Item("Espada de aço valiriano", 1);
+        sortudo.adicionarItem(espada);
+        assertEquals(3, sortudo.getInventario().getItens().size());
+        assertEquals(espada, sortudo.getInventario().getItens().get(2));
     }
-    
+
     @Test
-    public void elfoVerdeNasceComArcoDeVidroESemFlechasDeVidro(){
-        ElfoVerde elfoVerde = new ElfoVerde("Legolas", 0);
-        ArrayList<Item> itens = elfoVerde.getInventario().getItens();
-        assertEquals("Arco de Vidro", itens.get(0).getDescricao());
-        assertEquals(1, itens.get(0).getQuantidade());
-        assertEquals("Flechas de Vidro", itens.get(1).getDescricao());
-        assertEquals(0, itens.get(1).getQuantidade());
+    public void elfoVerdeAdicionaItemComDescricaoInvalida() {
+        ElfoVerde sortudo = new ElfoVerde("Mugless");
+        Item caneca = new Item("Caneca", 1);
+        sortudo.adicionarItem(caneca);
+        boolean adicionou = sortudo.getInventario().getItens().contains(caneca);
+        assertEquals(2, sortudo.getInventario().getItens().size());
+        assertFalse(adicionou);
     }
-    
+
     @Test
-    public void elfoVerdeNasceComArcoDeVidroEMenos10FlechasDeVidro(){
-        ElfoVerde elfoVerde = new ElfoVerde("Legolas", -10);
-        ArrayList<Item> itens = elfoVerde.getInventario().getItens();
-        assertEquals("Arco de Vidro", itens.get(0).getDescricao());
-        assertEquals(1, itens.get(0).getQuantidade());
-        assertEquals("Flechas de Vidro", itens.get(1).getDescricao());
-        assertEquals(42, itens.get(1).getQuantidade());
+    public void elfoVerdeAdicionaFlechaVidroENulo() {
+        ElfoVerde sortudo = new ElfoVerde("Celeborn");
+        Item flechaDeVidro = new Item("Flecha de Vidro", 1);
+        sortudo.adicionarItem(flechaDeVidro);
+        sortudo.adicionarItem(null);
+        assertEquals(3, sortudo.getInventario().getItens().size());
+        assertEquals(flechaDeVidro, sortudo.getInventario().getItens().get(2));
     }
-    
+
     @Test
-    public void elfoVerdeNasceComArcoDeVidroEMenos10FlechasDeVidroEAtira1Flecha(){
-        ElfoVerde elfoVerde = new ElfoVerde("Legolas", -10);
-        elfoVerde.atirarFlecha(new Dwarf());
-        assertEquals(41, elfoVerde.getInventario().getItens().get(1).getQuantidade());
-        assertEquals(2, elfoVerde.getExperiencia());
+    public void elfoVerdeAdicionaArcoEFlechaVidroEDescricaoNula() {
+        ElfoVerde sortudo = new ElfoVerde("Celeborn");
+        Item arcoEFlecha = new Item("Arco de Vidro", 1);
+        Item descricaoNula = new Item(null, 1);
+        sortudo.adicionarItem(arcoEFlecha);
+        sortudo.adicionarItem(descricaoNula);
+        assertEquals(3, sortudo.getInventario().getItens().size());
+        assertEquals(arcoEFlecha, sortudo.getInventario().getItens().get(2));
     }
-    
+
     @Test
-    public void elfoVerdeNasceComArcoDeVidroE0FlechasDeVidroEAtira1Flecha(){
-        ElfoVerde elfoVerde = new ElfoVerde("Legolas", 0);
-        elfoVerde.atirarFlecha(new Dwarf());
-        assertEquals(0, elfoVerde.getInventario().getItens().get(1).getQuantidade());
-        assertEquals(0, elfoVerde.getExperiencia());
+    public void elfoVerdeGanhaExperienciaMesmoNaoTendoFlechas() {
+        ElfoVerde greenLegolas = new ElfoVerde("Green Legolas", 1);
+        greenLegolas.atirarFlecha(new Dwarf());
+        greenLegolas.atirarFlecha(new Dwarf());
+        assertEquals(2, greenLegolas.getExperiencia());
     }
-    
-    @Test
-    public void elfoVerdeNasceComArcoDeVidroE42FlechasDeVidroEAtira43Flechas(){
-        ElfoVerde elfoVerde = new ElfoVerde("Legolas", 42);
-        Dwarf dwarf = new Dwarf();
-        for(int i = 0; i < 43; i++){
-            elfoVerde.atirarFlecha(dwarf);
-        }
-        assertEquals(0, elfoVerde.getInventario().getItens().get(1).getQuantidade());
-        assertEquals(84, elfoVerde.getExperiencia());
-    }
+
 }

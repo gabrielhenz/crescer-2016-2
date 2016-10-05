@@ -1,16 +1,16 @@
-public class Personagem {
+public abstract class Personagem {
     protected String nome;
     protected int experiencia;
     protected Inventario inventario;
     protected Status status; //= Status.VIVO;
     protected double vida;
-    
+
     public Personagem(String nome) {
         this.nome = nome;
         this.status = Status.VIVO;
         this.inventario = new Inventario();
     }
-    
+
     public void setNome(String n) {
         nome = n;
     }
@@ -34,22 +34,18 @@ public class Personagem {
     public int getExperiencia() {
         return experiencia;
     }
-    
-    public double getVida(){
+
+    public double getVida() {
         return vida;
     }
 
-    
-    public void setVida(double vida){
-        this.vida = vida;
+    public void adicionarItem(Item item) {
+        this.inventario.adicionarItem(item);
+    }
+
+    public void perderItem(Item item) {
+        this.inventario.removerItem(item);
     }
     
-    
-    public void adicionarItem(Item item){
-        inventario.adicionarItem(item);
-    }
-    
-    public void perderItem(Item item){
-        inventario.removerItem(item);
-    }
+    abstract void inicializarInventario(int quantidadeFlechas);
 }

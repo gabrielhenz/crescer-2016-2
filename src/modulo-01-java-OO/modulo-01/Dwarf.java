@@ -55,4 +55,6 @@ public class Dwarf extends Personagem {
             }
         }
     }
+    
+    public void inicializarInventario(int quantidadeFlechas) { }
 }
