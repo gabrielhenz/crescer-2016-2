@@ -134,6 +134,23 @@ public class Inventario
         } while (posicoesSendoTrocadas);
 
     }
+    
+    @Override
+    public boolean equals(Object obj){
+        Inventario inventario = (Inventario)obj;
+        int sizeThis = this.itens.size();
+        int sizeInventario = inventario.itens.size();
+        if(sizeThis > 0 && sizeInventario > 0 && sizeThis == sizeInventario && this.getDescricoesItens().equals(inventario.getDescricoesItens())){       
+            for(int i = 0; i < sizeThis; i++){
+                if(this.itens.get(i).getQuantidade() != inventario.itens.get(i).getQuantidade())
+                    return false;
+            }
+            return true;
+        }else{
+            return false;
+        }
+        
+    }
 }
 
 
