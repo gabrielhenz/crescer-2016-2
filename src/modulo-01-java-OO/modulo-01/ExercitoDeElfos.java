@@ -7,8 +7,8 @@ public class ExercitoDeElfos
     
     private ArrayList<Elfo> elfosExercito;
     
-    public ArrayList<Elfo> getElfosExercito(){
-        return elfosExercito;
+    public Elfo[] getElfosExercito(){
+        return elfosExercito.toArray(new Elfo[elfosExercito.size()]);
     }
     
     public void alistarElfo(Elfo elfo){
@@ -25,7 +25,6 @@ public class ExercitoDeElfos
     public Elfo buscarPorNome(String nome){
         //Elfo resultado = null;
         for(Elfo elfo : elfosExercito){
-            if(elfo.getNome().equals(nome))
             if(nome.equals(elfo.getNome()))
                 return elfo;
                 //resultado = elfo;
