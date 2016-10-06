@@ -9,11 +9,7 @@ public class ExercitoEspecialDeElfos
     }
     
     public Elfo[] getExercitoEspecialDeElfos(){
-        ArrayList<Elfo> elfos = new ArrayList<>();
-        for(Elfo elfo : elfosDoExercitoEspecial.values()){
-            elfos.add(elfo);
-        }
-        return elfos.toArray(new Elfo[elfos.size()]);
+        return elfosDoExercitoEspecial.values().toArray(new Elfo[elfosDoExercitoEspecial.size()]);
     }
     
     public void alistarElfoDoExercitoEspecial(Elfo elfo){
@@ -35,3 +31,5 @@ public class ExercitoEspecialDeElfos
     }
     
 }
+
+
