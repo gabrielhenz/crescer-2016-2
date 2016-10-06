@@ -17,44 +17,44 @@ public class ExercitoDeElfosTest {
     @Test
     public void exercitoCom1Elfo(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarElfo(new Elfo("legolas"));
-        assertEquals(0, exercitoDeElfos.getElfosExercito().length);
+        exercitoDeElfos.alistar(new Elfo("legolas"));
+        assertEquals(0, exercitoDeElfos.getContingente().length);
     }
     
     @Test
     public void exercitoCom1ElfoNoturnoE1ElfoVerde(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarElfo(new ElfoVerde("legolas"));
-        exercitoDeElfos.alistarElfo(new ElfoNoturno("legolas"));
-        assertEquals(2, exercitoDeElfos.getElfosExercito().length);
+        exercitoDeElfos.alistar(new ElfoVerde("legolas"));
+        exercitoDeElfos.alistar(new ElfoNoturno("legolas"));
+        assertEquals(2, exercitoDeElfos.getContingente().length);
     }
     
     @Test
     public void exercitoCom1ElfoVerdeEAtiraFlecha(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
         ElfoVerde elfoVerde = new ElfoVerde("legolas");
-        exercitoDeElfos.alistarElfo(elfoVerde);
+        exercitoDeElfos.alistar(elfoVerde);
         elfoVerde.atirarFlecha(new Dwarf());
-        assertEquals(41, exercitoDeElfos.getElfosExercito()[0].getInventario().getItens().get(1).getQuantidade());
+        assertEquals(41, exercitoDeElfos.getContingente()[0].getInventario().getItens().get(1).getQuantidade());
     }
     
     @Test
     public void exercitoCom1ElfoNoturnoE1ElfoVerdeEBuscaNoturnoPorNome(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistarElfo(new ElfoVerde("legolas"));
-        exercitoDeElfos.alistarElfo(new ElfoNoturno("legolasDemonio"));
-        assertEquals(new ElfoNoturno("legolasDemonio"), exercitoDeElfos.buscarPorNome("legolasDemonio"));
+        exercitoDeElfos.alistar(new ElfoVerde("legolas"));
+        exercitoDeElfos.alistar(new ElfoNoturno("legolasDemonio"));
+        assertEquals(new ElfoNoturno("legolasDemonio"), exercitoDeElfos.buscar("legolasDemonio"));
     }
     
     @Test
     public void exercitoCom1ElfoNoturnoMortoE1ElfoVerdeVivo(){
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
         ElfoNoturno elfoNoturno = new ElfoNoturno("legolasDemonio", 100);
-        exercitoDeElfos.alistarElfo(elfoNoturno);
-        exercitoDeElfos.alistarElfo(new ElfoVerde("legolas"));
+        exercitoDeElfos.alistar(elfoNoturno);
+        exercitoDeElfos.alistar(new ElfoVerde("legolas"));
         for(int i = 0; i < 100; i++){
             elfoNoturno.atirarFlecha(new Dwarf());
         }
-        assertTrue(exercitoDeElfos.buscarPorStatus(Status.MORTO).contains(elfoNoturno));
+        assertTrue(exercitoDeElfos.buscar(Status.MORTO).contains(elfoNoturno));
     }
 }

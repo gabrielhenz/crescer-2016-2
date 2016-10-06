@@ -44,6 +44,7 @@ public class ExercitoDeElfos implements Exercito {
                 return elfo;
                 //resultado = elfo;
                 //break;
+            }
         }
         return null;
         //return resultado;
