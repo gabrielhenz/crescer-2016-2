@@ -15,7 +15,7 @@ public class ExercitoDeElfos
     public void alistarElfo(Elfo elfo){
         /*
          * String nomeClasse = elfo.getClass().getName();
-         * if(nomeClasse.equals("ElfoVerde" || nomeClasse.equals("ElfoNoturno"))
+         * if(nomeClasse.equals("ElfoVerde") || nomeClasse.equals("ElfoNoturno"))
          * 
          * if(elfo.getClass() == ElfoNoturno.class || elfo.getClass() == ElfoVerde.class)
          */
