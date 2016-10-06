@@ -1,7 +1,9 @@
 public class Elfo extends Personagem {
 
     private static int contadorDeElfos;
-    
+    {
+        vida = 100;
+    }
     public Elfo(String n) {
        this(n, 42);
     }
