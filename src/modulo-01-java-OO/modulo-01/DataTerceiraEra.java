@@ -1,4 +1,4 @@
-public class DataTerceiraEra {
+public final class DataTerceiraEra {
     private int dia, mes, ano;
     
     public DataTerceiraEra(){

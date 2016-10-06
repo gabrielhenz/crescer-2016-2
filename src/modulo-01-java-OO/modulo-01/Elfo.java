@@ -1,9 +1,7 @@
 public class Elfo extends Personagem {
-    private static int CONTADOR_DE_ELFOS = 0;
+
+    private static int contadorDeElfos;
     
-    {
-        vida = 100;
-    }
     public Elfo(String n) {
        this(n, 42);
     }
@@ -11,17 +9,20 @@ public class Elfo extends Personagem {
     public Elfo(String nome, int quantidadeFlechas) {
         super(nome);
         this.inicializarInventario(quantidadeFlechas);
-        CONTADOR_DE_ELFOS++;
+        Elfo.contadorDeElfos++;
     }
     
-    protected void finalize() throws Throwable{
-        CONTADOR_DE_ELFOS--;
+    // ~Elfo() { }
+    // https://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#finalize()
+    protected void finalize() throws Throwable {
+        super.finalize();
+        Elfo.contadorDeElfos--;
     }
     
-    public static int getContadorDeElfos(){
-        return CONTADOR_DE_ELFOS;
+    public static int getContadorDeElfos() {
+        return Elfo.contadorDeElfos;
     }
-    
+
     public Item getArco() {
         return this.inventario.getItens().get(0);
     }
