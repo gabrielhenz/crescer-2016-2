@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import java.util.List;
 public class ExercitoDeElfos implements Exercito {
     private ArrayList<Elfo> contingente;
 
@@ -11,7 +11,7 @@ public class ExercitoDeElfos implements Exercito {
         return contingente.toArray(new Elfo[contingente.size()]);
     }
 
-    public void alistar(Elfo elfo) {
+    public void alistar(Elfo elfo) throws NaoPodeAlistarException {
 
         //String nomeClasse = elfo.getClass().getName();
         //Class clazz = elfo.getClass();
@@ -19,10 +19,11 @@ public class ExercitoDeElfos implements Exercito {
             //nomeClasse.equals("ElfoVerde") || nomeClasse.equals("ElfoNoturno");
             //clazz == ElfoVerde.class || clazz == ElfoNoturno.class;
             elfo instanceof ElfoVerde || elfo instanceof ElfoNoturno;
-
-        if (podeAlistar) {
-            contingente.add(elfo);
+            
+        if(!podeAlistar){
+            throw new NaoPodeAlistarException();
         }
+        contingente.add(elfo);
     }
 
     /**

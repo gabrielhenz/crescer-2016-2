@@ -14,23 +14,30 @@ public class ExercitoDeElfosTest {
         System.gc();
     }
     
-    @Test
-    public void exercitoCom1Elfo(){
+    @Test (expected=NaoPodeAlistarException.class)
+    public void exercitoCom1Elfo() throws NaoPodeAlistarException{
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
         exercitoDeElfos.alistar(new Elfo("legolas"));
         assertEquals(0, exercitoDeElfos.getContingente().length);
     }
     
     @Test
-    public void exercitoCom1ElfoNoturnoE1ElfoVerde(){
-        ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
-        exercitoDeElfos.alistar(new ElfoVerde("legolas"));
-        exercitoDeElfos.alistar(new ElfoNoturno("legolas"));
-        assertEquals(2, exercitoDeElfos.getContingente().length);
+    public void exercitoCom1ElfoNoturnoE1ElfoVerde() throws NaoPodeAlistarException{
+        try{
+            ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
+            exercitoDeElfos.alistar(new ElfoVerde("legolas"));
+            exercitoDeElfos.alistar(new ElfoNoturno("legolas"));
+            assertEquals(2, exercitoDeElfos.getContingente().length);
+        }catch(NaoPodeAlistarException naoPodeAlistarException){
+            System.out.println(
+                naoPodeAlistarException.getMessage() +
+                naoPodeAlistarException.getStackTrace()
+            );
+        } 
     }
     
     @Test
-    public void exercitoCom1ElfoVerdeEAtiraFlecha(){
+    public void exercitoCom1ElfoVerdeEAtiraFlecha() throws NaoPodeAlistarException{
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
         ElfoVerde elfoVerde = new ElfoVerde("legolas");
         exercitoDeElfos.alistar(elfoVerde);
@@ -39,7 +46,7 @@ public class ExercitoDeElfosTest {
     }
     
     @Test
-    public void exercitoCom1ElfoNoturnoE1ElfoVerdeEBuscaNoturnoPorNome(){
+    public void exercitoCom1ElfoNoturnoE1ElfoVerdeEBuscaNoturnoPorNome () throws NaoPodeAlistarException{
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
         exercitoDeElfos.alistar(new ElfoVerde("legolas"));
         exercitoDeElfos.alistar(new ElfoNoturno("legolasDemonio"));
@@ -47,7 +54,7 @@ public class ExercitoDeElfosTest {
     }
     
     @Test
-    public void exercitoCom1ElfoNoturnoMortoE1ElfoVerdeVivo(){
+    public void exercitoCom1ElfoNoturnoMortoE1ElfoVerdeVivo()throws NaoPodeAlistarException{
         ExercitoDeElfos exercitoDeElfos = new ExercitoDeElfos();
         ElfoNoturno elfoNoturno = new ElfoNoturno("legolasDemonio", 100);
         exercitoDeElfos.alistar(elfoNoturno);
