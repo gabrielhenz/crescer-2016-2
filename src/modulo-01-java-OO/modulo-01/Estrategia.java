@@ -2,5 +2,5 @@ import java.util.List;
 
 public interface Estrategia
 {
-    List<Elfo> getOrdemDeAtaque(List<Elfo> atacantes)throws NaoPodeAlistarException;
+    List<Elfo> getOrdemDeAtaque(List<Elfo> atacantes) throws ContemElfoNormalException;
 }
