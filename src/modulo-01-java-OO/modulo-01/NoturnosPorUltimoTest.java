@@ -1,93 +1,60 @@
 
 
 import static org.junit.Assert.*;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Arrays;
+import org.junit.*;
 
 public class NoturnosPorUltimoTest
 {
     
     @Test
-    public void ordenaSemElfosNaLista(){
+    public void ordenaSemElfosNaLista() throws ContemElfoNormalException{
         assertNull(instancia().getOrdemDeAtaque(new ArrayList<Elfo>()));
     }
     
-    @Test
-    public void ordenaCom3ElfosVerdesE3ElfosNoturnos(){
+    @Test 
+    public void ordenaCom3ElfosVerdesE3ElfosNoturnos() throws ContemElfoNormalException{
         assertEquals(
-            retorna3ElfosVerdesE3ElfosNoturnosOrdenados(),
-            instancia().getOrdemDeAtaque(retorna3ElfosVerdesE3ElfosNoturnosDesordenados())
+            GeradorDeElfos.retorna3ElfosVerdesE3ElfosNoturnosOrdenados(),
+            instancia().getOrdemDeAtaque(GeradorDeElfos.retorna3ElfosVerdesE3ElfosNoturnosDesordenadosComVerdeNoInicio())
         );
     }
     
     @Test
-    public void ordenaCom3ElfosVerdes(){
-        List<Elfo> elfos = retorna3ElfosVerdes();
+    public void ordenaCom3ElfosVerdes() throws ContemElfoNormalException{
+        List<Elfo> elfos = GeradorDeElfos.retorna3ElfosVerdes();
         assertEquals(elfos, instancia().getOrdemDeAtaque(elfos));
     }
     
     @Test
-    public void ordenaCom3ElfosNoturnos(){
-        List<Elfo> elfos = retorna3ElfosNoturnos();
+    public void ordenaCom3ElfosNoturnos() throws ContemElfoNormalException{
+        List<Elfo> elfos = GeradorDeElfos.retorna3ElfosNoturnos();
         assertEquals(elfos, instancia().getOrdemDeAtaque(elfos));
     }
     
+    
+    /*
+     * Ver como fazer teste quando eu espero que dê uma exception.
+     */
+    @Test
+    public void ordenaCom3ElfosVerdes3ElfosNoturnosE3ElfosNormaisThrowsContemElfoNormalException() throws ContemElfoNormalException{
+        boolean contemElfoNormal = false;
+        try {
+          instancia().getOrdemDeAtaque(GeradorDeElfos.retorna3ElfosVerdes3ElfosNoturnosE3ElfosNormaisOrdenados());
+        } catch (ContemElfoNormalException contemElfoNormalException) {
+          System.out.println(
+                contemElfoNormalException.getMessage() +
+                contemElfoNormalException.getStackTrace()
+            );
+        }
+    }
+    
     private NoturnosPorUltimo instancia(){
-        List<Elfo> elfos = retorna3ElfosNoturnos();
+        List<Elfo> elfos = GeradorDeElfos.retorna3ElfosNoturnos();
         return new NoturnosPorUltimo();
     }
     
-    private List<Elfo> retorna3ElfosVerdesE3ElfosNoturnosDesordenados(){
-        return 
-            new ArrayList<Elfo>(
-                Arrays.asList(
-                    new ElfoVerde("verde1"),
-                    new ElfoNoturno("noturno1"),
-                    new ElfoNoturno("noturno2"),
-                    new ElfoVerde("verde2"),
-                    new ElfoNoturno("noturno3"),
-                    new ElfoVerde("verde3")
-                )
-             );
-    }
     
-    private List<Elfo> retorna3ElfosVerdesE3ElfosNoturnosOrdenados(){
-        return 
-            new ArrayList<Elfo>(
-                Arrays.asList(
-                    new ElfoVerde("verde1"),
-                    new ElfoVerde("verde2"),
-                    new ElfoVerde("verde3"),
-                    new ElfoNoturno("noturno1"),
-                    new ElfoNoturno("noturno2"),
-                    new ElfoNoturno("noturno3")
-                )
-             );
-    }
-    
-    private List<Elfo> retorna3ElfosVerdes(){
-        return 
-            new ArrayList<Elfo>(
-                Arrays.asList(
-                    new ElfoVerde("verde1"),
-                    new ElfoVerde("verde2"),
-                    new ElfoVerde("verde3")
-                )
-             );
-    }
-    
-    private List<Elfo> retorna3ElfosNoturnos(){
-        return 
-            new ArrayList<Elfo>(
-                Arrays.asList(
-                    new ElfoNoturno("noturno1"),
-                    new ElfoNoturno("noturno2"),
-                    new ElfoNoturno("noturno3")
-                )
-             );
-    }
 }
