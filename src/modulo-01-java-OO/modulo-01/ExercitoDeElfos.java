@@ -51,7 +51,7 @@ public class ExercitoDeElfos implements Exercito {
         //return resultado;
     }
 
-    public ArrayList<Elfo> buscar(Status status) {
+    public List<Elfo> buscar(Status status) {
         // C#: return contingente.Where(x => x.Status == status);
         ArrayList<Elfo> resultado = new ArrayList<>();
 

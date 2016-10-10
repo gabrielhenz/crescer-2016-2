@@ -1,10 +1,6 @@
-import java.util.HashMap;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Arrays;
-import java.util.Map;
+import java.util.*;
 
-public class BatalhaoEspecialDeElfos implements Exercito {
+public class BatalhaoEspecialDeElfos implements Exercito, ExercitoQueLimpaItens {
     private HashMap<String, ArrayList<Elfo>> contingente;
     private HashMap<Status, ArrayList<Elfo>> grupoPorStatus;
 
@@ -54,13 +50,17 @@ public class BatalhaoEspecialDeElfos implements Exercito {
         }
     }
     
-    public ArrayList<Elfo> buscar(Status status) {
+    public List<Elfo> buscar(Status status) {
         agruparPorStatus();
         return grupoPorStatus.get(status);
     }
     
     public void atacar() {
         System.out.println("Batalhão especial lacrando");
+    }
+    
+    public void limparItensEspeciais() {
+        // vai ter lógica de limpeza de itens especiais
     }
 }
 
