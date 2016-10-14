@@ -72,3 +72,17 @@ Inner join Cliente as cl
 	On cl.IDCidade = c.IDCidade
 Group by UF
 Order by count(1) ASC) as "estado com menor numero de clientes";
+
+
+-- Exercicio 7)
+Select IDPedido,
+	   DataEntrega,
+	   ValorPedido,
+	   (Select count(1)
+	   From PedidoItem as pitem
+	   Where pitem.IDPedido = p.IDPedido
+	   ) as "quantidade de itens"
+From Pedido as p
+Where month(DataEntrega) = 10
+and   year(DataEntrega) = 2016;
+
