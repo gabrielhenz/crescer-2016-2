@@ -1,4 +1,5 @@
 -- 7) Liste o nome do empregado, o nome do gerente, e o departamento de cada um.
+-- com 10 registros (nao mostra null)
 Select e.NomeEmpregado as empregado
 	  ,de.NomeDepartamento as "departamento do empregado"
 	  ,g.NomeEmpregado as gerente
@@ -10,7 +11,9 @@ Inner join Departamento as de
 	On e.IDDepartamento = de.IDDepartamento
 Inner join Departamento as dg
 	On g.IDDepartamento = dg.IDDepartamento;
-/*Select e.NomeEmpregado as empregado
+
+-- com 15 registros (mostra null)
+Select e.NomeEmpregado as empregado
 	  ,(Select de.NomeDepartamento 
 	    from Departamento as de
 		where de.IDDepartamento = e.IDDepartamento) as "departamento do empregado"
@@ -21,8 +24,18 @@ Inner join Departamento as dg
 	    from Empregado as g, Departamento as dg
 		where g.IDEmpregado = e.IDGerente
 		and dg.IDDepartamento = g.IDDepartamento)
-From Empregado as e;*/
+From Empregado as e;
 
+-- outra forma de mostrar os nulos
+Select e.NomeEmpregado as empregado
+	  ,d.NomeDepartamento as "departamento do empregado"
+	  ,g.NomeEmpregado as gerente
+	  ,d.NomeDepartamento as "departamento do gerente"
+From Empregado as e
+left join Empregado as g
+	On e.IDGerente = g.IDEmpregado
+left join Departamento as d
+	On e.IDDepartamento = d.IDDepartamento;
 
 -- 8) Faça uma cópia da tabela Empregado e altere o salário de todos os empregados (Empregado) que
 -- que o departamento fique na localidade de SAO PAULO, faça um reajuste de 14,5%.
@@ -38,4 +51,18 @@ Where IDDepartamento IN (Select IDDepartamento
 go
 
 
--- 9)
+-- 9) Liste a diferança que representará o reajuste aplicado no item anterior no somatório dos salários de 
+-- todos os empregados.
+Select sum(c.Salario) - sum(e.Salario)
+From Empregado as e, EmpregadoCopia as c
+Where e.IDEmpregado = c.IDEmpregado;
+
+
+-- 10) Liste o departamento com o empregado de maior salário.
+Select NomeDepartamento, NomeEmpregado, Salario
+From Departamento as d
+Inner join Empregado as e
+	On e.IDDepartamento = d.IDDepartamento
+Where e.Salario = (Select max(Salario)
+				   From Empregado
+				   Where IDDepartamento IS NOT NULL);
