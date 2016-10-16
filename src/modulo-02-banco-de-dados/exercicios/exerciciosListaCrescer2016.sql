@@ -75,14 +75,71 @@ Order by count(1) ASC) as "estado com menor numero de clientes";
 
 
 -- Exercicio 7)
-Select IDPedido,
-	   DataEntrega,
-	   ValorPedido,
-	   (Select count(1)
-	   From PedidoItem as pitem
-	   Where pitem.IDPedido = p.IDPedido
-	   ) as "quantidade de itens"
+-- a)
+Select p.IDPedido, 
+	   p.DataEntrega, 
+	   p.ValorPedido, 
+	   pitem.Quantidade, 
+	   c.Nome as cliente
 From Pedido as p
+Inner join Cliente as c 
+	on c.IDCliente = p.IDCliente
+Inner join PedidoItem as pitem 
+	on pitem.IDPedido = p.IDPedido
+Inner join Produto as pr 
+	on pr.IDProduto = pitem.IDProduto
+Inner join ProdutoMaterial as pm
+	on pm.IDProduto = pr.IDProduto
 Where month(DataEntrega) = 10
-and   year(DataEntrega) = 2016;
+And	  year(DataEntrega) = 2016
+And pm.IDMaterial in (14650, 15703, 15836, 16003, 16604, 17226);
+
+
+/*8) Dentro da atual estrutura, cada produto é composto por 1 ou vários materiais (tabela ProdutoMaterial).
+ Identifique se existe algum produto sem material relacionado.
+Obs.: o produto criado anteriormente deverá ser listado.*/
+Select p.IDProduto
+From Produto as p
+Left join ProdutoMaterial as pm
+	On pm.IDProduto = p.IDProduto
+Where pm.IDProduto IS NULL;
+-- existem 2 produtos sem material relacionado
+
+
+-- 9) Lista qual o primeiro nome mais popular entre os clientes, considere apenas o primeiro nome.
+Select  top(1) with ties substring(nome, 1, charindex(' ', nome) - 1) as "primeiro nome mais popular",
+		count(1) as "quantidade de clientes com o mesmo nome"
+From Cliente
+Group by substring(nome, 1, charindex(' ', nome) - 1)
+having count(1) > 1
+order by "quantidade de clientes com o mesmo nome" DESC;
+
+
+-- Exercicio 10)
+Update Produto
+Set Situacao = 'F'
+Where IDProduto in (Select p.IDProduto 
+					From Produto as p
+					Inner join ProdutoMaterial as pm
+						On pm.IDProduto = p.IDProduto
+					Where pm.IDMaterial in (14650, 
+					                  15703, 
+									  15836, 
+									  16003, 
+									  16604, 
+									  17226));
+
+Update Produto
+Set Situacao = 'Q'
+Where Situacao NOT LIKE 'F'
+And IDProduto in (Select pr.IDProduto
+				  From Produto as pr
+				  Left join PedidoItem as pitem on pitem.IDProduto = pr.IDProduto
+				  Inner join Pedido as pd on pd.IDPedido = pitem.IDPedido
+				  Where month(DataPedido) < month(getdate()) - 2);
+
+Update Produto
+Set Situacao = 'A'
+Where Situacao NOT LIKE 'F'
+And Situacao NOT LIKE 'Q';
 
