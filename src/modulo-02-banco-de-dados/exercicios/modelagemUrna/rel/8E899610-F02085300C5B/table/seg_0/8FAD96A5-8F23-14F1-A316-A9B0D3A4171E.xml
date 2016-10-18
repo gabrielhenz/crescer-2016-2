@@ -1,0 +1,46 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="8FAD96A5-8F23-14F1-A316-A9B0D3A4171E" name="TipoVoto">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:37:42 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<ordsAlias>table_10</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDTipoVoto" id="52F93B39-73AD-CD27-C600-1D6F7709758B">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:38:42 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Nome" id="373AC363-44A5-CA3C-63E3-FB81C4F115F8">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:38:42 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="56937602-67AB-9C1D-EB30-C94F973F57F0" name="TipoVoto_PK">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:38:54 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="52F93B39-73AD-CD27-C600-1D6F7709758B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5432CBB5-C31C-4D93-2812-58C902D8DC9A" name="Voto">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:20:16 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDVoto" id="F0E11A30-73D3-DF09-F469-CD2294698EC9">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:21:56 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDEleitor" id="620739CF-F0BF-0719-B7C5-7C22068C4B28">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:23:00 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0E341F9E-5C9D-4E41-EE91-041E0452ED07" referredColumn="EDC89EA2-39EE-1918-F440-D011C32F0995"/>
+</associations>
+</Column>
+<Column name="IDTipoVoto" id="ED4283E8-23D4-609C-11C7-3D2DF00C8AB2">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:39:01 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="DCB3424C-F92F-D8D0-7E65-8BD13A18E6A0" referredColumn="52F93B39-73AD-CD27-C600-1D6F7709758B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="46D90747-5A7C-01C6-9383-93B0110F09BC" name="Voto_PK">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:21:56 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F0E11A30-73D3-DF09-F469-CD2294698EC9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5741AD69-E4E1-A465-E4BB-258CDC748659" name="UK_Eleitor">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:21:56 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="620739CF-F0BF-0719-B7C5-7C22068C4B28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F59490A0-0AC0-181A-C084-04854138B421" name="FK_Voto_Eleitor">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:23:00 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="620739CF-F0BF-0719-B7C5-7C22068C4B28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3474A1E-EFFB-5A1D-DDBB-BC8BF09AB3D9" name="FK_Voto_TipoVoto">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:39:01 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ED4283E8-23D4-609C-11C7-3D2DF00C8AB2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

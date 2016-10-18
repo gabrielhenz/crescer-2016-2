@@ -1,0 +1,81 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1663E7EC-A58C-C613-B006-1AD756E61231" name="CandidatoVoto">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:54:56 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCandidatoVoto" id="DE8F5D37-3CFF-438B-EC50-F88C96566ECB">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:56:25 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDCandidato" id="E817AB88-2C47-5172-F773-09802CF298FA">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:56:25 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2B31822B-7419-B1FE-062F-5CAEC8EB2C2E" referredColumn="D6F262E4-3AE4-D488-053E-35C41B8B6981"/>
+</associations>
+</Column>
+<Column name="IDVoto" id="B1B79C69-27E3-88D2-60EF-9B1562F6F74E">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:56:25 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9570E224-AD3E-811B-E1F0-BF6253CCADC0" referredColumn="F0E11A30-73D3-DF09-F469-CD2294698EC9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="C95C0EA2-7F5C-FA0A-D024-A31C5DBAD7B1" name="PK_CandidatoVoto">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:56:25 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="DE8F5D37-3CFF-438B-EC50-F88C96566ECB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8A821F5E-282F-6E18-B655-4DACA140C3C8" name="FK_CandidatoVoto_Candidato">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:56:27 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E817AB88-2C47-5172-F773-09802CF298FA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="42E1BC2C-8373-19D4-5CAF-4301B7D6F518" name="FK_CandidatoVoto_Voto">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:56:34 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B1B79C69-27E3-88D2-60EF-9B1562F6F74E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

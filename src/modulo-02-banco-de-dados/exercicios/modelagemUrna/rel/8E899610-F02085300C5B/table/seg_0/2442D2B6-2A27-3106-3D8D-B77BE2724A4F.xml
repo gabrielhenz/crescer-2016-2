@@ -1,0 +1,171 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="2442D2B6-2A27-3106-3D8D-B77BE2724A4F" name="Candidato">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:44:33 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDCandidato" id="D6F262E4-3AE4-D488-053E-35C41B8B6981">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomeCompleto" id="AE6A66CC-FF41-9E53-0055-2AAAD36EDE0B">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomePopular" id="9C4A56A9-6E6C-B6A6-44A3-E0ED2C099803">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataDeNascimento" id="2AAC5E25-2CB6-57BA-B848-E9733598D81F">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RegistroTRE" id="1C19AAF7-A157-9A43-B9BA-2F59BD8F2CEC">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDPartido" id="D400939A-60A6-549F-169F-6ACFA70556E7">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A2DD619E-A459-4024-1161-6EBEEEDD3A35" referredColumn="F2F5274D-FE1C-76A6-71CF-8B152AAE9012"/>
+</associations>
+</Column>
+<Column name="Foto" id="B44FC26D-999D-6413-F6C5-73E043B0DE57">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>1000</dataTypeSize>
+<ownDataTypeParameters>1000,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NumeroDeEscolha" id="252480EE-EEA9-C6DB-1ACA-DA79AA76B79C">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="IDCargo" id="03A39ED7-99D7-0DB7-2A97-8D773D03EBEE">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:11:57 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1CEAFEF3-B09D-D76F-33A9-615213D4D364" referredColumn="4D83D688-4674-6DC6-FDB4-7635C2F44DCC"/>
+</associations>
+</Column>
+<Column name="IDCidade" id="C1A069BA-5713-D9BB-C399-9231836AFD86">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 20:10:30 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="682112C8-4469-C20E-13AE-A485BC2021B4" referredColumn="69F11009-0948-D2C8-11BA-0C56CBD17B04"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1138D9DB-0392-DBD5-7995-79303B991E71" name="PK_Candidato">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 18:58:37 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D6F262E4-3AE4-D488-053E-35C41B8B6981"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3B2939FC-F746-8864-B020-10024A71D5B5" name="FK_Candidato_Partido">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:00:15 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D400939A-60A6-549F-169F-6ACFA70556E7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="8F96CC94-A990-5B88-9756-611AC18844D1" name="FK_Candidato_TipoDeCargo">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:12:00 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="03A39ED7-99D7-0DB7-2A97-8D773D03EBEE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="511B7B9F-9D96-9FA2-F8F9-25307EEC3091" name="FK_Candidato_Cidade">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 20:10:30 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C1A069BA-5713-D9BB-C399-9231836AFD86"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="DCB3424C-F92F-D8D0-7E65-8BD13A18E6A0" containerWithKeyObject="5432CBB5-C31C-4D93-2812-58C902D8DC9A" localFKIndex="D3474A1E-EFFB-5A1D-DDBB-BC8BF09AB3D9" name="FK_Voto_TipoVoto">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:39:01 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8FAD96A5-8F23-14F1-A316-A9B0D3A4171E</referredTableID>
+<keyObject>56937602-67AB-9C1D-EB30-C94F973F57F0</keyObject>
+<referredKeyID>56937602-67AB-9C1D-EB30-C94F973F57F0</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

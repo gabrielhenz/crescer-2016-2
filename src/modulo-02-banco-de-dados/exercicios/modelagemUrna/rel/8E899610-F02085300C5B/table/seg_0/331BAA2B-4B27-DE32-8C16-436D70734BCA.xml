@@ -1,0 +1,101 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="331BAA2B-4B27-DE32-8C16-436D70734BCA" name="Eleitor">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:12:52 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<ordsAlias>table_7</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="IDEleitor" id="EDC89EA2-39EE-1918-F440-D011C32F0995">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:13:41 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NomeCompleto" id="600CBEB2-7926-4DE0-FBD3-9F374CF41772">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:13:41 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TituloEleitoral" id="1DA00959-084E-D071-F3E3-4EAA2823DA19">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:13:41 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12</dataTypeSize>
+<ownDataTypeParameters>12,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="RG" id="796067C1-55EB-514F-8D42-39421D856DA5">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:18:35 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DataDeNascimento" id="277ADBCB-4A8F-0BE6-F2C1-AC48720D17F0">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:18:35 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Zona" id="E1E33F6A-9381-0430-B558-F14E92F74622">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:18:35 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Secao" id="F31DD391-3A22-FED2-CEB1-D842812A3D93">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:18:35 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3</dataTypeSize>
+<ownDataTypeParameters>3,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B17F1D3F-4689-99C1-7332-D7295CA1EE07" name="PK_Eleitor">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:13:41 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EDC89EA2-39EE-1918-F440-D011C32F0995"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

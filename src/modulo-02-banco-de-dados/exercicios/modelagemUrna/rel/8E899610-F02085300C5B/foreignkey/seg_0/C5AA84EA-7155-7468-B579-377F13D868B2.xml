@@ -1,0 +1,14 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C5AA84EA-7155-7468-B579-377F13D868B2" containerWithKeyObject="5DEE204F-803E-EC50-DD85-0C48CBE9393E" localFKIndex="2B16E5A0-5DD8-E9D0-1331-3C420694E499" name="FK_Cidade_Estado">
+<createdBy>gabriel.henz</createdBy>
+<createdTime>2016-10-18 19:02:34 UTC</createdTime>
+<ownerDesignName>modelagemUrna</ownerDesignName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>1DCF60B1-A523-D70B-B9C1-BCB44CC88828</referredTableID>
+<keyObject>71FFF1C0-C3D4-02A8-632D-F64B19CD6D88</keyObject>
+<referredKeyID>71FFF1C0-C3D4-02A8-632D-F64B19CD6D88</referredKeyID>
+<mandatory>true</mandatory>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>
