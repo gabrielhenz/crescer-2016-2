@@ -1,8 +1,11 @@
 -- 1) Liste o total de pedidos realizados no mês de setembro de 2016.
 Select count(IDPedido)
 From Pedido
-Where month(DataPedido) = 9 and 
-	  year(DataPedido) = 2016;
+Where DataPedido between convert(datetime, '01/09/2016', 103)
+				 and	 convert(datetime, '30/09/2016', 103)+.99999; --vai até 23:59:59
+      --desempenho pior
+	  --month(DataPedido) = 9 and 
+	  --year(DataPedido) = 2016;
 
 -- 2) Liste quais os produtos que utilizam o material de IDMaterial = 15836.
 Select Nome
@@ -10,6 +13,22 @@ From Produto as p
 Inner join ProdutoMaterial as pm
 	on p.IDProduto = pm.IDProduto
 Where pm.IDMaterial = 15836;
+
+--outra maneira
+Select IDProduto, Nome
+From Produto pro
+Where Exists(select 1
+			 from ProdutoMaterial PM
+			 where pm.IDProduto = pro.IDProduto
+			 and   pm.IDMaterial = 15836);
+
+--outra maneira
+select idprodutomaterial, idproduto
+from produtomaterial pm
+where pm.idmaterial = 15836;
+
+-- create index IX_NomeTabela_NomeColunaFK on NomeTabela (NomeColunaFKQueTuQuerIndexar);
+create index IX_ProdutoMaterial_Material on ProdutoMaterial (IDMaterial);
 
 
 -- Prova real: outputs 3.
@@ -37,6 +56,7 @@ Preço de custo: 35.67
 Preço de venda: 77.95 
 Situação: A  
 */
+-- nao é necessário digitar 'into' na versao 2014
 Insert into Produto (Nome, PrecoCusto, PrecoVenda, Situacao)
 Values ('Galocha Maragato', 35.67, 77.95, 'A');
 --Select * from Produto where Nome = 'Galocha Maragato';
@@ -52,9 +72,22 @@ Select *
 From Produto as p
 Left join PedidoItem as pitem
 	On p.IDProduto = pitem.IDProduto
-Where pitem.IDProduto IS NULL;
+Where pitem.IDProduto IS NULL; 
+-- left join nao é indicado pois na estrutura do index nao existe valores nulos
+-- ele terá q percorrer tudo
 
+-- fazendo com exists (mais performático)
+Select *
+From Produto as p
+Where not exists (Select 1
+				  From PedidoItem item
+				  Where p.IDProduto = item.IDProduto);
 
+-- fazendo com not in
+Select IDProduto, Nome
+From Produto pro
+Where IDProduto not in (Select IDProduto
+						From PedidoItem);
 /*
 6) Identifique qual o estado (coluna UF da tabela Cidade) possuí o maior número 
 de clientes (tabela Cliente), liste também qual o Estado possuí o menor número de clientes. 
