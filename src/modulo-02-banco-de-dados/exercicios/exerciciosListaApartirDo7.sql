@@ -37,6 +37,8 @@ left join Empregado as g
 left join Departamento as d
 	On e.IDDepartamento = d.IDDepartamento;
 
+
+
 -- 8) Faça uma cópia da tabela Empregado e altere o salário de todos os empregados (Empregado) que
 -- que o departamento fique na localidade de SAO PAULO, faça um reajuste de 14,5%.
 Select *
@@ -53,16 +55,31 @@ go
 
 -- 9) Liste a diferança que representará o reajuste aplicado no item anterior no somatório dos salários de 
 -- todos os empregados.
-Select sum(c.Salario) - sum(e.Salario)
+Select sum(c.salario) as ValorAnterior , 
+       sum(e.salario) as ValorNovo, 
+     sum(e.salario) - sum(c.salario) as Diferenca
 From Empregado as e, EmpregadoCopia as c
 Where e.IDEmpregado = c.IDEmpregado;
 
 
 -- 10) Liste o departamento com o empregado de maior salário.
-Select NomeDepartamento, NomeEmpregado, Salario
+-- exibindo os empregados
+-- distinct nao é legal
+Select /*distinct*/ NomeDepartamento, NomeEmpregado, Salario
 From Departamento as d
 Inner join Empregado as e
 	On e.IDDepartamento = d.IDDepartamento
 Where e.Salario = (Select max(Salario)
 				   From Empregado
 				   Where IDDepartamento IS NOT NULL);
+
+-- exibindo somente o departamento
+Select IDDepartamento, NomeDepartamento 
+From   Departamento dep 
+Where  exists (select 1 
+               from   Empregado emp 
+         Where  emp.IDDepartamento = dep.IDDepartamento 
+         and    emp.Salario        = (select max(Salario) 
+                                      from   empregado 
+                      where  IDDepartamento is not null)
+         );
