@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<!-- background-repeat: no-repeat; 
+background: url(pattern.png) repeat, url(wallpaper.jpg) center top no-repeat;
+-->
+<body style="font-size: 24px; color: white;background-color: #ddd; background-image: url(https://images7.alphacoders.com/516/516677.jpg);">
+    <!-- rgba - alpha - transparência -->
+    <div style="color: red;">minha div com color</div>
+    <!-- ou #FF0000 -->
+    <div style="color: #F00">minha div com hexa</div>
+    <div style="color: rgb(255, 0, 0);">minha div com rgb</div>
+
+    <!-- atributos shortedhand
+    color: red; border: 2px solid yellow;   -->
+    <div style="color: red; border-color: yellow; border-style: dotted; border-width: 10px; border-radius: 10px;">minha div com borda</div>
+    
+    <!-- o texto acompanha a largura da div, mas a altura acompanha o texto.
+    se eu digitar sem espaços, o texto vai passar da largura.
+    se eu limitar a altura no style o texto passa a altura -->
+    <div style="border: 2px solid yellow; width: 250px;">
+        UDHAFISIHASUIDAIHDSIJFKOKKDAKKKKJKJKJKJKJKKKJKKKKKKKKKKKKKKKKK
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti obcaecati sunt sit ullam, maxime doloremque adipisci enim. Iste nesciunt corporis fugiat nam labore, harum sint veniam adipisci. Ea, facere, maxime.
+    </div>
+
+    <!-- fallback de fontes 'Arial', 'Helvetica', sans-serif; 
+    fonte monospace é geralmente usada para código -->
+    <div style="text-align: right; line-height: 20px; border: 2px solid yellow; font-family: 'Arial', 'Helvetica', sans-serif; font-style: normal; font-weight: bold;">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora cupiditate minus dolore est dicta modi a 
+            fugiat illo beatae vel laborum dolorum, eum, accusantium explicabo. Cum officia earum quam quod.
+        </p>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim beatae amet temporibus sunt esse,
+             suscipit dolores natus architecto aspernatur saepe inventore veniam doloribus doloremque eaque quam,
+              minima? Eligendi, facere ratione.
+        </p>
+    </div>
+    <!--
+    line-height: 20px; /* tamanho da altura de cada linha */
+    letter-spacing: 2px; /* tamanho do espaço entre cada letra */
+    word-spacing: 5px; /* tamanho do espaço entre cada palavra */
+    text-indent: 20px; /* tamanho da margem da primeira linha do texto */
+    text-decoration: underline;
+    text-transform: uppercase;
+    -->
+</body>
+</html>
