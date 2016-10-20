@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- para criar toda a estrutura dê um ! + Tab -->
+        <title>Exemplo 01</title>
+        <meta charset="utf-8">
+    <head>  
+    <body>
+        Olá
+        <br>
+        Caracter de encode do a com tio
+        &atilde;
+        <h1>wow, titulo grande</h1>
+        <p>Os h's são mais por causa da semântica.</p>
+        <h2>lorem + Tab</h2>
+        <p id="paragrafo-lorem">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente quas labore, veniam sequi. 
+            Totam eius suscipit sunt voluptate aperiam molestiae! Quam exercitationem odit provident perferendis 
+            obcaecati illo architecto commodi molestias!</p>
+        <p><strong>negrito(strong)</strong>, <em>italico(em)</em>, <small>pequeno(small)</small> texto normal</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore voluptas, dignissimos, quibusdam soluta quis fugiat eum, 
+            eligendi magnam voluptate rem ratione necessitatibus. Aliquid quidem, quisquam omnis, unde blanditiis in cum!</p>
+        <h6>só vai até o 6</h6>
+
+        <img src="http://www.planwallpaper.com/static/images/ZhGEqAP.jpg" alt="wallpaper natureza céu estrelado">
+        <img src="imagens/wolverine.jpg" alt="wolverine locao">
+        <!-- caso não encontre a imagem descrita no atributa data da tag object ele mostra a imagem que está dentro da tag object -->
+        <object data="user-198985.png" type="image/png">
+            <img src="unknow-user.png" />
+        </object>
+
+        <!-- a de âncora -->
+        <a href="https://google.com.br"> link pro google </a>
+        <!-- pega o id do paragrafo -->
+        <a href="#paragrafo-lorem">Paragrafo lorem</a>
+        <!-- referencia outra pagina html-->
+        <a href="pagina2.html">pagina 2</a>
+
+        <ol>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>
+                <a href="pagina2.html">
+                    <em>Pagina 2</em>
+                </a>
+            </li>
+        </ol>
+
+        <!-- ul>li{Item $}*6 -->
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+        </ul>
+
+        <!-- table>tr*2>td*2 -->
+        <table>
+            <tr>
+                <td>Coluna 1 Linha 1</td>
+                <td>Coluna 1 Linha 2</td>
+            </tr>
+            <tr>
+                <td>Coluna 2 Linha 1</td>
+                <td>Coluna 2 Linha 2</td>
+            </tr>
+        </table>
+
+        <div>
+            Div é usada quando não existe semântica para o que tu quer colocar dentro.
+            Usar quando tiver bastante coisa. Para agrupar blocos de coisas.
+            Ela ocupa um bloco inteiro.
+        </div>
+
+        <span>
+            Tem display inline. Usar para coisas pequenas. Também não tem valor semântico.
+            Da para usar para agrupar coisas que tem o display inline. Ex: 'img' e 'a';
+            <img src="" alt="">
+            <a href=""></a>
+        </span>
+
+        <!-- isso não pode, pois o div nao eh display inline -->
+        <span> 
+            <div></div>
+        </span>
+        
+        <iframe src="https://www.youtube.com/watch?v=lDsUJIykzds" alt="video aleatorio"></iframe>
+
+    </body>
+</html>

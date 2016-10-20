@@ -1,0 +1,7 @@
+body{
+    margin: 50px;
+}
+.borda{
+    padding-top: 20px;
+    border-top: 1px solid #989696;
+}
