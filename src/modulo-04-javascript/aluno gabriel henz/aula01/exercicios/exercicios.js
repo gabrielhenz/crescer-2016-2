@@ -132,3 +132,20 @@ console.log(iguais(origem, destino));
 destino = ctrlC({ a: [ { b: '1', c: '2' }, { d: false }, { e: function() { return 3; } } ] });
 console.log(destino.a[2].e());
 // 3
+
+
+//exercicio 7 - mesclar
+function mesclar(obj1, obj2, bool){
+				if(bool){
+					propriedadesObj1 = Object.getOwnPropertyNames(obj1);
+					propriedadesObj2 = Object.getOwnPropertyNames(obj2);
+					for(var i = 0; i < propriedadesObj1.length; i++){
+						for(var j = 0; j < propriedadesObj2.length; j++){
+							if(obj1[propriedadesObj1[i]] instanceof Object && obj2[propriedadesObj2[j]]){
+								Object.assign(obj1[propriedadesObj1[i]], obj2[propriedadesObj1[j]]);
+							}
+						}
+					}
+					Object.assign(obj1, obj2);
+				}
+			}
