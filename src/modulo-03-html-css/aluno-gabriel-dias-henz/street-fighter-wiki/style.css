@@ -58,7 +58,7 @@ div.conteudo > h2{
 
 div.conteudo > div{
     padding: 0 15px 10px 15px;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 div.conteudo > div img{
@@ -67,7 +67,8 @@ div.conteudo > div img{
 }
 
 div.conteudo > div p{
-    font-size: 14.4px; 
-    display: inline; 
+    font-size: 14.4px;  
+    overflow-y: auto;
+    margin-top: 0;
     padding-right: 4px;
 }
