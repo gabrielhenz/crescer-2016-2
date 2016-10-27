@@ -1,12 +1,16 @@
+/*
 @font-face {
     font-family: 'Pokemon Solid';
     src: url('Pokemon Solid.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Raleway");
 
 body{
-  font-family: 'Pokemon Solid';
+  font-family: Raleway;
 }
 
 h1 > span:nth-of-type(1),
@@ -16,4 +20,12 @@ h1 > span:nth-of-type(1),
 .digiescolhidos
 {
     display: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+li{
+    list-style-type: none;
 }
