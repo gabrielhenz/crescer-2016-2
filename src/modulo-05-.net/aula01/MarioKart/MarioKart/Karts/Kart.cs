@@ -20,7 +20,7 @@ namespace MarioKart
 
         public List<IEquipamento> Equipamentos { get; private set; }
 
-        public int Velocidade
+        public virtual int Velocidade
         {
             get
             {
@@ -30,28 +30,10 @@ namespace MarioKart
                     somaDosBonusDeTodosOsEquipamentos += equipamento.BonusEquipamento;
                 }
 
-                int bonusDeHabilidadeDoCorredor;
-                NivelDeHabilidade nivelDeHabilidadeDoCorredor = Corredor.NivelDeHabilidade;
-                if (nivelDeHabilidadeDoCorredor.Equals(NivelDeHabilidade.Noob))
-                {
-                    bonusDeHabilidadeDoCorredor = 3;
-                }
-                else if (nivelDeHabilidadeDoCorredor.Equals(NivelDeHabilidade.Mediano))
-                {
-                    bonusDeHabilidadeDoCorredor = 5;
-                }
-                else
-                {
-                    bonusDeHabilidadeDoCorredor = 6;
-                }
-
-                int quantidadeDeEquipamentosNoKart = Equipamentos.Count;
-
                 int somaTotal =
                     3
                     + somaDosBonusDeTodosOsEquipamentos
-                    + bonusDeHabilidadeDoCorredor
-                    + quantidadeDeEquipamentosNoKart;
+                    + bonusHabilidadeCorredor();
 
                 return somaTotal;
             }
@@ -60,6 +42,27 @@ namespace MarioKart
         public void Equipar(IEquipamento equipamento)
         {
             this.Equipamentos.Add(equipamento);
+        }
+
+        public int bonusHabilidadeCorredor ()
+        {
+            int bonusHabilidadeCorredor;
+            NivelDeHabilidade nivelDeHabilidadeDoCorredor = this.Corredor.NivelDeHabilidade;
+            if (nivelDeHabilidadeDoCorredor.Equals(NivelDeHabilidade.Noob))
+            {
+                bonusHabilidadeCorredor = 3;
+            }
+            else if (nivelDeHabilidadeDoCorredor.Equals(NivelDeHabilidade.Mediano))
+            {
+                bonusHabilidadeCorredor = 5;
+            }
+            else
+            {
+                int quantidadeDeEquipamentosNoKart = Equipamentos.Count;
+                bonusHabilidadeCorredor = 6 + quantidadeDeEquipamentosNoKart;
+            }
+
+            return bonusHabilidadeCorredor;
         }
     }
 }
