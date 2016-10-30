@@ -11,7 +11,7 @@ namespace MarioKartTests
     public class KartTest
     {
         [TestMethod]
-        public void criaKartComPneusDeCouroDeDragaoECorredorMedianoETestaAVelocidade()
+        public void criaKartNormalComPneusDeCouroDeDragaoECorredorMedianoETestaAVelocidade()
         {
             var corredor = new Corredor("Yoshi", NivelDeHabilidade.Mediano);
             var kart = new Kart(corredor);
@@ -55,6 +55,28 @@ namespace MarioKartTests
             kart.Equipar(new PneusDeCouroDeDragao());
 
             Assert.AreEqual(19, kart.Velocidade);
+        }
+
+        [TestMethod]
+        public void criaKartDoTipoSkyFusionComFogueteDePlutonioEVerificaVelocidade()
+        {
+            var kart = new SkyFusion(new Corredor("Mario", NivelDeHabilidade.Profissional));
+
+            kart.Equipar(new FogueteDePlutonio());
+
+            Assert.AreEqual(12, kart.Velocidade);
+        }
+
+        public void criaKartNormalComSkyFusionQuePossuiDoisFoguetesDePlutonioEVerificaVelocidade()
+        {
+            var skyFusion = new SkyFusion(new Corredor("Mario", NivelDeHabilidade.Profissional));
+            skyFusion.Equipar(new FogueteDePlutonio());
+            skyFusion.Equipar(new FogueteDePlutonio());
+
+            var kart = new Kart(new Corredor("Mario", NivelDeHabilidade.Profissional));
+            kart.Equipar(skyFusion);
+
+            Assert.AreEqual(32, kart.Velocidade);
         }
     }
 }
