@@ -85,52 +85,116 @@ namespace Repositorio
 
         public IList<Funcionario> BuscarPorCargo(Cargo cargo)
         {
-            throw new NotImplementedException();
+            return this.Funcionarios.Where(funcionario => funcionario.Cargo.Equals(cargo)).ToList();
         }
 
         public IList<Funcionario> OrdenadosPorCargo()
         {
-            throw new NotImplementedException();
+            return this.Funcionarios.OrderBy(funcionario => funcionario.Cargo.Salario).ThenBy(funcionario => funcionario.Nome).ToList();
         }
 
         public IList<Funcionario> BuscarPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return this.Funcionarios.Where(funcionario => funcionario.Nome.Contains(nome)).ToList();
         }        
 
         public IList<Funcionario> BuscarPorTurno(params TurnoTrabalho[] turnos)
         {
-            throw new NotImplementedException();
+            var funcionariosPorTurno = new List<Funcionario>();
+            foreach(var turno in turnos)
+            {
+                funcionariosPorTurno.AddRange(this.Funcionarios.Where(funcionario => funcionario.TurnoTrabalho.Equals(turno)).ToList());
+            }
+            return funcionariosPorTurno;
         }        
 
         public IList<Funcionario> FiltrarPorIdadeAproximada(int idade)
         {
-            throw new NotImplementedException();
+            int proximidade = 5;
+            return this.Funcionarios
+                .Where(funcionario => 
+                    (DateTime.Now.Year - funcionario.DataNascimento.Year) <= idade + proximidade
+                    &&
+                    (DateTime.Now.Year - funcionario.DataNascimento.Year) >= idade - proximidade)
+                .ToList();
         }        
 
         public double SalarioMedio(TurnoTrabalho? turno = null)
         {
-            throw new NotImplementedException();
+            if(turno == null)
+            {
+                return this.Funcionarios.Average(funcionario => funcionario.Cargo.Salario);
+            }else
+            {
+                return this.Funcionarios
+                    .Where(funcionario => funcionario.TurnoTrabalho.Equals(turno))
+                    .Select(funcionario => funcionario.Cargo.Salario)
+                    .ToList()
+                    .Average();
+            }
         }
 
         public IList<Funcionario> AniversariantesDoMes()
         {
-            throw new NotImplementedException();
+            return this.Funcionarios.Where(funcionario => funcionario.DataNascimento.Month == DateTime.Now.Month).ToList();
         }
 
         public IList<dynamic> BuscaRapida()
         {
-            throw new NotImplementedException();
+            return this.Funcionarios
+                .Select(funcionario => new
+                {
+                    NomeFuncionario = funcionario.Nome,
+                    TituloCargo = funcionario.Cargo.Titulo
+                })
+                .ToArray();
         }
 
         public IList<dynamic> QuantidadeFuncionariosPorTurno()
         {
-            throw new NotImplementedException();
+            return this.Funcionarios
+                .GroupBy(funcionario => funcionario.TurnoTrabalho)
+                .Select(g => new {
+                    Turno = g.Key,
+                    Quantidade = g.Count()
+                })
+                .ToArray();
         }
 
         public dynamic FuncionarioMaisComplexo()
         {
-            throw new NotImplementedException();
+            var funcionarioSemQuantidadePorCargo =
+                this.Funcionarios
+                .OrderByDescending(funcionario => funcionario.Cargo.Salario)
+                .ThenByDescending(funcionario => funcionario.Nome.Length)
+                .ThenByDescending(funcionario => funcionario.DataNascimento.Date)
+                .Select(funcionario => new {
+                    Nome = funcionario.Nome,
+                    DataNascimento = $"{funcionario.DataNascimento.Day}/{funcionario.DataNascimento.Month}/{funcionario.DataNascimento.Year}",
+                    SalarioRS = String.Format("R$ {0:N}", funcionario.Cargo.Salario),
+                    SalarioUS = String.Format("${0:N}", funcionario.Cargo.Salario).Replace(",", "."),
+                    Cargo = funcionario.Cargo
+                })
+                .First();
+
+            var quantidadeMesmoCargo = this.Funcionarios
+                .Where(x => x.Cargo.Equals(funcionarioSemQuantidadePorCargo.Cargo))
+                .GroupBy(x => x.Cargo)
+                .Select(g => new
+                {
+                    Turno = g.Key,
+                    Quantidade = g.Count()
+                }).First();
+
+            return new
+            {
+                Nome = funcionarioSemQuantidadePorCargo.Nome,
+                DataNascimento = funcionarioSemQuantidadePorCargo.DataNascimento,
+                SalarioRS = funcionarioSemQuantidadePorCargo.SalarioRS,
+                SalarioUS = funcionarioSemQuantidadePorCargo.SalarioUS,
+                Cargo = funcionarioSemQuantidadePorCargo.Cargo,
+                QuantidadeMesmoCargo = quantidadeMesmoCargo.Quantidade
+            };
         }
     }
 }
