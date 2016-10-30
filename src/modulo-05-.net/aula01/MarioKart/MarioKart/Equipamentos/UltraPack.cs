@@ -10,15 +10,7 @@ namespace MarioKart.Equipamentos
     {
         public UltraPack(IEquipamento equipamento)
         {
-            this.Equipamento = UltraPackRecursivo(equipamento);
-        }
-
-        private IEquipamento UltraPackRecursivo(IEquipamento equipamento)
-        {
-            if(equipamento is UltraPack)
-            {
-                UltraPackRecursivo(equipamento.Equipamento);
-            }
+            this.Equipamento = equipamento;
         }
 
         private IEquipamento Equipamento;
