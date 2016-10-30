@@ -59,7 +59,7 @@ namespace MarioKartTests
         {
             var equipamento = new UltraPack(new UltraPack(new FogueteDePlutonio()));
 
-            Assert.AreEqual(3, equipamento.BonusEquipamento);
+            Assert.AreEqual(4, equipamento.BonusEquipamento);
         }
     }
 }
