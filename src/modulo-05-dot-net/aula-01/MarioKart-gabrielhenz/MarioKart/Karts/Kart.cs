@@ -33,7 +33,7 @@ namespace MarioKart
                 int somaTotal =
                     3
                     + somaDosBonusDeTodosOsEquipamentos
-                    + bonusHabilidadeCorredor();
+                    + BonusHabilidadeCorredor();
 
                 return somaTotal;
             }
@@ -44,7 +44,7 @@ namespace MarioKart
             this.Equipamentos.Add(equipamento);
         }
 
-        public int bonusHabilidadeCorredor ()
+        public int BonusHabilidadeCorredor ()
         {
             int bonusHabilidadeCorredor;
             NivelDeHabilidade nivelDeHabilidadeDoCorredor = this.Corredor.NivelDeHabilidade;
