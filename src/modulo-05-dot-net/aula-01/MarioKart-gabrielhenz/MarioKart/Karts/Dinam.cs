@@ -16,7 +16,7 @@ namespace MarioKart.Karts
             get
             {
                 //bonus de habilidade do corredor dobrado
-                return base.Velocidade + this.bonusHabilidadeCorredor();
+                return base.Velocidade + this.BonusHabilidadeCorredor();
             }
         }
     }
