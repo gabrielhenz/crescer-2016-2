@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3864FDB3-183F-422C-8820-F5F24D5F9882}</ProjectGuid>
+    <ProjectGuid>{AEE7A0C4-F284-421C-B54B-4AC7FED78012}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StreetFighter.Aplicativo</RootNamespace>
-    <AssemblyName>StreetFighter.Aplicativo</AssemblyName>
+    <RootNamespace>StreetFighter.Persistencia</RootNamespace>
+    <AssemblyName>StreetFighter.Persistencia</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,10 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FakeItEasy, Version=2.3.1.0, Culture=neutral, PublicKeyToken=eff28e2146d5fd2c, processorArchitecture=MSIL">
-      <HintPath>..\packages\FakeItEasy.2.3.1\lib\net40\FakeItEasy.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PersonagemAplicativo.cs" />
+    <Compile Include="PersonagemRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,13 +48,6 @@
       <Project>{fd6842af-bd59-44c3-8e61-0830ca66e4bf}</Project>
       <Name>StreetFighter.Dominio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StreetFighter.Persistencia\StreetFighter.Repositorio.csproj">
-      <Project>{aee7a0c4-f284-421c-b54b-4ac7fed78012}</Project>
-      <Name>StreetFighter.Repositorio</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
