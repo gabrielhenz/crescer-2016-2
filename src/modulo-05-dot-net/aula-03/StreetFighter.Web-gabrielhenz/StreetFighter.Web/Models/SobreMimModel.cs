@@ -5,7 +5,7 @@ using System.Web;
 
 namespace StreetFighter.Web.Models
 {
-    public class SobreModel
+    public class SobreMimModel
     {
         public String Nome { get; set; }
 
