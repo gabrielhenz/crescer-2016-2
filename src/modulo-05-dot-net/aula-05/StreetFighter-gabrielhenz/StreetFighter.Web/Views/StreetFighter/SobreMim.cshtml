@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "Sobre";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Globalization
+<div>
+    <img src="~/Content/Images/mr-robot.jpg" alt="Quadro do Mr. Robot">
+    <p>
+        <strong>Nome:</strong> @Model.Nome <br>
+        <strong>Nascimento:</strong> @(String.Format("{0} de {1} de {2}.", Model.Nascimento.Day, Model.Nascimento.ToString("MMMM", new CultureInfo("pt-BR")), Model.Nascimento.Year)) <br>
+        <strong>Altura:</strong> @Model.Altura cm. <br>
+        <strong>Peso:</strong> @Model.Peso kg. <br>
+        <strong>Escolaridade:</strong> @Model.Escolaridade <br>
+        <strong>Habilidades especiais:</strong> @Model.HabilidadesEspeciais <br>
+        <strong>Gosta de:</strong> @Model.GostaDe <br>
+        <strong>Desgosta:</strong> @Model.Desgosta <br>
+        <strong>Estilo de luta:</strong> @Model.EstiloDeLuta <br>
+        <strong>Origem:</strong> @Model.Origem <br>
+        <strong>Mestre em:</strong> @Model.MestreEm <br>
+    </p>
+</div>
+
