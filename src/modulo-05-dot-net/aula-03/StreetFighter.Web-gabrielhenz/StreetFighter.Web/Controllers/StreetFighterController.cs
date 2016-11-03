@@ -12,73 +12,59 @@ namespace StreetFighter.Web.Controllers
         // GET: StreetFighter
         public ActionResult Index()
         {
+
             return View();
+        }
+
+        public ActionResult Cadastro()
+        {
+            return View();
+        }
+
+        public ActionResult Salvar(FichaTecnicaModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("FichaTecnica", model);
+
+            }
+            else
+            {
+                ModelState.AddModelError("", "Ocorreu algum erro. Da uma olhada aí pls :(");
+                return View("Cadastro");
+            }
         }
 
         public ActionResult FichaTecnica()
         {
-            string primeiraAparicao = "Street Fighter II The World Warrior (1991)";
+            string imagem = "~/Content/Images/blanka.png";
 
-            DateTime nascimento = new DateTime(1966, 2, 12);
+            string nome = "Blanka";
+
+            DateTime dataNascimento = new DateTime(1966, 2, 12);
 
             int altura = 192;
 
             double peso = 96;
 
-            string medidas = "B198, C120, Q172.";
+            string golpesEspeciais = "Caçar, Eletricidade.";
 
-            char tipoSanguineo = 'B';
-
-            string habilidadesEspeciais = "Caçar, Eletricidade.";
-
-            string gosta = "Frutas tropicais, Pirarucu, Sua mãe.";
-
-            string desgosta = "Army ants (espécie de formiga).";
-
-            string estiloDeLuta = "Luta Selvagem autodidata (Army Ants) / Capoeira.";
-
-            string origem = "Brasil (lugar de nascença é provável como sendo Tailândia).";
-
-            string umaFalaDeVitoria = "\"Ver você em ação é uma piada!\"";
-
-            string ssf2Nickname = "\"A selvagem criança da natureza\".";
-
-            string sfa3Nickname = "\"A animal pessoa amazônica\".";
-
-            string sf4Nickname = "\"Guerreiro da selva\".";
-
-            string sfa3Stage = "Ramificação do Rio Madeira - pantano, Brasil (ramificação do rio Madeira: talvez possa ser Mato Grosso, ou Tocantins?).";
-
-            string sf2Stage = "Bacia do rio Amazonas (Brasil).";
-
-            string golpesEspeciaisFamosos = "Electric Thunder, Rolling Attack.";
-
+            string origem = "BR";
 
             var model = new FichaTecnicaModel()
             {
-                PrimeiraAparicao = primeiraAparicao,
-                Nascimento = nascimento,
+                Imagem = imagem,
+                Nome = nome,
+                DataNascimento = dataNascimento,
                 Altura = altura,
                 Peso = peso,
-                Medidas = medidas,
-                TipoSanguineo = tipoSanguineo,
-                HabilidadesEspeciais = habilidadesEspeciais,
-                Gosta = gosta,
-                Desgosta = desgosta,
-                EstiloDeLuta = estiloDeLuta,
                 Origem = origem,
-                UmaFalaDeVitoria = umaFalaDeVitoria,
-                SSF2Nickname = ssf2Nickname,
-                SFA3Nickname = sfa3Nickname,
-                SF4Nickname = sf4Nickname,
-                SFA3Stage = sfa3Stage,
-                SF2Stage = sf2Stage,
-                GolpesEspeciaisFamosos = golpesEspeciaisFamosos
+                GolpesEspeciais = golpesEspeciais
             };
             return View(model);
         }
 
-        public ActionResult Sobre()
+        public ActionResult SobreMim()
         {
             string nome = "Gabriel Dias Henz";
 
@@ -102,7 +88,7 @@ namespace StreetFighter.Web.Controllers
 
             string mestreEm = "Compilar sem erro, Ter sono, Evitar sono com café.";
 
-            var model = new SobreModel()
+            var model = new SobreMimModel()
             {
                 Nome = nome,
                 Nascimento = nascimento,
