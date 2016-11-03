@@ -5,26 +5,14 @@
 }
 @using System.Globalization
 <div>
-    <img src="~/Content/Images/blanka.png" alt="imagem do blanka">
+    <img src="@Url.Content(Model.Imagem)" alt="imagem do blanka" width="300px" height="500px">
     <p>
-        <strong>Primeira aparição:</strong> @Model.PrimeiraAparicao <br>
-        <strong>Nascimento:</strong> @(String.Format("{0} de {1} de {2}.", Model.Nascimento.Day, Model.Nascimento.ToString("MMMM", new CultureInfo("pt-BR")), Model.Nascimento.Year)) <br>
-        <strong>Altura:</strong> @Model.Altura cm. <br>
-        <strong>Peso:</strong> @Model.Peso kg. <br>
-        <strong>Medidas:</strong> @Model.Medidas <br>
-        <strong>Tipo sanguíneo:</strong> @Model.TipoSanguineo <br>
-        <strong>Habilidades especiais:</strong> @Model.HabilidadesEspeciais <br>
-        <strong>Gosta:</strong> @Model.Gosta <br>
-        <strong>Desgosta:</strong> @Model.Desgosta <br>
-        <strong>Estilo de luta:</strong> @Model.EstiloDeLuta <br>
+        <strong>Nome:</strong> @Model.Nome <br>
+        <strong>Nascimento:</strong> @(String.Format("{0} de {1} de {2}", Model.DataNascimento.Day, Model.DataNascimento.ToString("MMMM", new CultureInfo("pt-BR")), Model.DataNascimento.Year)) <br>
+        <strong>Altura:</strong> @Model.Altura cm <br>
+        <strong>Peso:</strong> @Model.Peso kg <br>
         <strong>Origem:</strong> @Model.Origem <br>
-        <strong>Uma fala de vitória:</strong> @Model.UmaFalaDeVitoria <br>
-        <strong>SSF2 nickname:</strong> @Model.SSF2Nickname <br>
-        <strong>SFA3 nickname:</strong> @Model.SFA3Nickname <br>
-        <strong>SF4 nickname:</strong> @Model.SF4Nickname <br>
-        <strong>SFA3 stage:</strong> @Model.SFA3Stage <br>
-        <strong>SF2 stage:</strong> @Model.SF2Stage <br>
-        <strong>Golpes especiais famosos:</strong> @Model.GolpesEspeciaisFamosos <br>
+        <strong>Golpes especiais:</strong> @Model.GolpesEspeciais <br>
     </p>
 </div>
 
