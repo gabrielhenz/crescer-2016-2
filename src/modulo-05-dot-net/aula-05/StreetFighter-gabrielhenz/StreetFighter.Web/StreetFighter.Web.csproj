@@ -138,6 +138,7 @@
     <Content Include="Views\StreetFighter\SobreMim.cshtml" />
     <Content Include="Views\Scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\StreetFighter\Cadastro.cshtml" />
+    <Content Include="Views\StreetFighter\ListaDePersonagens.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -35,33 +35,9 @@ namespace StreetFighter.Web.Controllers
             }
         }
 
-        public ActionResult FichaTecnica()
+        public ActionResult ListaDePersonagens()
         {
-            string imagem = "~/Content/Images/blanka.png";
-
-            string nome = "Blanka";
-
-            DateTime dataNascimento = new DateTime(1966, 2, 12);
-
-            int altura = 192;
-
-            double peso = 96;
-
-            string golpesEspeciais = "Caçar, Eletricidade.";
-
-            string origem = "BR";
-
-            var model = new FichaTecnicaModel()
-            {
-                Imagem = imagem,
-                Nome = nome,
-                DataNascimento = dataNascimento,
-                Altura = altura,
-                Peso = peso,
-                Origem = origem,
-                GolpesEspeciais = golpesEspeciais
-            };
-            return View(model);
+            return View();
         }
 
         public ActionResult SobreMim()
