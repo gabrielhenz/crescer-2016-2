@@ -1,6 +1,9 @@
-﻿using StreetFighter.Web.Models;
+﻿using StreetFighter.Aplicativo;
+using StreetFighter.Dominio;
+using StreetFighter.Web.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,28 +19,75 @@ namespace StreetFighter.Web.Controllers
             return View();
         }
 
-        public ActionResult Cadastro()
+        public ActionResult Cadastro(int Id = 0)
         {
+            ViewBag.Id = Id;
             return View();
         }
 
-        public ActionResult Salvar(FichaTecnicaModel model)
+        public ActionResult Salvar(int Id, FichaTecnicaModel model)
         {
             if (ModelState.IsValid)
             {
-                return View("FichaTecnica", model);
+                try
+                {
+                    var aplicativo = new PersonagemAplicativo();
+                    var personagem = new Personagem(Id, model.Imagem, model.Nome, model.DataNascimento, model.Altura,
+                        model.Peso, model.Origem, model.GolpesEspeciais, model.PersonagemOculto);
 
+                    aplicativo.Salvar(personagem);
+                }
+                catch (NomeComNunesException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+                catch (MorroDaPedraException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+                catch
+                {
+                    ModelState.AddModelError("", "Ocorreu um erro inesperado. Contate o administrador do sistema.");
+                }
             }
+            if (Id == 0)
+                ViewData["EditadoOuCadastradoOuExcluido"] = "Personagem cadastrado com sucesso!";
             else
-            {
-                ModelState.AddModelError("", "Ocorreu algum erro. Da uma olhada aí pls :(");
-                return View("Cadastro");
-            }
+                ViewData["EditadoOuCadastradoOuExcluido"] = "Personagem editado com sucesso!";
+            return RedirectToAction("ListaDePersonagens", model);
         }
 
-        public ActionResult ListaDePersonagens()
+        public ActionResult ListaDePersonagens(string filtro)
         {
-            return View();
+            ListaDePersonagensModel model = new ListaDePersonagensModel(new PersonagemAplicativo().ListarPersonagens(filtro));
+            String listaVazia = "";
+            if(model.ListaDePersonagens.Count <= 0)
+            {
+                if (String.IsNullOrEmpty(filtro))
+                    listaVazia = "Não existe nenhum personagem cadastrado.";
+                else
+                    listaVazia = "Não existe nenhum personagem cadastrado com este nome.";
+            }
+            ViewBag.ListaVazia = listaVazia;
+            return View(model);
+        }
+
+        public ActionResult FichaTecnica(int Id = 0)
+        {
+            Personagem personagem = new PersonagemAplicativo().ListarPersonagens("").Find(p => p.Id == Id);
+            FichaTecnicaModel model = new FichaTecnicaModel()
+            {
+                Imagem = personagem.Imagem,
+                Nome = personagem.Nome,
+                DataNascimento = personagem.DataNascimento,
+                Altura = personagem.Altura,
+                Peso = personagem.Peso,
+                Origem = personagem.Origem,
+                GolpesEspeciais = personagem.GolpesEspeciais,
+                PersonagemOculto = personagem.PersonagemOculto
+            };
+
+            return View(model);
         }
 
         public ActionResult SobreMim()
@@ -80,6 +130,18 @@ namespace StreetFighter.Web.Controllers
             };
 
             return View(model);
+        }
+
+        public ActionResult Excluir(int Id)
+        {
+            new PersonagemAplicativo().Excluir(Id);
+            ViewData["EditadoOuCadastradoOuExcluido"] = "O personagem foi excluído com sucesso!";
+            return RedirectToAction("ListaDePersonagens");
+        }
+
+        public ActionResult Editar(int Id)
+        {
+            return RedirectToAction("Cadastro", new { Id = Id });
         }
     }
 }
