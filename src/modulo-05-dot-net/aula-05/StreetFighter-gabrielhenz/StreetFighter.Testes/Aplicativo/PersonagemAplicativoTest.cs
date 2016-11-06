@@ -10,16 +10,29 @@ namespace StreetFighter.Testes.Aplicativo
     public class PersonagemAplicativoTest
     {
         [TestMethod]
-        public void SalvarPersonagemComId0DeveInscluir()
+        public void SalvarPersonagemComId0DeveIncluir()
         {
             var repositorioFake = A.Fake<IPersonagemRepositorio>();
 
             var aplicativo = new PersonagemAplicativo(repositorioFake);
-            var personagem = new Personagem("João", "São Leopoldo");
+            var personagem = A.Fake<Personagem>();
 
             aplicativo.Salvar(personagem);
 
             A.CallTo(() => repositorioFake.IncluirPersonagem(personagem))
+                .MustHaveHappened();
+        }
+
+        [TestMethod]
+        public void SalvarPersonagemComId1DeveEditar()
+        {
+            var repositorioFake = A.Fake<IPersonagemRepositorio>();
+
+            var aplicativo = new PersonagemAplicativo(repositorioFake);
+            var personagem = new Personagem(1, "", "", new System.DateTime(), 0, 0, "", "", false);
+            aplicativo.Salvar(personagem);
+
+            A.CallTo(() => repositorioFake.EditarPersonagem(personagem))
                 .MustHaveHappened();
         }
     }
