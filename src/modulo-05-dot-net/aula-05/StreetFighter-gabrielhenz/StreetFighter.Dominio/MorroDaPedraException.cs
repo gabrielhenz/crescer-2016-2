@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace StreetFighter.Dominio
 {
-    public class RegraNegocioException : Exception
+    public class MorroDaPedraException : Exception
     {
-        public RegraNegocioException(string mensgagem) : base(mensgagem)
-        { }
+        public MorroDaPedraException(string mensgagem) : base(mensgagem) { }
     }
 }
