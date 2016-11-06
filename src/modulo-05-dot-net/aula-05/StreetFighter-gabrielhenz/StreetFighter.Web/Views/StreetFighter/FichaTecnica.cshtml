@@ -1,11 +1,16 @@
-﻿
-@{
-    ViewBag.Title = "FichaTecnica";
+﻿@{ 
+    ViewBag.Title = "Ficha Técnica";
+    ViewBag.PageTitle = "Ficha Técnica";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using System.Globalization
 <div>
-    <img src="@Url.Content(Model.Imagem)" alt="imagem do blanka" width="300px" height="500px">
+    @{
+        if (!String.IsNullOrEmpty(Model.Imagem))
+        {
+            <img src="@Url.Content(Model.Imagem)" alt="imagem do blanka" width="300" height="500">
+        }
+    }
     <p>
         <strong>Nome:</strong> @Model.Nome <br>
         <strong>Nascimento:</strong> @(String.Format("{0} de {1} de {2}", Model.DataNascimento.Day, Model.DataNascimento.ToString("MMMM", new CultureInfo("pt-BR")), Model.DataNascimento.Year)) <br>
@@ -13,6 +18,7 @@
         <strong>Peso:</strong> @Model.Peso kg <br>
         <strong>Origem:</strong> @Model.Origem <br>
         <strong>Golpes especiais:</strong> @Model.GolpesEspeciais <br>
+        <strong>Personagem oculto:</strong>@(Model.PersonagemOculto ? "Sim" : "Não") <br />
     </p>
 </div>
 
