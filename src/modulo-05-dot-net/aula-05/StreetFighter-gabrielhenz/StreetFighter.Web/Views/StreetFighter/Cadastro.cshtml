@@ -2,6 +2,7 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Cadastro de Ficha Técnica";
+    ViewBag.PageTitle = "Cadastro de Ficha Técnica";
     ViewBag.paises = new List<SelectListItem>()
     {
             new SelectListItem() { Value = "AF", Text ="Afghanistan" },
@@ -169,7 +170,6 @@
             new SelectListItem() { Value = "NG", Text ="Nigeria" },
             new SelectListItem() { Value = "NU", Text ="Niue" },
             new SelectListItem() { Value = "NF", Text ="Norfolk Island" },
-            new SelectListItem() { Value = "MP", Text ="Northern Mariana Islands" },
             new SelectListItem() { Value = "NO", Text ="Norway" },
             new SelectListItem() { Value = "OM", Text ="Oman" },
             new SelectListItem() { Value = "PK", Text ="Pakistan" },
@@ -258,31 +258,24 @@
 }
 
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>CadastroSimples</title>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+
     <style>
         .field-validation-error {
             color: #a94442;
         }
     </style>
-</head>
-<body>
 
     <h3>@ViewBag.Mensagem</h3>
-
-    @using (Html.BeginForm("Salvar", "StreetFighter", FormMethod.Post, new { @class = "form-horizontal", style = "padding: 5px 15px;" }))
+    
+    @using (Html.BeginForm("Salvar", "StreetFighter", new { Id = @ViewBag.Id }, FormMethod.Post, new { @class = "form-horizontal", style = "padding: 5px 15px;" }))
     {
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
             @Html.LabelFor(model => model.Imagem, new { @class = "col-sm-2 control-label" })
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.Imagem, new { @class = "form-control", placeholder = "(URL) Ex: https://i.ytimg.com/vi/-0Q9puab578/maxresdefault.jpg" })
+                @Html.TextBoxFor(model => model.Imagem, new { @class = "form-control", placeholder = "(URL) Ex: https://i.ytimg.com/vi/-0Q9puab578/maxresdefault.jpg"})
                 @Html.ValidationMessageFor(model => model.Imagem)
             </div>
         </div>
@@ -290,7 +283,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Nome, new { @class = "col-sm-2 control-label" })
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", placeholder = "Ryu"})
+                @Html.TextBoxFor(model => model.Nome, new { @class = "form-control", placeholder = "Ryu" })
                 @Html.ValidationMessageFor(model => model.Nome)
             </div>
         </div>
@@ -298,7 +291,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.DataNascimento, new { @class = "col-sm-2 control-label" })
             <div class="col-sm-10">
-                @Html.TextBoxFor(model => model.DataNascimento, new { @class = "form-control", type ="Date", style = "width: 150px"})
+                @Html.TextBoxFor(model => model.DataNascimento, new { @class = "form-control", type ="Date", style = "width: 150px" })
                 @Html.ValidationMessageFor(model => model.DataNascimento)
             </div>
         </div>
@@ -334,11 +327,11 @@
                 @Html.ValidationMessageFor(model => model.Origem)
             </div>
         </div>
-        
+
         <div class="form-group">
-            @Html.LabelFor(model => model.PersonagemOculto, new { @class = "col-sm-2 control-label", style = "margin-top: 12px;" })
+            @Html.LabelFor(model => model.PersonagemOculto, new { @class = "col-sm-2 control-label" })
             <div class="col-sm-10">
-                @Html.CheckBoxFor(model => model.PersonagemOculto)
+                @Html.CheckBoxFor(model => model.PersonagemOculto, new { style = "margin-top: 20px" })
                 @Html.ValidationMessageFor(model => model.PersonagemOculto)
             </div>
         </div>
@@ -365,7 +358,5 @@
             return this.optional(element) || !/Invalid|NaN/.test(date.toString());
         }
     </script>
-</body>
-</html>
 
 
