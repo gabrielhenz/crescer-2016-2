@@ -22,6 +22,7 @@ namespace StreetFighter.Web.Models
         public int Altura { get; set; }
 
         [Required]
+        [RegularExpression(@"^\d+.\d{0,2}$", ErrorMessage = "O peso não pode ter mais de 2 casas decimais.")]
         public Double Peso { get; set; }
 
         [Required]
