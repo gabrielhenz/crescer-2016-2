@@ -270,6 +270,7 @@
     
     @using (Html.BeginForm("Salvar", "StreetFighter", new { Id = @ViewBag.Id }, FormMethod.Post, new { @class = "form-horizontal", style = "padding: 5px 15px;" }))
     {
+        @Html.AntiForgeryToken();
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
