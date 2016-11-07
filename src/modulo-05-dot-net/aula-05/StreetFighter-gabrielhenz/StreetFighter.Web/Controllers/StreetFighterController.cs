@@ -25,6 +25,8 @@ namespace StreetFighter.Web.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Salvar(int Id, FichaTecnicaModel model)
         {
             if (ModelState.IsValid)
