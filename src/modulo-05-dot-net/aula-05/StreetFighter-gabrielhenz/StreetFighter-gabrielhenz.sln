@@ -5,13 +5,13 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetFighter.Web", "StreetFighter.Web\StreetFighter.Web.csproj", "{9D64C34D-662D-413F-A9AB-A4D7971A3460}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetFighter.Testes", "StreetFighter.Testes\StreetFighter.Testes.csproj", "{B20332A3-A306-4B37-AC03-B806784CDC7E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetFighter.Aplicativo", "StreetFighter.Aplicativo\StreetFighter.Aplicativo.csproj", "{3864FDB3-183F-422C-8820-F5F24D5F9882}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetFighter.Dominio", "StreetFighter.Dominio\StreetFighter.Dominio.csproj", "{FD6842AF-BD59-44C3-8E61-0830CA66E4BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetFighter.Repositorio", "StreetFighter.Persistencia\StreetFighter.Repositorio.csproj", "{AEE7A0C4-F284-421C-B54B-4AC7FED78012}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StreetFighter.Infra", "StreetFighter.Infra\StreetFighter.Infra.csproj", "{CCEBD669-807E-4112-8561-90D67188A46E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{9D64C34D-662D-413F-A9AB-A4D7971A3460}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D64C34D-662D-413F-A9AB-A4D7971A3460}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D64C34D-662D-413F-A9AB-A4D7971A3460}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B20332A3-A306-4B37-AC03-B806784CDC7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B20332A3-A306-4B37-AC03-B806784CDC7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B20332A3-A306-4B37-AC03-B806784CDC7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B20332A3-A306-4B37-AC03-B806784CDC7E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3864FDB3-183F-422C-8820-F5F24D5F9882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3864FDB3-183F-422C-8820-F5F24D5F9882}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3864FDB3-183F-422C-8820-F5F24D5F9882}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{AEE7A0C4-F284-421C-B54B-4AC7FED78012}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AEE7A0C4-F284-421C-B54B-4AC7FED78012}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AEE7A0C4-F284-421C-B54B-4AC7FED78012}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCEBD669-807E-4112-8561-90D67188A46E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCEBD669-807E-4112-8561-90D67188A46E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCEBD669-807E-4112-8561-90D67188A46E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCEBD669-807E-4112-8561-90D67188A46E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
