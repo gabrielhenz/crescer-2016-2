@@ -1,0 +1,35 @@
+﻿@using StreetFighter.Dominio
+@{ 
+    ViewBag.PageTitle = "Lista De Personagens";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<style>
+    div a:hover{
+        background-color: rgba(255, 0, 0, 0.40)!important;
+    }
+    h3{
+        margin-left:15px;
+    }
+</style>
+@Html.Partial("_Menu")
+<div class="conteudo">
+    <h2>Lista De Personagens</h2>
+    <h3>@ViewBag.ListaVazia</h3>
+    <h3>@TempData["EditadoOuCadastradoOuExcluido"]</h3>
+
+    <a href="~/Cadastro" class="btn btn-default" style="margin-left: 15px; margin-bottom: 16px; width: 175px; background-color: #ffc4c4; border: 2px solid #b50000;">Cadastrar Personagem</a>
+
+    <div class="list-group">
+        @{
+            foreach (Personagem personagem in Model.ListaDePersonagens)
+            {
+                <a href="~/FichaTecnica?Id=@personagem.Id" class="list-group-item list-group-item-action" style="margin-right: 10px; display: inline-block; width: 350px; font-weight: bold;">@personagem.Nome</a>
+                <a href="~/Editar?Id=@personagem.Id" class="btn btn-default" style="width: 80px; background-color: #932c2c; color: #fff; border: 2px solid #b50000;">Editar</a>
+                <a href="~/Excluir?Id=@personagem.Id" class="btn btn-default" style="width: 80px; background-color: #463434; color: #fff; border: 2px solid #b90000;">Excluir</a>
+            }
+        }
+    </div>
+</div>
+
+

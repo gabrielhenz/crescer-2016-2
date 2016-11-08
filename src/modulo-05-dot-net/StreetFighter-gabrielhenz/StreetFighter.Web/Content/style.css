@@ -1,0 +1,74 @@
+body {
+    margin: 50px;
+    background-image: url(http://feelgrafix.com/data_images/out/15/896447-street-fighter-wallpaper-hd.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial;
+}
+
+.borda{
+    padding-top: 20px;
+    border-top: 1px solid #989696;
+}
+
+div.menu{
+    text-align: center; 
+    width: 100%; 
+    margin-top: 270px; 
+    margin-bottom: 65px;
+}
+
+div.menu ul{
+    text-align: center; 
+    list-style-type: none; 
+    background-color: rgba(160, 160, 160, 0.5); 
+    border-radius: 10px; 
+    border: solid 0.1em; 
+    padding: 10px 50px; 
+    display: inline; 
+    border-color: rgb(160, 160, 160);
+}
+
+div.menu ul li{
+    display: inline;
+}
+
+div.menu ul li a{
+    color: white; 
+    text-decoration: none; 
+    padding: 0 30px 0 0;
+}
+
+div.menu ul li:last-child a{
+    padding: 0;
+}
+
+div.conteudo{
+    width: 630px; 
+    margin: auto auto; 
+    background-color: #BABBBD;
+}
+
+div.conteudo > h2{
+    color: #BDBDBF; 
+    background-color: #282829; 
+    padding: 20px 15px;
+}
+
+div.conteudo > div{
+    padding: 0 15px 10px 15px;
+    overflow-y: auto;
+}
+
+div.conteudo > div img{
+    float: left; 
+    padding-right: 8px;
+}
+
+div.conteudo > div p{
+    font-size: 14.4px;  
+    overflow-y: auto;
+    margin-top: 0;
+    padding-right: 4px;
+}
