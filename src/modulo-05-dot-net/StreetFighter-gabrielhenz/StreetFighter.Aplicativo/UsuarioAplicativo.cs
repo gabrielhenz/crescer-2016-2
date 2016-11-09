@@ -1,6 +1,7 @@
 ﻿using StreetFighter.Dominio;
 using StreetFighter.Infra;
 using StreetFighter.Persistencia;
+using RepositorioEF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,21 +16,9 @@ namespace StreetFighter.Aplicativo
 
         public static void PopularUsuariosNoArquivoDeTexto(List<Usuario> usuarios)
         {
-            UsuarioRepositorio repositorio = new UsuarioRepositorio();
+            Persistencia.UsuarioRepositorio repositorio = new Persistencia.UsuarioRepositorio();
             repositorio.PopularUsuarios(usuarios);
             _usuarios = repositorio.Usuarios;
-        }
-
-        public static void PopularUsuariosNoBanco()
-        {
-            List<Usuario> usuarios = new List<Usuario>()
-            {
-                new Usuario(1, "gabrielhenz", ServicoDeCriptografia.ConverterParaMD5("gabriel_$_12345"), "Gabriel Dias Henz"),
-                new Usuario(2, "nunestrivial", ServicoDeCriptografia.ConverterParaMD5("nunestrivial_$_morrodapedra"), "André Nunes"),
-                new Usuario(3, "bernarndo", ServicoDeCriptografia.ConverterParaMD5("bernarndo_$_vaidarjabulani"), "Bernardo Brezende")
-            };
-
-            new UsuarioRepositorioAdo().PopularUsuarios(usuarios);
         }
 
         public static Usuario BuscarUsuarioAutenticadoNoArquivoDeTexto(string login, string senha)
@@ -51,7 +40,7 @@ namespace StreetFighter.Aplicativo
         public static Usuario BuscarUsuarioAutenticadoNoBanco(string login, string senha)
         {
             string senhaDeComparacao = ServicoDeCriptografia.ConverterParaMD5($"{login}_$_{senha}");
-            return new UsuarioRepositorioAdo().BuscarUsuarioAutenticado(login, senhaDeComparacao);
+            return new RepositorioEF.UsuarioRepositorio().BuscarUsuarioAutenticado(login, senhaDeComparacao);
         }
     }
 }
