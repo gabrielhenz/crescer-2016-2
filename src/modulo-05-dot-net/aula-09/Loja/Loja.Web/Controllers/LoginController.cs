@@ -1,6 +1,7 @@
 ﻿using Loja.Dominio;
 using Loja.Infraestrutura;
 using Loja.Repositorio;
+using Loja.Web.Models;
 using Loja.Web.Servicos;
 using System;
 using System.Collections.Generic;
@@ -24,9 +25,23 @@ namespace Loja.Web.Controllers
         {
             UsuarioServico usuarioServico = ServicoDeDependencias.MontarUsuarioServico();
 
-            Usuario usuario = usuarioServico.BuscarPorAutenticacao(email, senha);
-            
-            return null;
+            Usuario usuarioAutenticado = usuarioServico.BuscarPorAutenticacao(email, senha);
+
+            if (usuarioAutenticado != null)
+            {
+                ServicoDeAutenticacao.Autenticar(new UsuarioLogadoModel(usuarioAutenticado.Email));
+                return RedirectToAction("Index", "Produto");
+            }
+                
+
+            ViewBag.LoginErro = "Usuario e senha incorretos.";
+            return View("Index");
+        }
+
+        public ActionResult NaoAutorizado()
+        {
+            ViewBag.NaoAutorizado = "Você não está autorizado para acessar essa página, faça login.";
+            return View("Index");
         }
     }
 }

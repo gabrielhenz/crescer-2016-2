@@ -8,9 +8,10 @@ namespace StreetFighter.Dominio
 {
     public interface IPersonagemRepositorio
     {
-        List<Personagem> ListarPersonagens(string filtroNome);
+        List<Personagem> ListarPersonagens();
         void IncluirPersonagem(Personagem personagem);
         void EditarPersonagem(Personagem personagem);
         void ExcluirPersonagem(Personagem personagem);
+        List<Personagem> FiltrarPorNome(string filtroNome);
     }
 }

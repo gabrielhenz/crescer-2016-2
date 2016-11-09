@@ -20,7 +20,7 @@ namespace StreetFighter.Persistencia
             {
                 connection.Open();
 
-                string sql = "SELECT * FROM Usuarios WHERE Login = @param_login AND Senha = @param_senha;";
+                string sql = "SELECT * FROM Usuario WHERE Login = @param_login AND Senha = @param_senha;";
 
                 var command = new SqlCommand(sql, connection);
 
@@ -62,7 +62,7 @@ namespace StreetFighter.Persistencia
                 string sql = "";
                 var parameters = new List<SqlParameter>();
 
-                sql = $"INSERT INTO Usuarios (Login, Senha, Nome) VALUES (@param_login, @param_senha, @param_nome);";
+                sql = $"INSERT INTO Usuario (Login, Senha, Nome) VALUES (@param_login, @param_senha, @param_nome);";
 
                 parameters.Add(new SqlParameter("param_login", usuario.Login));
                 parameters.Add(new SqlParameter("param_senha", usuario.Senha));
@@ -88,7 +88,7 @@ namespace StreetFighter.Persistencia
             {
                 connection.Open();
 
-                string sql = "SELECT * FROM Usuarios WHERE Login = @param_id;";
+                string sql = "SELECT * FROM Usuario WHERE Login = @param_id;";
 
                 var command = new SqlCommand(sql, connection);
 
@@ -119,7 +119,7 @@ namespace StreetFighter.Persistencia
                 string sql = "";
                 var parameters = new List<SqlParameter>();
 
-                sql = $"UPDATE Usuarios (Login, Senha, Nome) VALUES (@param_login, @param_senha, @param_nome) WHERE Id = @param.id;";
+                sql = $"UPDATE Usuario (Login, Senha, Nome) VALUES (@param_login, @param_senha, @param_nome) WHERE Id = @param.id;";
 
                 parameters.Add(new SqlParameter("param_login", usuario.Login));
                 parameters.Add(new SqlParameter("param_senha", usuario.Senha));

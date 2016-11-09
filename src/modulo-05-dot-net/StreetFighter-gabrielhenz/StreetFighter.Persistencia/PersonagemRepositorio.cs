@@ -61,12 +61,14 @@ namespace StreetFighter.Repositorio
             }
         }
 
-        public List<Personagem> ListarPersonagens(string filtroNome)
+        public List<Personagem> FiltrarPorNome(string filtroNome)
         {
-            if (!String.IsNullOrEmpty(filtroNome))
-                return Personagens.Where(p => p.Nome.Contains(filtroNome)).ToList();
-            else
-                return Personagens;
+            return Personagens.Where(p => p.Nome.Contains(filtroNome)).ToList();
+        }
+
+        public List<Personagem> ListarPersonagens()
+        {
+            return Personagens;
         }
 
         public void IncluirPersonagem(Personagem personagem)

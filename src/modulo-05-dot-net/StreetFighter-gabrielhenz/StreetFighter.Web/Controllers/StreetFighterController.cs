@@ -27,7 +27,6 @@ namespace StreetFighter.Web.Controllers
             //UsuarioAplicativo.PopularUsuariosNoArquivoDeTexto(PopularUsuarios());
             //Usuario usuarioAutenticado = UsuarioAplicativo.BuscarUsuarioAutenticadoNoArquivoDeTexto(
             //        login, senha);
-            UsuarioAplicativo.PopularUsuariosNoBanco();
             Usuario usuarioAutenticado = UsuarioAplicativo.BuscarUsuarioAutenticadoNoBanco(login, senha);
 
             if (usuarioAutenticado != null)
@@ -72,10 +71,6 @@ namespace StreetFighter.Web.Controllers
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", ex.Message);
-                }
             }
             if (Id == 0)
                 TempData["EditadoOuCadastradoOuExcluido"] = "Personagem cadastrado com sucesso!";
@@ -84,24 +79,25 @@ namespace StreetFighter.Web.Controllers
             return RedirectToAction("ListaDePersonagens");
         }
 
-        public ActionResult ListaDePersonagens(string filtro)
+        public ActionResult ListaDePersonagens()
         {
-            ListaDePersonagensModel model = new ListaDePersonagensModel(new PersonagemAplicativo().ListarPersonagens(filtro));
-            String listaVazia = "";
+            ListaDePersonagensModel model = new ListaDePersonagensModel(new PersonagemAplicativo().ListarPersonagens());
             if(model.ListaDePersonagens.Count <= 0)
-            {
-                if (String.IsNullOrEmpty(filtro))
-                    listaVazia = "Não existe nenhum personagem cadastrado.";
-                else
-                    listaVazia = "Não existe nenhum personagem cadastrado com este nome.";
-            }
-            ViewBag.ListaVazia = listaVazia;
+                ViewBag.ListaVazia = "Não existe nenhum personagem cadastrado.";
             return View(model);
+        }
+
+        public ActionResult FiltrarPorNome(string filtro)
+        {
+            ListaDePersonagensModel model = new ListaDePersonagensModel(new PersonagemAplicativo().FiltrarPorNome(filtro));
+            if(model.ListaDePersonagens.Count <= 0)
+                ViewBag.ListaVazia = "Não existe nenhum personagem cadastrado com este nome.";
+            return View("ListaDePersonagens", model);
         }
 
         public ActionResult FichaTecnica(int Id = 0)
         {
-            Personagem personagem = new PersonagemAplicativo().ListarPersonagens("").Find(p => p.Id == Id);
+            Personagem personagem = new PersonagemAplicativo().ListarPersonagens().Find(p => p.Id == Id);
             FichaTecnicaModel model = new FichaTecnicaModel()
             {
                 Imagem = personagem.Imagem,

@@ -4,7 +4,8 @@
 }
 
 <h2>Login</h2>
-
+<h4 style="color: red;">@ViewBag.LoginErro</h4>
+<h4 style="color: red;">@ViewBag.NaoAutorizado</h4>
 @using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
 {
     @Html.AntiForgeryToken()

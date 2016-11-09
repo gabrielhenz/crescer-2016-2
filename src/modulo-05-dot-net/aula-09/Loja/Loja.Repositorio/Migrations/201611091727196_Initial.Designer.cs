@@ -13,7 +13,7 @@ namespace Loja.Repositorio.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201611091620220_Initial"; }
+            get { return "201611091727196_Initial"; }
         }
         
         string IMigrationMetadata.Source

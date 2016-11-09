@@ -19,7 +19,16 @@ namespace StreetFighter.Dominio
         public string GolpesEspeciais { get; private set; }
         public bool PersonagemOculto { get; private set; }
 
+        public Personagem() { }
+
         public Personagem(int id, string imagem, string nome, DateTime dataNascimento,
+            int altura, decimal peso, string origem, string golpesEspeciais, bool personagemOculto)
+            : this(imagem, nome, dataNascimento, altura, peso, origem, golpesEspeciais, personagemOculto)
+        {
+            this.Id = id;
+        }
+
+        public Personagem(string imagem, string nome, DateTime dataNascimento,
             int altura, decimal peso, string origem, string golpesEspeciais, bool personagemOculto)
         {
             if (nome.ToUpperInvariant().Contains("NUNES"))
@@ -27,7 +36,6 @@ namespace StreetFighter.Dominio
 
             if (origem == "MP" && nome.ToUpperInvariant() != "NUNES")
                 throw new MorroDaPedraException($"Somente um personagem pode ser dessa região e esse personagem não é o {nome}.");
-            this.Id = id;
             this.Imagem = imagem;
             this.Nome = nome;
             this.DataNascimento = dataNascimento;

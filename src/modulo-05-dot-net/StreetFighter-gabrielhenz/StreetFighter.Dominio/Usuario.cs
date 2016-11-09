@@ -8,6 +8,7 @@ namespace StreetFighter.Dominio
 {
     public class Usuario
     {
+        public Usuario() { }
         public Usuario(int id, string login, string senha, string nome) : this(login, senha, nome)
         {
             this.Id = id;
