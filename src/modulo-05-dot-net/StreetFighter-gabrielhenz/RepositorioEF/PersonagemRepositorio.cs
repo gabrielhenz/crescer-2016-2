@@ -37,12 +37,19 @@ namespace RepositorioEF
             }
         }
 
-        public List<Personagem> ListarPersonagens(string filtroNome)
+        public List<Personagem> ListarPersonagens()
         {
             using (var context = new DatabaseContext())
             {
-                IQueryable<Personagem> query = context.Personagem.Where(p => p.Nome.Contains(filtroNome));
-                return query.ToList();
+                return context.Personagem.ToList();
+            }
+        }
+
+        public List<Personagem> FiltrarPorNome(string filtroNome)
+        {
+            using (var context = new DatabaseContext())
+            {
+                return context.Personagem.Where(p => p.Nome.Contains(filtroNome)).ToList();
             }
         }
     }
