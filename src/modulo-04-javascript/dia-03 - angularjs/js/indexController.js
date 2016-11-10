@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 angular.module('helloAngular', [])
   .controller('IndexController', function($scope) {
     $scope.herois = marvel;
@@ -9,7 +8,7 @@ angular.module('helloAngular', [])
       $scope.herois.splice($index, 1);
     }
   });
-=======
+
 angular.module('helloAngular', [])
   .controller('IndexController', function($scope) {
     $scope.herois = marvel;
@@ -20,4 +19,3 @@ angular.module('helloAngular', [])
       $scope.herois.splice($index, 1);
     }
   });
->>>>>>> master
