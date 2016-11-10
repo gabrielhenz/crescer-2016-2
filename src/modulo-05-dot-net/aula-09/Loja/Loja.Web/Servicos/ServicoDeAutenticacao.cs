@@ -21,6 +21,10 @@ namespace Loja.Web.Servicos
                 return (UsuarioLogadoModel)HttpContext.Current.Session[USUARIO_LOGADO_CHAVE];
             }
         }
-
+        public static void Sair()
+        {
+            HttpContext.Current.Session.Abandon();
+            HttpContext.Current.Session.Clear();
+        }
     }
 }
