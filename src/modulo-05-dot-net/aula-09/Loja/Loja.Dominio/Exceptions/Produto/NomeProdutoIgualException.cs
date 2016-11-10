@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Loja.Dominio
 {
-    public class NomeIgualException : Exception
+    public class NomeProdutoIgualException : Exception
     {
-        public NomeIgualException(string message) : base (message) { }
+        public NomeProdutoIgualException(string message) : base (message) { }
     }
 }
