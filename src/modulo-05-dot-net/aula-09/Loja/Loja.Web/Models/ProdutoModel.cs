@@ -27,7 +27,9 @@ namespace Loja.Web.Models
         {
             return new ProdutoModel()
             {
-                Nome = produto.Nome
+                Id = produto.Id,
+                Nome = produto.Nome,
+                Valor = produto.Valor
             };
         }
     }
