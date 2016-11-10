@@ -10,6 +10,7 @@ namespace Loja.Dominio
     {
         List<Produto> ListarProdutos();
         List<Produto> BuscarPorNome(string nome);
+        Produto BuscarPorId(int id);
         void Criar(Produto produto);
         void Editar(Produto produto);
         void Excluir(Produto produto);
