@@ -1,4 +1,6 @@
 ﻿using Loja.Dominio;
+using Loja.Dominio.Exceptions;
+using Loja.Dominio.Exceptions.Produto;
 using Loja.Repositorio;
 using Loja.Web.Filters;
 using Loja.Web.Models;
@@ -10,25 +12,34 @@ using System.Web.Mvc;
 
 namespace Loja.Web.Controllers
 {
+    [UsuarioAutorizador]
     public class ProdutoController : Controller
     {
         // GET: Produto
-        [UsuarioAutorizador]
         public ActionResult Index()
         {
             ProdutoServico produtoServico = new ProdutoServico(new ProdutoRepositorio());
             ListaDeProdutosModel listaDeProdutosModel = produtoServico.ListarProdutos().ConverterParaModel();
+            if (listaDeProdutosModel.ProdutosModel.Count <= 0)
+                ViewBag.ListaVazia = "Não existe nenhum produto cadastrado";
             return View(listaDeProdutosModel);
         }
 
-        public ActionResult Cadastro(int Id = 0)
+        public ActionResult Cadastro(int id = 0)
         {
-            ViewBag.Id = Id;
-            ViewBag.CadastroOuEdicao = (Id == 0) ? "Cadastro" : "Edição";
-            return View();
+            ViewBag.Id = id;
+            ViewBag.CadastroOuEdicao = (id == 0) ? "Cadastro" : "Edição";
+            if (id == 0)
+                return View();
+            else
+            {
+                ProdutoServico produtoServico = new ProdutoServico(new ProdutoRepositorio());
+                ProdutoModel model = produtoServico.BuscarPorId(id).ConverterParaModel();
+                return View(model);
+            }
         }
 
-        public ActionResult Salvar(int Id, ProdutoModel model)
+        public ActionResult Salvar(ProdutoModel model, int Id = 0)
         {
             if (ModelState.IsValid)
             {
@@ -38,15 +49,22 @@ namespace Loja.Web.Controllers
                     var produto = new Produto(Id, model.Nome, model.Valor);
                     produtoServico.Salvar(produto);
                 }
-                catch(NomeIgualException ex)
+                catch(NomeProdutoIgualException ex)
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
-                catch(NomeMenorQueDoisCaracteresException ex)
+                catch(NomeProdutoMenorQueDoisCaracteresException ex)
                 {
                     ModelState.AddModelError("", ex.Message);
                 }
-                
+                catch(MaisQueDuasCasasDecimaisException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
+                catch (ValorProdutoIgualAZeroException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
             }
             if (Id == 0)
                 TempData["EditadoOuCadastradoOuExcluido"] = "Personagem cadastrado com sucesso!";
@@ -55,25 +73,17 @@ namespace Loja.Web.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Editar(int Id)
+        public ActionResult Editar(int id)
         {
-            return RedirectToAction("Cadastro", new { Id = Id });
+            return RedirectToAction("Cadastro", new { Id = id });
         }
 
-        [UsuarioAutorizador]
-        public ActionResult About()
+        public ActionResult Excluir(int id)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        [UsuarioAutorizador]
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            ProdutoServico produtoServico = new ProdutoServico(new ProdutoRepositorio());
+            produtoServico.Excluir(id);
+            TempData["EditadoOuCadastradoOuExcluido"] = "Personagem excluído com sucesso!";
+            return RedirectToAction("Index");
         }
     }
 }
