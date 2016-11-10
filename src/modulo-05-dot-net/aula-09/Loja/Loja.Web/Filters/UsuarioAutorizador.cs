@@ -15,9 +15,7 @@ namespace Loja.Web.Filters
         {
             UsuarioLogadoModel usuario = ServicoDeAutenticacao.UsuarioLogado;
 
-            if (usuario == null) return false;
-
-            return true;
+            return usuario != null;
         }
 
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
@@ -26,7 +24,7 @@ namespace Loja.Web.Filters
                                    new RouteValueDictionary
                                    {
                                        { "action", "NaoAutorizado" },
-                                       { "controller", "Login" }
+                                       { "controller", "Usuario" }
                                    });
         }
     }
