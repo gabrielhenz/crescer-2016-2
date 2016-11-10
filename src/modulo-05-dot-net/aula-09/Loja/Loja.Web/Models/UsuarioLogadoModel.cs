@@ -7,10 +7,13 @@ namespace Loja.Web.Models
 {
     public class UsuarioLogadoModel
     {
-        public UsuarioLogadoModel(string nome)
+        public UsuarioLogadoModel(int id, string nome)
         {
+            this.Id = id;
             this.Nome = nome;
         }
+
+        public int Id { get; private set; }
 
         public string Nome { get; private set; }
     }
