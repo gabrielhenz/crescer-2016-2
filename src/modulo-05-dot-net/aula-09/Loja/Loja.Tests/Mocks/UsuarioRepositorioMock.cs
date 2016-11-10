@@ -14,17 +14,27 @@ namespace Loja.Tests.Mocks
         public UsuarioRepositorioMock()
         {
             this.usuarios = new List<Usuario>();
-            this.usuarios.Add(new Usuario()
-            {
-                Id = 1,
-                Email = "goku@bol.com",
-                Senha = "abc123"
-            });
+            this.usuarios.Add(new Usuario(1, "goku@bol.com", "abc123"));
         }
 
         public Usuario BuscarPorEmail(string email)
         {
             return this.usuarios.FirstOrDefault(u => u.Email.Equals(email));
+        }
+
+        public void Criar(Usuario usuario)
+        {
+            usuarios.Add(usuario);
+        }
+
+        public void Editar(Usuario usuario)
+        {
+            usuarios[usuario.Id - 1] = usuario;
+        }
+
+        public void Excluir(Usuario usuario)
+        {
+            usuarios.RemoveAt(usuario.Id - 1);
         }
     }
 }
