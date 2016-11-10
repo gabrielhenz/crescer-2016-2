@@ -52,5 +52,13 @@ namespace Loja.Repositorio
                 return context.Produto.Where(p => p.Nome.Equals(nome)).ToList();
             }
         }
+
+        public Produto BuscarPorId(int id)
+        {
+            using (var context = new ContextoDeDados())
+            {
+                return context.Produto.First(p => p.Id == id);
+            }
+        }
     }
 }
