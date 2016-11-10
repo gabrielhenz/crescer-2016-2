@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Loja.Dominio.Exceptions;
+using Loja.Dominio.Exceptions.Produto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,15 +19,19 @@ namespace Loja.Dominio
 
         public void Salvar(Produto produto)
         {
-            if (produtoRepositorio.BuscarPorNome(produto.Nome).Count > 0)
-            {
-                throw new NomeIgualException("Não pode cadastrar um produto com nome igual");
-            }
+            int count = BitConverter.GetBytes(decimal.GetBits(produto.Valor)[3])[2];
 
-            if(produto.Nome.Length < 2)
-            {
-                throw new NomeMenorQueDoisCaracteresException("Não pode cadastrar um produto com nome menor que dois caracteres.");
-            }
+            if (count > 2)
+                throw new MaisQueDuasCasasDecimaisException("Não pode cadastrar um produto de valor com mais de duas casas decimais.");
+
+            if (produtoRepositorio.BuscarPorNome(produto.Nome).Count > 0)
+                throw new NomeProdutoIgualException("Não pode cadastrar um produto com nome igual");
+
+            if (produto.Nome.Length < 2)
+                throw new NomeProdutoMenorQueDoisCaracteresException("Não pode cadastrar um produto com nome menor que dois caracteres.");
+
+            if (produto.Valor <= 0)
+                throw new ValorProdutoIgualAZeroException("Não pode cadastrar um prouto com o valor igual ou menor que zero.");
 
             if (produto.Id == 0)
                 produtoRepositorio.Criar(produto);
@@ -33,14 +39,20 @@ namespace Loja.Dominio
                 produtoRepositorio.Editar(produto);    
         }
 
-        public void Excluir(Produto produto)
+        public void Excluir(int id)
         {
+            Produto produto = produtoRepositorio.BuscarPorId(id);
             produtoRepositorio.Excluir(produto);
         }
 
         public List<Produto> ListarProdutos()
         {
             return produtoRepositorio.ListarProdutos();
+        }
+
+        public Produto BuscarPorId(int id)
+        {
+            return produtoRepositorio.BuscarPorId(id);
         }
     }
 }
