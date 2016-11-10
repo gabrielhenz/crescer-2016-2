@@ -40,10 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\Produto\MaisQueDuasCasasDecimaisException.cs" />
+    <Compile Include="Exceptions\Produto\ValorProdutoIgualAZeroException.cs" />
+    <Compile Include="Exceptions\Usuario\EmailJaExistenteException.cs" />
+    <Compile Include="Exceptions\Usuario\EmailMenorOuIgualACincoCaracteresException.cs" />
+    <Compile Include="Exceptions\Usuario\NaoContemArrobaException.cs" />
     <Compile Include="IProdutoRepositorio.cs" />
     <Compile Include="IServicoDeCriptografia.cs" />
-    <Compile Include="NomeIgualException.cs" />
-    <Compile Include="NomeMenorQueDoisCaracteresException.cs" />
+    <Compile Include="Exceptions\Produto\NomeProdutoIgualException.cs" />
+    <Compile Include="Exceptions\Produto\NomeProdutoMenorQueDoisCaracteresException.cs" />
     <Compile Include="Produto.cs" />
     <Compile Include="ProdutoServico.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
