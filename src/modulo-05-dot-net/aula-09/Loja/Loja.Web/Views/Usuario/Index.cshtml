@@ -5,8 +5,9 @@
 
 <h2>Login</h2>
 <h4 style="color: red;">@ViewBag.LoginErro</h4>
+<h4 style="color: lightgreen;">@ViewBag.CadastroOuEditado</h4>
 <h4 style="color: red;">@ViewBag.NaoAutorizado</h4>
-@using (Html.BeginForm("Entrar", "Login", FormMethod.Post))
+@using (Html.BeginForm("Entrar", "Usuario", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 
@@ -15,3 +16,6 @@
 
     <button type="submit">Entrar</button>
 }
+<br />
+<h4>Não possui conta?</h4>
+<a href="~/Usuario/Cadastrar" class="btn btn-primary">Cadastar</a>
