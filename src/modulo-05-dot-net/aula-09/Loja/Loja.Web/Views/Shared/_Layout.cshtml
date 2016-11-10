@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Loja.Web.Servicos
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -16,13 +17,16 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                <ul class="nav navbar-nav" style="float: right;">
+                    @{
+                        if (ServicoDeAutenticacao.UsuarioLogado != null)
+                        {
+                            <li>@Html.ActionLink("Editar Conta", "Cadastrar", "Usuario", new { ServicoDeAutenticacao.UsuarioLogado.Id }, new { style = "font-size: 20px;" })</li>
+                            <li>@Html.ActionLink("Sair", "Sair", "Usuario", new { }, new { style = "font-size: 20px;" })</li>
+                        }
+                    }
                 </ul>
             </div>
         </div>
