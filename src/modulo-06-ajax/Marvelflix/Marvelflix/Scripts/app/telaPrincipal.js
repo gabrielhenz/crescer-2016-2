@@ -42,5 +42,9 @@ class TelaPrincipal {
           this.registrarBindsEventos(this);
         })
       }.bind(this));
+    let url = 'https://gateway.marvel.com:443/v1/public/comics?apikey=5847706b1fb5580feeb66bcad22b81c6&orderBy=-modified&limit=20';
+    $.get(url).then(
+      res => console.log(res.data.results)
+    );
   }
 }
