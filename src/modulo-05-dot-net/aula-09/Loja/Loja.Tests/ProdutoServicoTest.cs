@@ -99,7 +99,7 @@ namespace Loja.Tests
 
             Produto produto = new Produto(1, "Livro A Ser excluido", 10.00m);
 
-            produtoServico.Excluir(produto);
+            produtoServico.Excluir(produto.Id);
 
             Assert.IsTrue(produtoServico.ListarProdutos().Count == 0);
         }
