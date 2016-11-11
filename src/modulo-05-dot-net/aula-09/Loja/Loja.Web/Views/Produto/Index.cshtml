@@ -18,11 +18,16 @@
             <th style="width: 40px;">Excluir</th>
         </tr>
     </thead>
-    <tr>
-        <td>
-            @ViewBag.ListaVazia
-        </td>
-    </tr>
+    @{
+        if (ViewBag.ListaVazia != null)
+        {
+            <tr>
+                <td>
+                    @ViewBag.ListaVazia
+                </td>
+            </tr>
+        }
+    }
     @foreach (var produto in Model.ProdutosModel)
     {
         <tr>
