@@ -19,7 +19,12 @@ namespace Loja.Tests.Mocks
 
         public Usuario BuscarPorEmail(string email)
         {
-            return this.usuarios.FirstOrDefault(u => u.Email.Equals(email));
+            return usuarios.FirstOrDefault(u => u.Email.Equals(email));
+        }
+
+        public Usuario BuscarPorId(int id)
+        {
+            return usuarios.FirstOrDefault(u => u.Id == id);
         }
 
         public void Criar(Usuario usuario)
