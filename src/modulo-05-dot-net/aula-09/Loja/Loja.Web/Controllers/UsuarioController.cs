@@ -53,15 +53,8 @@ namespace Loja.Web.Controllers
 
         public ActionResult Cadastrar(int id = 0)
         {
-            if (id == 0)
-                return View("Cadastro", null);
-            else
-            {
-                UsuarioServico usuarioServico = new UsuarioServico(new UsuarioRepositorio(), new ServicoDeCriptografia());
-                Usuario usuario = usuarioServico.BuscarPorId(id);
-                UsuarioModel model = usuario.ConverterParaModel();
-                return View("Cadastro", model);
-            }
+            ViewBag.Id = id;
+            return View("Cadastro");
         }
 
         [HttpPost]
