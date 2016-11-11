@@ -8,12 +8,25 @@ class TelaPrincipal {
   registrarBindsEventos(self) {
     self.$btnSincronizar = $('#btn-sincronizar-com-marvel');
     self.$btnSincronizar.on('click', self.sincronizar.bind(self));
+    if (self.paginaAtual != 1) {
+      self.$btnPaginaAnterior = $('#btn-pagina-anterior');
+      self.$btnPaginaAnterior.on('click', self.obterPaginaAnterior.bind(self));
+    }
     self.$btnProximaPagina = $('#btn-proxima-pagina');
     self.$btnProximaPagina.on('click', self.obterProximaPagina.bind(self));
   }
 
   obterProximaPagina() {
-    this.carregarERenderizarHerois(++this.paginaAtual);
+    var pagina = this.paginaAtual;
+    this.qtdeHerois(++pagina)
+      .done((herois) => {
+        if (herois.length != 0)
+          this.carregarERenderizarHerois(++this.paginaAtual);
+      });
+  }
+
+  obterPaginaAnterior() {
+      this.carregarERenderizarHerois(--this.paginaAtual);
   }
 
   sincronizar() {
@@ -39,14 +52,22 @@ class TelaPrincipal {
   }
 
   carregarERenderizarHerois(pagina) {
-    return $.get('/api/herois', {
-      pagina: pagina,
-      tamanhoPagina: 5
-    }).done(function(res) {
+    return this.getHerois(pagina).done(function(res) {
       this.renderizarHerois(res).then(() => {
         this.registrarBindsEventos(this);
       })
     }.bind(this));
+  }
+
+  getHerois(pagina) {
+    return $.get('/api/herois', {
+      pagina: pagina,
+      tamanhoPagina: 5
+    });
+  }
+
+  qtdeHerois(pagina) {
+    return this.getHerois(pagina);
   }
 
   renderizarHerois(heroisServidor) {
