@@ -158,6 +158,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Servicos\ServicoDeConfiguracao.cs" />
     <Compile Include="Servicos\ServicoDeDependencia.cs" />
+    <Compile Include="Validacoes\MetodosDeValidacoes.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
