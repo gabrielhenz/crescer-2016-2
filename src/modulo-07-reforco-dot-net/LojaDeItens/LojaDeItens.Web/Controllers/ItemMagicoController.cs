@@ -44,23 +44,30 @@ namespace LojaDeItens.Web.Controllers
         [ValidateAntiForgeryToken]
         public JsonResult Salvar(ItemParaEdicaoViewModel model)
         {
-            int id = 0;
-            if(model.Id.HasValue && model.Id.Value > 0)
+
+            if (ModelState.IsValid)
             {
-                id = (int)model.Id;
+                try
+                {
+                    model.Id = model.Id.HasValue && model.Id.Value > 0 ? model.Id.Value : 0;
+
+                    ItemMagicoEntidade item = new ItemMagicoEntidade()
+                    {
+                        Id = id,
+                        Nome = model.Descricao,
+                        Descricao = model.Descricao,
+                        Preco = model.Preco,
+                        Estoque = model.Estoque,
+                        Raro = model.Raro
+                    };
+
+                    this.itemMagicoServico.Salvar(item);
+                }
+                catch (ItemMagicoException ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
             }
-
-            ItemMagicoEntidade item = new ItemMagicoEntidade()
-            {
-                Id = id,
-                Nome = model.Descricao,
-                Descricao = model.Descricao,
-                Preco = model.Preco,
-                Estoque = model.Estoque,
-                Raro = model.Raro
-            };
-
-            this.itemMagicoServico.Salvar(item);
 
             return Json(new { Mensagem = "Cadastro efetuado com sucesso." }, JsonRequestBehavior.AllowGet);
         }
@@ -96,11 +103,6 @@ namespace LojaDeItens.Web.Controllers
 
             return PartialView("_ListagemDeItensMagicos", model);
         }
-        
-        public JsonResult FazNada()
-        {
-            return Json(new { Mensagem = "Nada!" }, JsonRequestBehavior.AllowGet);
-        }
 
         private ItemMagicoListagemViewModel CriarItemMagicoListagemViewModel(IList<ItemMagicoEntidade> todosOsItens, int? pagina = null)
         {
@@ -112,6 +114,7 @@ namespace LojaDeItens.Web.Controllers
             }
 
             model.QuantidadeDeItensPorPagina = this.servicoDeConfiguracao.QuantidadeDeItensPorPagina;
+            model.UltimaPagina = this.itemMagicoServico.ContarRegistros() <= (model.PaginaAtual + 1) * model.QuantidadeDeItensPorPagina;
             return model;
         }
     }

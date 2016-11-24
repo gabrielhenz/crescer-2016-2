@@ -17,14 +17,7 @@ namespace LojaDeItens.Web.Models.ItemMagico
 
         public int PaginaAtual { get; set; }
         public int QuantidadeDeItensPorPagina { get; set; }
-
-        public bool UltimaPagina
-        {
-            get
-            {
-                return Itens.Count < this.QuantidadeDeItensPorPagina;
-            }
-        }
+        public bool UltimaPagina { get; set; }
 
         public IList<ItemMagicoParaListaViewModel> Itens { get; set; }
 

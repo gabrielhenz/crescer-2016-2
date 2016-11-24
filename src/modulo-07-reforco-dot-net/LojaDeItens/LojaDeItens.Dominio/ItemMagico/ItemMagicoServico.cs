@@ -87,9 +87,15 @@ namespace LojaDeItens.Dominio.ItemMagico
             }
         }
 
+        public int ContarRegistros()
+        {
+            return this.itemMagicoRepositorio.ContarRegistros();
+        }
+
         private void ValidarItemMagico(ItemMagicoEntidade item)
         {
             ValidarEstoque(item);
+            ValidarPreco(item);
             ValidarNomeDuplicado(item);
         }
 
@@ -116,6 +122,14 @@ namespace LojaDeItens.Dominio.ItemMagico
             if (item.Estoque < 0)
             {
                 throw new ItemMagicoException("O estoque do item não pode ser menor que 0.");
+            }
+        }
+
+        private void ValidarPreco(ItemMagicoEntidade item)
+        {
+            if(item.Preco < 0)
+            {
+                throw new ItemMagicoException("O preço do item não pode ser menor que 0.");
             }
         }
     }

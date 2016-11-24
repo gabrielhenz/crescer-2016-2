@@ -22,17 +22,9 @@ itemMagicoIndex.carregarListaDeItens = function () {
             pagina: itemMagicoIndex.paginaAtual
         }
     })
-    .then(function (resultado) {
+    .done(function (resultado) {
         $('#container-lista').html(resultado);
         itemMagicoIndex.atualizarBotoesDeNavegacao();
-
-        return $.ajax({
-            url: 'ItemMagico/FazNada',
-            type: 'GET'
-        });
-    })
-    .then(function (resultadoFazNada) {
-        console.log(resultadoFazNada.Mensagem);
     })
     .fail(function (erro) {
         console.error(erro);
@@ -44,7 +36,7 @@ itemMagicoIndex.carregarItensRaros = function () {
         url: 'ItemMagico/CarregarListaDeRaros',
         type: 'GET'
     })
-    .then(function (resultado) {
+    .done(function (resultado) {
         $('#container-lista-raros').html(resultado);
     })
     .fail(function (erro) {
