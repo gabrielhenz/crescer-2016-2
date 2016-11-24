@@ -51,3 +51,5 @@ bld/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+/src/modulo-09-java-gabrielhenz/aula1/target/
+/src/modulo-09-java-gabrielhenz/aula1/nbproject/
