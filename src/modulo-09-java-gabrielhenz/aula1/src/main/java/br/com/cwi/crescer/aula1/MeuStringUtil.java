@@ -84,6 +84,7 @@ public class MeuStringUtil {
     public boolean verificaPalindromo(String texto){
         final Collator instance = Collator.getInstance();
         instance.setStrength(Collator.NO_DECOMPOSITION);
-        return instance.compare(texto.toLowerCase(), inverterTexto(texto).toLowerCase()) == 0;
+        return instance.compare(texto.toLowerCase().replaceAll("\\s", ""), 
+                inverterTexto(texto).toLowerCase().replaceAll("\\s", "")) == 0;
     }
 }
