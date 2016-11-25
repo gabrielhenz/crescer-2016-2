@@ -23,13 +23,13 @@ public class MeuStringUtilTest {
     @org.junit.Test
     public void testValidarStringVaziaComStringVazia() {
         String texto = "";
-        Assert.assertTrue(meuStringUtil.validarStringVazia(texto));
+        Assert.assertTrue(meuStringUtil.ehStringVazia(texto));
     }
     
     @org.junit.Test
     public void testValidarStringVaziaComStringPopulada() {
         String texto = "Hello World!";
-        Assert.assertFalse(meuStringUtil.validarStringVazia(texto));
+        Assert.assertFalse(meuStringUtil.ehStringVazia(texto));
     }
 
     @org.junit.Test

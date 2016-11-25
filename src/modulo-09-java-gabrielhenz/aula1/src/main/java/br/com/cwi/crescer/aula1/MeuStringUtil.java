@@ -44,7 +44,7 @@ public class MeuStringUtil {
             case 1:
                 System.out.print("Digite um texto: ");
                 System.out.println(
-                        self.validarStringVazia(t.nextLine()) 
+                        self.ehStringVazia(t.nextLine()) 
                                 ? "O texto é uma string vazia"
                                 : "O texto não é uma string vazia");
                 break;
@@ -69,8 +69,8 @@ public class MeuStringUtil {
         return false;
     }
     
-    public boolean validarStringVazia(String texto){
-        return texto.length() == 0;
+    public boolean ehStringVazia(String texto){
+        return texto.isEmpty();
     }
     
     public int contaQuantidadeDeVogais(String texto){
@@ -84,6 +84,7 @@ public class MeuStringUtil {
     public boolean verificaPalindromo(String texto){
         final Collator instance = Collator.getInstance();
         instance.setStrength(Collator.NO_DECOMPOSITION);
-        return instance.compare(texto.toLowerCase(), inverterTexto(texto).toLowerCase()) == 0;
+        return instance.compare(texto.toLowerCase().replaceAll("\\s", ""), 
+                inverterTexto(texto).toLowerCase().replaceAll("\\s", "")) == 0;
     }
 }
