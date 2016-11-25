@@ -18,7 +18,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Run {
+public class Chat {
 
     private static final Logger LOGGER = Logger.getAnonymousLogger();
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -45,7 +45,7 @@ public class Run {
             public void run() {
                 BufferedReader bufferReader = null;
                 try {
-                    bufferReader = Run.getReader(fileName);
+                    bufferReader = Chat.getReader(fileName);
                     while (true) {
                         String readLine = bufferReader.readLine();
                         if (!new MeuStringUtil().ehStringVazia(readLine)) {
