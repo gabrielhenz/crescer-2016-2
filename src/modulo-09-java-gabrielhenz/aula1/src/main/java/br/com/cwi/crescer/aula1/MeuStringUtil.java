@@ -17,7 +17,7 @@ import java.util.Scanner;
  * @author gabriel.henz
  */
 public class MeuStringUtil {
-    public static Scanner t = new Scanner(System.in);
+    static Scanner t = new Scanner(System.in);
     
     public static void main(String[]args){
         boolean sair = false;
@@ -39,27 +39,28 @@ public class MeuStringUtil {
     }
     
     static boolean escolherOpcao(int opcao){
+        MeuStringUtil self = new MeuStringUtil();
         switch(opcao){
             case 1:
                 System.out.print("Digite um texto: ");
                 System.out.println(
-                        validarStringVazia(t.nextLine()) 
+                        self.validarStringVazia(t.nextLine()) 
                                 ? "O texto é uma string vazia"
                                 : "O texto não é uma string vazia");
                 break;
             case 2:
                 System.out.print("Digite um texto: ");
                 System.out.format("Número de vogais no texto: %d", 
-                        contaQuantidadeDeVogais(t.nextLine()));
+                        self.contaQuantidadeDeVogais(t.nextLine()));
                 break;
             case 3:
                 System.out.print("Digite um texto: ");
                 System.out.format("Texto invertido: %s", 
-                        inverterTexto(t.nextLine()));
+                        self.inverterTexto(t.nextLine()));
             case 4:
                 System.out.print("Digite um texto: ");
                 System.out.println(
-                        verificaPalindromo(t.nextLine()) 
+                        self.verificaPalindromo(t.nextLine()) 
                                 ? "O texto é um palíndromo"
                                 : "O texto não é um palíndromo");
             default:
@@ -68,19 +69,19 @@ public class MeuStringUtil {
         return false;
     }
     
-    public static boolean validarStringVazia(String texto){
+    public boolean validarStringVazia(String texto){
         return texto.length() == 0;
     }
     
-    public static int contaQuantidadeDeVogais(String texto){
+    public int contaQuantidadeDeVogais(String texto){
         return texto.length() - texto.replaceAll("[aeiouAEIOU]", "").length();
     }
     
-    public static String inverterTexto(String texto){
+    public String inverterTexto(String texto){
         return new StringBuilder(texto).reverse().toString();
     }
     
-    public static boolean verificaPalindromo(String texto){
+    public boolean verificaPalindromo(String texto){
         final Collator instance = Collator.getInstance();
         instance.setStrength(Collator.NO_DECOMPOSITION);
         return instance.compare(texto.toLowerCase(), inverterTexto(texto).toLowerCase()) == 0;
