@@ -1,0 +1,8 @@
+#surefire
+#Thu Nov 24 17:48:43 BRST 2016
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.1\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=C\:\\Users\\gabriel.henz\\Desktop\\LOTR\\src\\modulo-09-java-gabrielhenz\\aula1
+file.encoding=UTF-8
+localRepository=C\:\\Users\\gabriel.henz\\.m2\\repository
+basedir=C\:\\Users\\gabriel.henz\\Desktop\\LOTR\\src\\modulo-09-java-gabrielhenz\\aula1
+test=br.com.cwi.crescer.aula1.MeuStringUtilTest
