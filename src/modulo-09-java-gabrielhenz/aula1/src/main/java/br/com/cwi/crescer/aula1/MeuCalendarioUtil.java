@@ -49,15 +49,18 @@ public class MeuCalendarioUtil {
             case 1:
                 System.out.print("Digite a sua data de aniversario no formato (dd/mm/aaaa): ");
                 String dataNascimentoTexto = t.next();
-                Date dataNascimento = conversaoStringParaData(dataNascimentoTexto);
                 System.out.format("Dia da semana do nascimento: %s", 
-                            self.diaDaSemanaDoNascimento(dataNascimento));
+                            self.diaDaSemanaDoNascimento(
+                                    self.conversaoStringParaData(dataNascimentoTexto)
+                            ));
                 break;
             case 2:
                 System.out.print("Digite uma data no formato (dd/mm/aaaa): ");
                 String dataTexto = t.next();
-                Date data = conversaoStringParaData(dataTexto);
-                System.out.println(self.diferencaDeDatas(data));
+                System.out.println(
+                        self.diferencaDeDatas( 
+                            self.conversaoStringParaData(dataTexto)
+                        ));
                 break;
             default:
                 return true;
@@ -66,11 +69,24 @@ public class MeuCalendarioUtil {
     }
     
     public String diaDaSemanaDoNascimento(Date dataNascimento){
+       if(dataNascimento == null){
+           return null;
+       }
        return new SimpleDateFormat("EEEE").format(dataNascimento);
     } 
     
     public String diferencaDeDatas(Date data){
-        long diferenca = new Date().getTime() - data.getTime();
+        if(data == null){
+           return null;
+        }
+        long dataMili = data.getTime();
+        long dataAtualMili = new Date().getTime();
+        long diferenca;
+        if (dataMili < dataAtualMili){
+            diferenca = dataAtualMili - dataMili;
+        } else {
+            diferenca = dataMili - dataAtualMili;
+        }
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(diferenca);
         int anos = c.get(Calendar.YEAR) - 1970;
@@ -79,8 +95,11 @@ public class MeuCalendarioUtil {
         return String.format("%d ano(s), %d mes(es), %d dia(s)", anos, meses, dias);
     }
     
-    static Date conversaoStringParaData(String dataTexto){
+    public Date conversaoStringParaData(String dataTexto){
         Date data = null;
+        if(dataTexto.isEmpty()){
+           return data;
+       }
         try {
             data = new SimpleDateFormat("dd/MM/yyyy").parse(dataTexto);
         } catch (ParseException ex) {
