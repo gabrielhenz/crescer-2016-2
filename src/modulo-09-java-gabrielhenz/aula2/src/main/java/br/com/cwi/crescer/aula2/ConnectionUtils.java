@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class ConnectionUtils {
     
-    private static final String URL = "jdbc:oracle:thin:@10.99.2.45:1521:xe";
+    private static final String URL = "jdbc:oracle:thin:@10.99.2.45:1521:crescer";
     private static final String USER = "cwi";
     private static final String PASS = "cwi";
 
