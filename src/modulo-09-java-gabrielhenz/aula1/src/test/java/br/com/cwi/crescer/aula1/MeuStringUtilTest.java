@@ -20,41 +20,51 @@ import static org.junit.Assert.*;
 public class MeuStringUtilTest {
     static MeuStringUtil meuStringUtil = new MeuStringUtil();
     
-    @org.junit.Test
+    @Test
     public void testValidarStringVaziaComStringVazia() {
         String texto = "";
         Assert.assertTrue(meuStringUtil.ehStringVazia(texto));
     }
     
-    @org.junit.Test
+    @Test
     public void testValidarStringVaziaComStringPopulada() {
         String texto = "Hello World!";
         Assert.assertFalse(meuStringUtil.ehStringVazia(texto));
     }
 
-    @org.junit.Test
+    @Test
     public void testContaQuantidadeDeVogaisCom3Vogais() {
         String texto = "Helou";
         Assert.assertEquals(3, meuStringUtil.contaQuantidadeDeVogais(texto));
     }
     
-    @org.junit.Test
+    @Test
     public void testContaQuantidadeDeVogaisSemVogais() {
         String texto = "KKKK";
         Assert.assertEquals(0, meuStringUtil.contaQuantidadeDeVogais(texto));
     }
 
-    @org.junit.Test
+    @Test
     public void testInverterTexto() {
         Assert.assertEquals("atatab", meuStringUtil.inverterTexto("batata"));
     }
     
-    @org.junit.Test
+    @Test
     public void testVerificaPalindromoComPalindromo() {
         Assert.assertTrue(meuStringUtil.verificaPalindromo("arara"));
     }
     
-    @org.junit.Test
+    @Test
+    public void testVerificaPalindromoComPalindromoComEspaços() {
+        Assert.assertTrue(meuStringUtil.verificaPalindromo("Ame a ema"));
+    }
+    
+    @Test
+    public void testVerificaPalindromoComPalindromoComEspaçosEAcento() {
+        Assert.assertTrue(meuStringUtil.verificaPalindromo("A sogra má e amargosa"));
+    }
+    
+    @Test
     public void testVerificaPalindromoSemPalindromo() {
         Assert.assertFalse(meuStringUtil.verificaPalindromo("Hello World"));
     }
