@@ -89,6 +89,7 @@ public class MeuFileUtils {
             System.out.println("O comando é inválido. Tente 'mk', 'rm', 'ls' ou 'mv'.");
             return false;
         } else {
+            int indexTxt = instrucao.indexOf(".txt");
             String[]comandos = instrucao.split(" ");
             if(comando.equals("rm") || comando.equals("mk") || comando.equals("ls")){
                 if(comandos.length > 2){
