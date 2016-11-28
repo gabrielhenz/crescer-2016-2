@@ -67,7 +67,7 @@ public class MeuSQLUtils {
         
     }
     
-    private void executarQuery(String query){
+    public void executarQuery(String query){
         try (
                 final Connection connection = ConnectionUtils.getConnection();
                 final Statement statement = connection.createStatement();
