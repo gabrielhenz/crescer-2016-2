@@ -9,6 +9,7 @@ import br.com.cwi.crescer.aula1.MeuStringUtil;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,13 +36,15 @@ public class MeuFileUtils {
         String instrucao = this.getInstrucao();
         boolean instrucaoEhValida = validarInstrucao(instrucao);
         if(instrucaoEhValida){
-            String[]comandos = instrucao.split(" ");
-            File file = new File(comandos[1]);
+            String comando = instrucao.substring(0, 2);
+            String path = instrucao.substring(3);
+            File file = new File(path);
             boolean arquivoExistente = file.exists();
-            if(comandos[0].equals("mk")){
+            if(comando.equals("mk")){
                 if(!arquivoExistente){
                     try {
-                        if(comandos[1].contains(".")){
+                        boolean ehArquivo = new ValidadorDeExtensao().validar(path);
+                        if(ehArquivo){
                             file.createNewFile();
                         } else {
                             file.mkdirs();
@@ -54,7 +57,7 @@ public class MeuFileUtils {
                 }
             }
             
-            if(comandos[0].equals("rm")){
+            if(comando.equals("rm")){
                 if(arquivoExistente){
                     file.delete();
                 } else {
@@ -62,64 +65,56 @@ public class MeuFileUtils {
                 }
             }
             
-            if(comandos[0].equals("ls")){
-                if(verificarSeEhArquivo(comandos[1])){
+            if(comando.equals("ls")){
+                if(verificarSeEhArquivo(path)){
                     System.out.println(file.getAbsolutePath());
                 } else {
                     File[]files = file.listFiles();
-                    Arrays.asList(files).forEach(System.out::println);
+                    Arrays.asList(files)
+                            .stream()
+                            .map(f -> f.getName())
+                            .forEach(System.out::println);
                 }
             }
             
-            if(comandos[0].equals("mv")){
-                File renamedFile = new File(comandos[2]);
-                if(renamedFile.exists()){
-                    System.out.println("O nome de arquivo para a renomeação já existe.");
+            if(comando.equals("mv")){
+                Scanner t = new Scanner(System.in);
+                System.out.print("Novo nome: ");
+                String novoNome = t.nextLine();
+                boolean ehArquivo = new ValidadorDeExtensao().validar(novoNome);
+                if(!ehArquivo){
+                    System.out.println("Arquivo inválido.");
                 } else {
-                    file.renameTo(renamedFile);
+                    File novoArquivo = new File(novoNome);
+                    if(novoArquivo.exists()){
+                        System.out.println("O nome de arquivo para a renomeação já existe.");
+                    } else {
+                        String extensaoVelho = path.substring(path.lastIndexOf("."));
+                        String extensaoNovo = novoNome.substring(novoNome.lastIndexOf("."));
+                        if(extensaoVelho.equals(extensaoNovo)){
+                            file.renameTo(novoArquivo);
+                        } else {
+                            System.out.println("A extensão não é a mesma.");
+                        }
+                    }
                 }
             }
         }  
     }
 
     private boolean validarInstrucao(String instrucao){
-        String comando = instrucao.substring(0, 2);
+        String comando = instrucao.trim().substring(0, 2);
         if(!comando.equals("mk") && !comando.equals("rm") 
                 && !comando.equals("ls") && !comando.equals("mv")){
             System.out.println("O comando é inválido. Tente 'mk', 'rm', 'ls' ou 'mv'.");
             return false;
         } else {
-            int indexTxt = instrucao.indexOf(".txt");
-            String[]comandos = instrucao.split(" ");
-            if(comando.equals("rm") || comando.equals("mk") || comando.equals("ls")){
-                if(comandos.length > 2){
-                    System.out.println("Você só deve passar um arquivo/diretorio como parametro");
-                    return false;
-                }
-            }
-            if(comando.equals("mv")){
-                if(comandos.length != 3){
-                    System.out.println("Você só deve passar dois arquivo/diretorio como parametro");
-                    return false;
-                }
-            }
-            if(comando.equals("rm") || comando.equals("mv")){
-                if(!verificarSeEhArquivo(comandos[1])){
+            int i = 0;
+            String path = instrucao.substring(3).trim();
+            if(comando.equals("mv") || comando.equals("rm")){
+                boolean instrucaoEhValida = new ValidadorDeExtensao().validar(path);
+                if(!instrucaoEhValida){
                     System.out.println("Arquivo inválido.");
-                    return false;
-                }
-            }    
-            if(comando.equals("mv")){
-                int indexPontoAtual = comandos[1].indexOf('.');
-                int indexPontoNovo = comandos[2].indexOf('.');
-                if(indexPontoAtual == -1 || indexPontoNovo == -1){
-                    System.out.println("A extensão dos arquivos não é a mesma.");
-                    return false;
-                }
-                String extensaoAtual = comandos[1].substring(indexPontoAtual, comandos[1].length() - 1);
-                String extensaoNovo = comandos[2].substring(indexPontoNovo, comandos[2].length() - 1);
-                if(!extensaoAtual.equals(extensaoNovo)){
-                    System.out.println("A extensão dos arquivos não é a mesma.");
                     return false;
                 }
             }
@@ -130,5 +125,4 @@ public class MeuFileUtils {
     private boolean verificarSeEhArquivo(String path){
         return new File(path).isFile();
     }
-    
 }

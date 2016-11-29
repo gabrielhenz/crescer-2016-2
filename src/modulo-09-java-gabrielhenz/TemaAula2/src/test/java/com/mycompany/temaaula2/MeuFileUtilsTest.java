@@ -29,27 +29,7 @@ public class MeuFileUtilsTest {
         String instrucao = "mk teste.txt";
         assertEquals(instrucao, setEGetInstrucao(instrucao));
     }
-    
-    @Test
-    public void testSetInstrucaoMkComMaisQue2Parametros(){
-        assertNull(setEGetInstrucao("mk teste.txt teste2.txt"));
-    }
-    
-    @Test
-    public void testSetInstrucaoRmComMaisQue2Parametros(){
-        assertNull(setEGetInstrucao("mk teste.txt teste2.txt"));
-    }
-    
-    @Test
-    public void testSetInstrucaoLsComMaisQue2Parametros(){
-        assertNull(setEGetInstrucao("mk teste.txt teste2.txt"));
-    }
-    
-    @Test
-    public void testSetInstrucaoMvComMaisQue2Parametros(){
-        String instrucao = "mv teste.txt teste2.txt";
-        assertEquals(instrucao, setEGetInstrucao(instrucao));
-    }
+
     
     @Test
     public void testSetInstrucaoRmSemArquivo(){

@@ -5,6 +5,7 @@
  */
 package com.mycompany.temaaula2;
 
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -24,7 +25,10 @@ public class ReaderApp {
                 System.out.println("saindo...");
                 break;
             }
-            mru.exibirConteudo(comando);
+            List<String> valores = mru.exibirConteudo(comando);
+            for(String valor : valores){
+                System.out.println(valor);
+            }
         }
     }
 }

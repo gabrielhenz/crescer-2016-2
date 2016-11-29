@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Carlos H. Nonnemacher
  */
-@WebServlet(name = "pessoa", urlPatterns = {"/pessoa"})
+//@WebServlet(name = "pessoa", urlPatterns = {"/pessoa"})
 public class PessoaServlet extends HttpServlet {
 
     @EJB
@@ -29,10 +29,11 @@ public class PessoaServlet extends HttpServlet {
             nomes.add(parameter);
         }
         try (PrintWriter writer = response.getWriter();) {
-
+            writer.append("<html> <body>");
             for (String s : nomes) {
-                writer.append(s).append("<br/>");
+                writer.append("<h2>").append(s).append("</h2>").append("<br/>");
             };
+            writer.append("</body></html>");
         }
 
     }

@@ -2,7 +2,7 @@ package br.com.cwi.crescer.aula4;
 
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 
 /**
  * @author Carlos H. Nonnemacher
@@ -10,7 +10,7 @@ import javax.persistence.PersistenceUnit;
 @Stateless
 public class PessoaBean {
 
-    @PersistenceUnit(name = "CRESCER")
+    @PersistenceContext(unitName = "CRESCER")
     private EntityManager entityManager;
     
     

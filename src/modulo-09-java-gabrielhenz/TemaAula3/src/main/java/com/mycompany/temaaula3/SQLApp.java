@@ -6,6 +6,7 @@
 package com.mycompany.temaaula3;
 
 import java.io.File;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -30,7 +31,8 @@ public class SQLApp {
             }
             switch(opcao){
                 case 1:
-                    System.out.print("\n\nDigite o caminho do arquivo '.sql': ");
+                    System.out.print("\nDigite o caminho do arquivo '.sql': ");
+                    t.nextLine();
                     String path = t.nextLine();
                     File file = new File(path);
                     if(path.contains(".sql") && file.isFile()){
@@ -40,12 +42,21 @@ public class SQLApp {
                     }
                     break;
                 case 2:
-                    System.out.print("\n\nDigite um código SQL: ");
-                    String codigo = t.nextLine();
-                    msu.
-            }
-            if(msu.getInstrucao() != null){
-                msu.realizarInstrucao();
+                    System.out.print("\nDigite um código SQL: ");
+                    t.nextLine();
+                    String query = t.nextLine();
+                    List<String> valores = msu.executarQuery(query);
+                    if(valores != null){
+                        for(String valor : valores){
+                            System.out.println(valor);
+                        }
+                    } else { 
+                        System.out.println("Ocorreu algum erro ou não existem valores inseridos na tabela.");
+                    }
+                    break;
+                default:
+                    queroSair = true;
+                    break;
             }
         }
     }

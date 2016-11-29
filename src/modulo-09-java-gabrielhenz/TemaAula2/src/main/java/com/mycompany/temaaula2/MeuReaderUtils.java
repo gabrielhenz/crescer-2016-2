@@ -11,13 +11,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author Gabriel
  */
 public class MeuReaderUtils {
-    public void exibirConteudo(String path){
+    public List<String> exibirConteudo(String path){
         if(!path.contains(".txt") || path.isEmpty()){
             System.out.println("O arquivo solicitado é incompatível.");
         } else {
@@ -26,7 +28,9 @@ public class MeuReaderUtils {
                 try 
                 (final BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) 
                 {
-                    bufferedReader.lines().forEach(System.out::println);
+                    List<String> valores = new ArrayList<>();
+                    bufferedReader.lines().forEach(l -> valores.add(l));
+                    return valores;
                 } catch(IOException ex){
                     ex.printStackTrace();
                 }
@@ -34,5 +38,6 @@ public class MeuReaderUtils {
                 System.out.println("O arquivo não existe.");
             }
         }
+        return null;
     }
 }
