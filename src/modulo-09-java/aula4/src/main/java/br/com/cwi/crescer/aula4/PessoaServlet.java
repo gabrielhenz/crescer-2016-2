@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Carlos H. Nonnemacher
  */
-//@WebServlet(name = "pessoa", urlPatterns = {"/pessoa"})
+@WebServlet(name = "pessoa", urlPatterns = {"/pessoa"})
 public class PessoaServlet extends HttpServlet {
 
     @EJB
