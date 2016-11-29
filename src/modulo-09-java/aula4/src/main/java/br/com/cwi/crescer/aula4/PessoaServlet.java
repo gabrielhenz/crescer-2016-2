@@ -5,6 +5,9 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -19,9 +22,15 @@ public class PessoaServlet extends HttpServlet {
 
     @EJB
     private PessoaBean pessoaBean;
-
-    List<String> nomes = new ArrayList<String>();
-
+    
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Pessoa p = new Pessoa();
+        p.setNmPessoa(request.getParameter("name"));
+        pessoaBean.insert(p);
+        doGet(request, response);
+    }
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html");
@@ -36,10 +45,12 @@ public class PessoaServlet extends HttpServlet {
             out.append("<body>");
             out.append("<h1>Pessoa</h1>");
             
-            pessoaBean.findAll().forEach(p-> {
-                out.append("<div>").append(p.getNmPessoa()).append("</div>");
+            out.append("<table>");
+            final List<Pessoa> findAll = pessoaBean.findAll();
+            findAll.forEach(p-> {
+                out.append("<tr>").append("<td>").append(p.getNmPessoa()).append("</td>").append("</tr>");
             });
-            
+            out.append("</table>");
             out.append("</body>");
             out.append("</html>");
         }
