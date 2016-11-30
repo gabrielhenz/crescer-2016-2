@@ -37,8 +37,7 @@ public class MeuSQLUtils {
             StringBuffer sb = new StringBuffer();
             if (file.exists() && file.isFile()) {
                 try (FileReader fr = new FileReader(file);
-                     final BufferedReader bufferedReader = new BufferedReader(new FileReader(path));) 
-                {
+                        final BufferedReader bufferedReader = new BufferedReader(new FileReader(path));) {
                     while ((s = bufferedReader.readLine()) != null) {
                         sb.append(s.trim());
                     }
@@ -59,65 +58,70 @@ public class MeuSQLUtils {
             }
         }
     }
-    
-    public void exportarCsv(String tabela, String path){
+
+    public void exportarCsv(String tabela, String path) {
         if (!path.contains(".csv") || path.isEmpty()) {
             System.out.println("O arquivo solicitado é incompatível. Precisa possuir extensão '.csv'.");
         } else {
-            try{
+            try {
                 File file = new File(path);
-                if(!file.exists()){
+                if (!file.exists()) {
                     file.createNewFile();
                 } else {
-                    file.delete();
-                    file.createNewFile();
+                    System.out.println("O arquivo já existe, tente outro. ");
                 }
                 List<String> valores = executarQuery(
-                        String.format(
-                        "SELECT /*csv*/ %s FROM %s;", 
-                        tabela.substring(0, 1), tabela));
-                if(valores != null){
+                        "select * from " + tabela + ";");
+                if (valores != null) {
                     MeuWriterUtils mwu = new MeuWriterUtils();
                     mwu.escreverNoArquivo(path, valores);
+                } else {
+                    System.out.println("Ocorreu algum erro.");
                 }
-            } catch(IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
-            }     
+            }
         }
     }
-    
-    public void importarCsv(String tabela, String path){
+
+    public void importarCsv(String tabela, String path) {
         File file = new File(path);
-        if(!file.exists() || !path.contains(".sql")){
+        if (!file.exists() || !path.contains(".sql")) {
             System.out.println("Arquivo inválido.");
         } else {
             MeuReaderUtils mru = new MeuReaderUtils();
             List<String> valores = mru.exibirConteudo(path);
-            if(valores != null){
+            if (valores != null) {
                 List<String> colunasValores = getValoresColunas(valores);
-                String colunasNomes = colunasValores.get(0).replaceAll("\"", "");
+                String colunasNomes = colunasValores.get(0);
                 String query = String.format("INSERT INTO %s(%s) VALUES", tabela, colunasNomes);
-                for(int i = 1; i < colunasValores.size(); i++){
+                for (int i = 1; i < colunasValores.size(); i++) {
                     query += String.format(" (%s),", colunasValores.get(i));
                 }
                 query = query.substring(0, query.lastIndexOf(",") - 1);
                 query += ";";
-                query = query.replaceAll("\"", "'");
                 executarStatement(query);
             } else {
                 System.out.println("Ocorreu algum erro.");
             }
         }
     }
-    
+
     private List<String> getValoresColunas(List<String> valores){
         List<String> colunasValores = new ArrayList<>();
-        for(String valor : valores){
-            valor = valor.substring(2);
+        String[] colunasNomes = valores.get(0).substring(2).split(";");
+        String nomes = "";
+        for(String colunaNome : colunasNomes){
+            nomes += colunaNome.split(":")[0] + ", ";
+        }
+        colunasValores.add(nomes.substring(0, nomes.lastIndexOf(",") - 1));
+        String valor;
+        for(int i = 1; i < valores.size(); i++){
+            valor = valores.get(i).substring(2);
             String colunaNome = "";
             String[]nomeColunaValor = valor.split(";");
-            for(int i = 0; i < nomeColunaValor.length; i++){
-                colunaNome += "'"+nomeColunaValor[i].split(":")[1] + "',";
+            for (String v : nomeColunaValor) {
+                colunaNome += v.split(":")[1] + ", ";
             }
             colunasValores.add(colunaNome.substring(0, colunaNome.lastIndexOf(",") - 1));
         }
@@ -140,7 +144,7 @@ public class MeuSQLUtils {
                 for(int i = 1; i <= qtdeColunas; i++){
                         imprimir +=  meta.getColumnName(i) + ":" + resultSet.getObject(i).toString() + ";";
                 }
-                imprimir = imprimir.substring(0, imprimir.length() - 2);
+                imprimir = imprimir.substring(0, imprimir.length() - 1);
                 valores.add(imprimir);
                 linha++;
             }

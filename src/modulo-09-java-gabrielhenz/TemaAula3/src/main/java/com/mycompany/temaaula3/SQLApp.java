@@ -22,18 +22,21 @@ public class SQLApp {
             System.out.println("---- MENU ----");
             System.out.println("1 - Executar arquivo '.sql'.");
             System.out.println("2 - Executar código SQL.");
-            System.out.println("3 - Sair.");
+            System.out.println("3 - Exportar arquivo '.csv'.");
+            System.out.println("4 - Importar arquivo '.csv'.");
+            System.out.println("5 - Sair.");
             System.out.print("\nDigite a sua opção: ");
             int opcao = t.nextInt();
-            while(opcao != 1 && opcao != 2 && opcao != 3){
+            while(opcao < 1 && opcao > 5){
                 System.out.print("\nOpção inválida, digite outra: ");
                 opcao = t.nextInt();
             }
+            String path, tabela;
             switch(opcao){
                 case 1:
                     System.out.print("\nDigite o caminho do arquivo '.sql': ");
                     t.nextLine();
-                    String path = t.nextLine();
+                    path = t.nextLine();
                     File file = new File(path);
                     if(path.contains(".sql") && file.isFile()){
                         msu.executarInstrucoes(path);
@@ -53,6 +56,22 @@ public class SQLApp {
                     } else { 
                         System.out.println("Ocorreu algum erro ou não existem valores inseridos na tabela.");
                     }
+                    break;
+                case 3:
+                    System.out.print("\nDigite o nome do arquivo: ");
+                    t.nextLine();
+                    path = t.nextLine();
+                    System.out.print("\nDigite o nome da tabela a ser exportada para o arquivo: ");
+                    tabela = t.nextLine();
+                    msu.exportarCsv(tabela, path);
+                    break;
+                case 4:
+                    System.out.print("\nDigite o nome do arquivo: ");
+                    t.nextLine();
+                    path = t.nextLine();
+                    System.out.print("\nDigite o nome da tabela para o arquivo ser importado: ");
+                    tabela = t.nextLine();
+                    msu.importarCsv(tabela, path);
                     break;
                 default:
                     queroSair = true;
