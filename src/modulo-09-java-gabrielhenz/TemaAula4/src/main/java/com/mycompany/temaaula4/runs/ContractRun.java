@@ -6,9 +6,10 @@
 package com.mycompany.temaaula4.runs;
 
 import com.mycompany.temaaula4.dao.ClientDao;
+import com.mycompany.temaaula4.dao.ContractDao;
 import com.mycompany.temaaula4.entity.Client;
+import com.mycompany.temaaula4.entity.Contract;
 import java.util.List;
-import static javafx.scene.input.KeyCode.T;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -17,28 +18,25 @@ import javax.persistence.Persistence;
  *
  * @author Gabriel
  */
-public class ClientRun {
+public class ContractRun {
     public static void main(String[] args) {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("CRESCER");
         final EntityManager em = emf.createEntityManager();
         
-        ClientDao cDao = new ClientDao(em);
+        ContractDao cDao = new ContractDao(em);
         
-        Client c = new Client(
+        Contract c = new Contract(
                 null, 
-                "gabrield47@gmail.com", 
-                "crescer", 
-                "Dólar", 
+                "Contrato de estágio na empresa CWI Software", 
                 "RS", 
-                "gabriel.henz", 
-                "Gabriel Dias Henz", 
-                "User");
+                "http://www.roverinformatica.com.br/", 
+                "Gabriel Henz contrato");
         
         cDao.insert(c);
 
         imprimirUsuarios(cDao.findAll());
         
-        c.setDsEmail("gabriel.henz@cwi.com.br");
+        c.setDsDescription("Contrato de efetivação na empresa CWI Software");
         
         cDao.update(c);
 
@@ -53,12 +51,12 @@ public class ClientRun {
         
     }
     
-    static void imprimirUsuarios(List<Client> clientes){
-        if(clientes.isEmpty()){
+    static void imprimirUsuarios(List<Contract> contratos){
+        if(contratos.isEmpty()){
             System.out.println("Nenhum cliente cadastrado.");
         } else {
-            clientes.forEach((umCliente) -> {
-                System.out.println(umCliente.toString());
+            contratos.forEach((umContrato) -> {
+                System.out.println(umContrato.toString());
             });
         }
     }

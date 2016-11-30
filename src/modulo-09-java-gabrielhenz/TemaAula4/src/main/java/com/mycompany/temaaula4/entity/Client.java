@@ -183,7 +183,17 @@ public class Client implements Serializable {
 
     @Override
     public String toString() {
-        return "com.mycompany.temaaula4.entity.Client[ idClient=" + idClient + " ]";
+        return String.format(
+            "ID:%d; Email:%s; Senha:%s; Moeda preferida:%s; Estado:%s; Nome de usuario:%s; Nome do cliente:%s; Permissão:%s;",
+            this.idClient, 
+            this.dsEmail, 
+            this.dsPassword, 
+            this.dsPreferredCoin, 
+            this.dsState, 
+            this.dsUserName, 
+            this.nmClient, 
+            this.tpPermission
+        );
     }
     
 }
