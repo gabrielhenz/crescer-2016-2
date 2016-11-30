@@ -12,10 +12,13 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -39,9 +42,11 @@ public class Client implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_CLIENT")
+    @SequenceGenerator(name = "SEQ_CLIENT", sequenceName = "SEQ_CLIENT")
     @Basic(optional = false)
     @Column(name = "ID_CLIENT")
-    private BigDecimal idClient;
+    private Long idClient;
     @Basic(optional = false)
     @Column(name = "DS_EMAIL")
     private String dsEmail;
@@ -69,11 +74,11 @@ public class Client implements Serializable {
     public Client() {
     }
 
-    public Client(BigDecimal idClient) {
+    public Client(Long idClient) {
         this.idClient = idClient;
     }
 
-    public Client(BigDecimal idClient, String dsEmail, String dsPassword, String dsPreferredCoin, String dsState, String dsUserName, String nmClient, String tpPermission) {
+    public Client(Long idClient, String dsEmail, String dsPassword, String dsPreferredCoin, String dsState, String dsUserName, String nmClient, String tpPermission) {
         this.idClient = idClient;
         this.dsEmail = dsEmail;
         this.dsPassword = dsPassword;
@@ -84,11 +89,11 @@ public class Client implements Serializable {
         this.tpPermission = tpPermission;
     }
 
-    public BigDecimal getIdClient() {
+    public Long getIdClient() {
         return idClient;
     }
 
-    public void setIdClient(BigDecimal idClient) {
+    public void setIdClient(Long idClient) {
         this.idClient = idClient;
     }
 

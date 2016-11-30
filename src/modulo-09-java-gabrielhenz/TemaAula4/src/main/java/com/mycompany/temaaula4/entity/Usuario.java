@@ -12,10 +12,13 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -38,9 +41,11 @@ public class Usuario implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_USUARIO")
+    @SequenceGenerator(name = "SEQ_USUARIO", sequenceName = "SEQ_USUARIO")
     @Basic(optional = false)
     @Column(name = "ID_USUARIO")
-    private BigDecimal idUsuario;
+    private Long idUsuario;
     @Basic(optional = false)
     @Column(name = "DS_EMAIL")
     private String dsEmail;
@@ -65,11 +70,11 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
 
-    public Usuario(BigDecimal idUsuario) {
+    public Usuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 
-    public Usuario(BigDecimal idUsuario, String dsEmail, String dsSenha, String dsSituacao, String dsUserName, String nmUsuario, String tpPermissao) {
+    public Usuario(Long idUsuario, String dsEmail, String dsSenha, String dsSituacao, String dsUserName, String nmUsuario, String tpPermissao) {
         this.idUsuario = idUsuario;
         this.dsEmail = dsEmail;
         this.dsSenha = dsSenha;
@@ -79,11 +84,11 @@ public class Usuario implements Serializable {
         this.tpPermissao = tpPermissao;
     }
 
-    public BigDecimal getIdUsuario() {
+    public Long getIdUsuario() {
         return idUsuario;
     }
 
-    public void setIdUsuario(BigDecimal idUsuario) {
+    public void setIdUsuario(Long idUsuario) {
         this.idUsuario = idUsuario;
     }
 

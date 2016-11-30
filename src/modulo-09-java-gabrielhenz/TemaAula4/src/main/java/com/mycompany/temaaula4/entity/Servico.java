@@ -10,11 +10,14 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -39,9 +42,11 @@ public class Servico implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_SERVICO")
+    @SequenceGenerator(name = "SEQ_SERVICO", sequenceName = "SEQ_SERVICO")
     @Basic(optional = false)
     @Column(name = "ID_SERVICO")
-    private BigDecimal idServico;
+    private Long idServico;
     @Basic(optional = false)
     @Column(name = "DS_DESCRICAO")
     private String dsDescricao;
@@ -73,11 +78,11 @@ public class Servico implements Serializable {
     public Servico() {
     }
 
-    public Servico(BigDecimal idServico) {
+    public Servico(Long idServico) {
         this.idServico = idServico;
     }
 
-    public Servico(BigDecimal idServico, String dsDescricao, String dsPeriodicidade, String dsSimboloMoeda, String dsSituacao, String dsWebsite, String nmServico, BigDecimal vlMensalUsd, BigDecimal vlTotalServico) {
+    public Servico(Long idServico, String dsDescricao, String dsPeriodicidade, String dsSimboloMoeda, String dsSituacao, String dsWebsite, String nmServico, BigDecimal vlMensalUsd, BigDecimal vlTotalServico) {
         this.idServico = idServico;
         this.dsDescricao = dsDescricao;
         this.dsPeriodicidade = dsPeriodicidade;
@@ -89,11 +94,11 @@ public class Servico implements Serializable {
         this.vlTotalServico = vlTotalServico;
     }
 
-    public BigDecimal getIdServico() {
+    public Long getIdServico() {
         return idServico;
     }
 
-    public void setIdServico(BigDecimal idServico) {
+    public void setIdServico(Long idServico) {
         this.idServico = idServico;
     }
 

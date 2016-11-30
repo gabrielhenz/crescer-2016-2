@@ -10,10 +10,13 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -39,8 +42,10 @@ public class Cotacao implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @Basic(optional = false)
+    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_COTACAO")
+    @SequenceGenerator(name = "SEQ_COTACAO", sequenceName = "SEQ_COTACAO")
     @Column(name = "ID_COTACAO")
-    private BigDecimal idCotacao;
+    private Long idCotacao;
     @Basic(optional = false)
     @Column(name = "DS_COTACAO_DOLLAR_AUSTRALIANO")
     private BigDecimal dsCotacaoDollarAustraliano;
@@ -73,11 +78,11 @@ public class Cotacao implements Serializable {
     public Cotacao() {
     }
 
-    public Cotacao(BigDecimal idCotacao) {
+    public Cotacao(Long idCotacao) {
         this.idCotacao = idCotacao;
     }
 
-    public Cotacao(BigDecimal idCotacao, BigDecimal dsCotacaoDollarAustraliano, BigDecimal dsCotacaoDollarCanadense, BigDecimal dsCotacaoEuro, BigDecimal dsCotacaoFrancoSuico, BigDecimal dsCotacaoLibra, BigDecimal dsCotacaoReal, BigDecimal dsCotacaoYen, BigDecimal dsCotacaoYuan, byte[] dtCotacao) {
+    public Cotacao(Long idCotacao, BigDecimal dsCotacaoDollarAustraliano, BigDecimal dsCotacaoDollarCanadense, BigDecimal dsCotacaoEuro, BigDecimal dsCotacaoFrancoSuico, BigDecimal dsCotacaoLibra, BigDecimal dsCotacaoReal, BigDecimal dsCotacaoYen, BigDecimal dsCotacaoYuan, byte[] dtCotacao) {
         this.idCotacao = idCotacao;
         this.dsCotacaoDollarAustraliano = dsCotacaoDollarAustraliano;
         this.dsCotacaoDollarCanadense = dsCotacaoDollarCanadense;
@@ -90,11 +95,11 @@ public class Cotacao implements Serializable {
         this.dtCotacao = dtCotacao;
     }
 
-    public BigDecimal getIdCotacao() {
+    public Long getIdCotacao() {
         return idCotacao;
     }
 
-    public void setIdCotacao(BigDecimal idCotacao) {
+    public void setIdCotacao(Long idCotacao) {
         this.idCotacao = idCotacao;
     }
 

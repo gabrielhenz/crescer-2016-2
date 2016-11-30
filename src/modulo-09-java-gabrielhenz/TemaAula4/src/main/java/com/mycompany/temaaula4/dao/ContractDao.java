@@ -5,22 +5,19 @@
  */
 package com.mycompany.temaaula4.dao;
 
-import com.mycompany.temaaula4.entity.Usuario;
-import java.util.List;
+import com.mycompany.temaaula4.entity.Client;
+import com.mycompany.temaaula4.entity.Contract;
 import javax.persistence.EntityManager;
-import org.eclipse.persistence.sessions.Session;
 
 /**
  *
  * @author Gabriel
  */
-
-public class UsuarioDao extends AbstractDao<Usuario>{
-
+public class ContractDao extends AbstractDao<Contract>{
     final EntityManager entityManager;
 
-    public UsuarioDao(EntityManager entityManager) {
-        super(Usuario.class);
+    public ContractDao(EntityManager entityManager) {
+        super(Contract.class);
         this.entityManager = entityManager;
     }
 
@@ -28,5 +25,4 @@ public class UsuarioDao extends AbstractDao<Usuario>{
     public EntityManager getEntityManager() {
         return entityManager;
     }
-
 }

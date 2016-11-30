@@ -10,11 +10,14 @@ import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.SEQUENCE;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 /**
@@ -35,9 +38,11 @@ public class ContractValue implements Serializable {
     private static final long serialVersionUID = 1L;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
+    @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_CONTRACT_VALUE")
+    @SequenceGenerator(name = "SEQ_CONTRACT_VALUE", sequenceName = "SEQ_CONTRACT_VALUE")
     @Basic(optional = false)
     @Column(name = "ID_CONTRACT_VALUE")
-    private BigDecimal idContractValue;
+    private Long idContractValue;
     @Basic(optional = false)
     @Column(name = "DS_COIN")
     private String dsCoin;
@@ -57,11 +62,11 @@ public class ContractValue implements Serializable {
     public ContractValue() {
     }
 
-    public ContractValue(BigDecimal idContractValue) {
+    public ContractValue(Long idContractValue) {
         this.idContractValue = idContractValue;
     }
 
-    public ContractValue(BigDecimal idContractValue, String dsCoin, String dsPeriodicity, BigDecimal vlAmountContractValue, BigDecimal vlMonthlyUsd) {
+    public ContractValue(Long idContractValue, String dsCoin, String dsPeriodicity, BigDecimal vlAmountContractValue, BigDecimal vlMonthlyUsd) {
         this.idContractValue = idContractValue;
         this.dsCoin = dsCoin;
         this.dsPeriodicity = dsPeriodicity;
@@ -69,11 +74,11 @@ public class ContractValue implements Serializable {
         this.vlMonthlyUsd = vlMonthlyUsd;
     }
 
-    public BigDecimal getIdContractValue() {
+    public Long getIdContractValue() {
         return idContractValue;
     }
 
-    public void setIdContractValue(BigDecimal idContractValue) {
+    public void setIdContractValue(Long idContractValue) {
         this.idContractValue = idContractValue;
     }
 
