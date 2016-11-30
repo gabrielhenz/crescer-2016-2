@@ -20,14 +20,6 @@ public class PessoaServlet extends HttpServlet {
 
     @EJB
     private PessoaBean pessoaBean;
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Pessoa p = new Pessoa();
-        p.setNmPessoa(request.getParameter("name"));
-        pessoaBean.insert(p);
-        doGet(request, response);
-    }
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -53,7 +45,4 @@ public class PessoaServlet extends HttpServlet {
         }
         resp.sendRedirect("/aula4");
     }
-
-    
-    
 }
