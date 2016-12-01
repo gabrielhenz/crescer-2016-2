@@ -43,7 +43,7 @@ public class Cotacao implements Serializable {
     @Id
     @Basic(optional = false)
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_COTACAO")
-    @SequenceGenerator(name = "SEQ_COTACAO", sequenceName = "SEQ_COTACAO")
+    @SequenceGenerator(name = "SEQ_COTACAO", sequenceName = "SEQ_COTACAO", allocationSize = 1)
     @Column(name = "ID_COTACAO")
     private Long idCotacao;
     @Basic(optional = false)

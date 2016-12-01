@@ -5,6 +5,7 @@
  */
 package com.mycompany.temaaula4.runs;
 
+import com.mycompany.temaaula3.MeuSQLUtils;
 import com.mycompany.temaaula4.dao.ClientDao;
 import com.mycompany.temaaula4.entity.Client;
 import java.util.List;
@@ -36,24 +37,25 @@ public class ClientRun {
         
         cDao.insert(c);
 
-        imprimirUsuarios(cDao.findAll());
+        imprimirClients(cDao.findAll());
         
         c.setDsEmail("gabriel.henz@cwi.com.br");
         
         cDao.update(c);
 
-        imprimirUsuarios(cDao.findAll());
+        imprimirClients(cDao.findAll());
         
-        cDao.delete(c);
+//        cDao.delete(c);
+//        imprimirClients(cDao.findAll());
         
-        imprimirUsuarios(cDao.findAll());
-        
+        new MeuSQLUtils().exportarCsv("CLIENT", "client.csv");
+
         em.close();
         emf.close();
         
     }
     
-    static void imprimirUsuarios(List<Client> clientes){
+    static void imprimirClients(List<Client> clientes){
         if(clientes.isEmpty()){
             System.out.println("Nenhum cliente cadastrado.");
         } else {
