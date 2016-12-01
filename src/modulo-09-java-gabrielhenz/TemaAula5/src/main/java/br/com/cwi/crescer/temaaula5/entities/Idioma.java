@@ -25,15 +25,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "IDIOMA")
-<<<<<<< HEAD
 //@NamedQueries({
 //    @NamedQuery(name = "Idioma.findAll", query = "SELECT I FROM IDIOMA I")
 //})
-=======
-@NamedQueries({
-    @NamedQuery(name = "Idioma.findAll", query = "SELECT I FROM IDIOMA I")
-})
->>>>>>> master
 public class Idioma implements Serializable {
 
     @Id

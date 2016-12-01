@@ -35,15 +35,9 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "FILME")
-<<<<<<< HEAD
 //@NamedQueries({
 //    @NamedQuery(name = "Filme.findAll", query = "SELECT F FROM FILME F")
 //})
-=======
-@NamedQueries({
-    @NamedQuery(name = "Filme.findAll", query = "SELECT F FROM FILME F")
-})
->>>>>>> master
 public class Filme implements Serializable{
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_FILME")

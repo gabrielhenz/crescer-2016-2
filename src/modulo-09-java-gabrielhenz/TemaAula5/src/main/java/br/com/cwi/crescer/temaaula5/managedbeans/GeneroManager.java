@@ -42,11 +42,7 @@ public class GeneroManager {
         return genero;
     }
 
-<<<<<<< HEAD
     public void setGenero(Genero genero) {
-=======
-    public void setGenero(Genero gemerp) {
->>>>>>> master
         this.genero = genero;
     }
 

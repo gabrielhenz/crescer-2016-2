@@ -44,7 +44,6 @@ public abstract class AbstractBean<T> implements IBean<T>{
     
     @Override
      public List<T> findAll() {
-<<<<<<< HEAD
         String tabela =  clazz.getSimpleName();
         String alias = tabela.substring(0, 1);
         return this.getEntityManager()
@@ -55,9 +54,6 @@ public abstract class AbstractBean<T> implements IBean<T>{
                                 tabela, 
                                 alias)
                 ).getResultList();
-=======
-        return this.getEntityManager().createNamedQuery(clazz.getSimpleName()+".findAll").getResultList();
->>>>>>> master
     }
 
 }

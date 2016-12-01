@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="CRESCER" transaction-type="JTA">
     <jta-data-source>jdbc/crescer</jta-data-source>
@@ -13,25 +12,5 @@
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
     </properties>
-=======
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"> 
-    <persistence-unit name="CRESCER" transaction-type="JTA"> 
-        <jta-data-source>Crescer</jta-data-source> 
-        <class>com.mycompany.temaaula4.entity.Filme</class>
-        <class>com.mycompany.temaaula4.entity.Elenco</class>
-        <class>com.mycompany.temaaula4.entity.Genero</class>
-        <class>com.mycompany.temaaula4.entity.Idioma</class>
-        <class>com.mycompany.temaaula4.entity.Classificacao</class>
-        <class>com.mycompany.temaaula4.entity.Ator</class> 
-        <exclude-unlisted-classes>true</exclude-unlisted-classes> 
-        <properties>
-            <property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
-            <property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver"/>
-            <property name="javax.persistence.jdbc.user" value="crescer"/>
-            <property name="javax.persistence.jdbc.password" value="crescer"/>   
-            <!--Descomentar para criar recriar as tabela.-->
-            <property name="javax.persistence.schema-generation.database.action" value="create"/>
-        </properties>
->>>>>>> master
   </persistence-unit>
 </persistence>

@@ -10,18 +10,14 @@
 
     <ui:define name="form">
 
-<<<<<<< HEAD
         <h:messages id="messages">
 
         </h:messages>
 
-=======
->>>>>>> master
         <div class="form-group"> 
             <h:outputLabel for="titulo" value="#{bundle.filme_titulo}"></h:outputLabel>
             <h:inputText id="titulo" value="#{filmeManager.filme.dsTitulo}" styleClass="form-control"/>
         </div>
-<<<<<<< HEAD
 
         <div class="form-group"> 
             <h:outputLabel for="genero" value="#{bundle.filme_genero}"></h:outputLabel>
@@ -31,35 +27,17 @@
             </h:selectOneListbox>
         </div>
 
-=======
-        
-        <div class="form-group"> 
-            <h:outputLabel for="genero" value="#{bundle.filme_genero}"></h:outputLabel>
-            <h:inputText id="diretor" value="#{filmeManager.filme.genero}" styleClass="form-control"/>
-            <h:selectManyListbox>
-                <ui:repeat value="#{generoManager.generos}" var="genero">
-                    <f:selectItem itemValue="#{genero.idGenero}" itemLabel="#{genero.nmGenero}" />
-                </ui:repeat>	 
-            </h:selectManyListbox>
-        </div>
-        
->>>>>>> master
         <div class="form-group"> 
             <h:outputLabel for="diretor" value="#{bundle.filme_diretor}"></h:outputLabel>
             <h:inputText id="diretor" value="#{filmeManager.filme.dsDiretor}" styleClass="form-control"/>
         </div>
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> master
         <div class="form-group"> 
             <h:outputLabel for="data-lancamento" value="#{bundle.filme_data_lancamento}"></h:outputLabel>
             <h:inputText  id="data-lancamento" value="#{filmeManager.filme.dtLancamento}" styleClass="form-control">
                 <f:convertDateTime pattern="dd-MM-yyyy"/>
             </h:inputText>
         </div>
-<<<<<<< HEAD
         
         <div class="form-group"> 
             <h:outputLabel for="elenco" value="#{bundle.filme_elenco}"></h:outputLabel>
@@ -95,51 +73,32 @@
         </div>
 
         <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{filmeManager.adicionar}">    
-=======
-
-
-        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{hello.adicionar}">    
->>>>>>> master
             <f:ajax execute="@form" render="@form" />
         </h:commandButton>
 
         <h:dataTable id="filmes" value="#{filmeManager.filmes}" var="filme" styleClass="table table-hover">
-<<<<<<< HEAD
 
-=======
->>>>>>> master
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{bundle.filme_titulo}"/>
                 </f:facet>
                 <h:outputText value="#{filme.dsTitulo}"/>
             </h:column>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{bundle.filme_diretor}"/>
                 </f:facet>
-<<<<<<< HEAD
                 <h:outputText value="#{filme.dsDiretor}"/>
             </h:column>
 
-=======
-                <h:outputText value="#{filme.dsTitulo}"/>
-            </h:column>
->>>>>>> master
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{bundle.filme_data_lancamento}"/>
                 </f:facet>
                 <h:outputText value="#{filme.dtLancamento}"/>
             </h:column>
-<<<<<<< HEAD
 
-=======
->>>>>>> master
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{bundle.filme_genero}"/>
@@ -147,7 +106,6 @@
                 <h:outputText value="#{filme.genero.nmGenero}"/>
             </h:column>
 
-<<<<<<< HEAD
             <h:column>
                 <f:facet name="header">
                     <h:outputText value="#{bundle.filme_elenco}"/>
@@ -172,13 +130,6 @@
             </h:column>
 
         </h:dataTable>
-=======
-        </h:dataTable>
-
-        <h:messages id="messages">
-
-        </h:messages>
->>>>>>> master
 
 
     </ui:define>

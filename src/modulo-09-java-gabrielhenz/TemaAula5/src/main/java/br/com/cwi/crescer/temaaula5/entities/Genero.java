@@ -26,15 +26,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "GENERO")
-<<<<<<< HEAD
 //@NamedQueries({
 //    @NamedQuery(name = "Genero.findAll", query = "SELECT G FROM GENERO G")
 //})
-=======
-@NamedQueries({
-    @NamedQuery(name = "Genero.findAll", query = "SELECT G FROM GENERO G")
-})
->>>>>>> master
 public class Genero implements Serializable {
 
     @Id

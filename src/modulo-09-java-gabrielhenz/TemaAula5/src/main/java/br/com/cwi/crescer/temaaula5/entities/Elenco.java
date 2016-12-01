@@ -25,15 +25,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "ELENCO")
-<<<<<<< HEAD
 //@NamedQueries({
 //    @NamedQuery(name = "Elenco.findAll", query = "SELECT E FROM ELENCO E")
 //})
-=======
-@NamedQueries({
-    @NamedQuery(name = "Elenco.findAll", query = "SELECT E FROM ELENCO E")
-})
->>>>>>> master
 public class Elenco implements Serializable {
 
     @Id
@@ -50,11 +44,7 @@ public class Elenco implements Serializable {
     @OneToMany(mappedBy="elencoFilme")
     private List<Filme> filmes;
     
-<<<<<<< HEAD
     @OneToMany(mappedBy="elencoAtor")
-=======
-    @OneToMany(mappedBy="elencoAtores")
->>>>>>> master
     private List<Ator> atores;
 
     public Elenco() {
@@ -88,7 +78,6 @@ public class Elenco implements Serializable {
     public void setFilmes(List<Filme> filmes) {
         this.filmes = filmes;
     }
-<<<<<<< HEAD
 
     public List<Ator> getAtores() {
         return atores;
@@ -97,8 +86,6 @@ public class Elenco implements Serializable {
     public void setAtores(List<Ator> atores) {
         this.atores = atores;
     }
-=======
->>>>>>> master
     
     
 }
