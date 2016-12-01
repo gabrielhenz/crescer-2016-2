@@ -13,17 +13,33 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
         <title>Aula 6</title>
     </h:head>
-    
     <h:body>
+        
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><h:link value="Home" outcome="index" /></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Cadastrar... <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><h:link value="Filme" outcome="filme" /></li>
+                    <li><h:link value="Elenco" outcome="elenco" /></li>
+                    <li><h:link value="Ator" outcome="ator" /></li>
+                    <li><h:link value="Genero" outcome="genero" /></li>
+                    <li><h:link value="Idioma" outcome="idioma" /></li>
+                    <li><h:link value="Classificação" outcome="classificacao" /></li>
+                </ul>
+            </li>
+        </ul>
+        
+        <ui:insert name=""></ui:insert>
         <div class="container">
             <div class="col-md-12">
 
                 <h:form>
-
                     <ui:insert name="form">
                         Aqui vai o conteudo do form
-                    </ui:insert>            
-
+                    </ui:insert>    
                 </h:form>
             </div>
         </div>

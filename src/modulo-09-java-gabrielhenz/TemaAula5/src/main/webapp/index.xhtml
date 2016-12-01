@@ -1,45 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition 
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
 
-    xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:h="http://java.sun.com/jsf/html"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-
-    template="/templates/template.xhtml"
-    xmlns:f="http://java.sun.com/jsf/core">
-
-    <ui:define name="form">
-
-        <div class="form-group"> 
-            <h:outputLabel for="nome" value="#{bundle.pessoa_nome}"></h:outputLabel>
-            <h:inputText id="nome" value="#{hello.pessoa.nmPessoa}" styleClass="form-control"/>
-        </div>
-
-        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{hello.adicionar}">    
-            <f:ajax execute="@form" render="@form" />
-        </h:commandButton>
-
-        <h:dataTable id="pessoas" value="#{hello.pessoas}" var="pessoa" styleClass="table table-hover">
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{bundle.pessoa_id}"/>
-                </f:facet>
-                <h:outputText value="#{pessoa.idPessoa}"/>
-            </h:column>
-            <h:column>
-                <f:facet name="header">
-                    <h:outputText value="#{bundle.pessoa_nome}"/>
-                </f:facet>
-                <h:outputText value="#{pessoa.nmPessoa}"/>
-            </h:column>
-
-        </h:dataTable>
-
-        <h:messages id="messages">
-
-        </h:messages>
-
-
-    </ui:define>
-
-</ui:composition>
+    <h:head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <title>Aula 6</title>
+    </h:head>
+    <h:body>
+        <ul class="nav nav-pills">
+            <li role="presentation" class="active"><h:link value="Home" outcome="index" /></li>
+            <li role="presentation" class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                    Cadastrar... <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><h:link value="Filme" outcome="filme" /></li>
+                    <li><h:link value="Elenco" outcome="elenco" /></li>
+                    <li><h:link value="Ator" outcome="ator" /></li>
+                    <li><h:link value="Genero" outcome="genero" /></li>
+                    <li><h:link value="Idioma" outcome="idioma" /></li>
+                    <li><h:link value="Classificação" outcome="classificacao" /></li>
+                </ul>
+            </li>
+        </ul>
+    </h:body>
+</html>
