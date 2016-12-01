@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+
+    template="/templates/template.xhtml"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="form">
+
+        <h:messages id="messages"/>
+
+        <div class="form-group"> 
+            <h:outputLabel for="nome" value="#{bundle.classificacao_descricao}"></h:outputLabel>
+            <h:inputText id="nome" value="#{classificacaoManager.classificacao.nmClassificacao}" styleClass="form-control"/>
+        </div>
+
+        <div class="form-group"> 
+            <h:outputLabel for="idade" value="#{bundle.classificacao_idade}"></h:outputLabel>
+            <h:inputText id="idade" value="#{classificacaoManager.classificacao.vlIdade}" styleClass="form-control"/>
+        </div>
+
+        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{classificacaoManager.adicionar}">    
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+
+        <h:dataTable id="classificacoes" value="#{classificacaoManager.classificacoes}" var="classificacao" styleClass="table table-hover">
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.classificacao_descricao}"/>
+                </f:facet>
+                <h:outputText value="#{classificacao.nmClassificacao}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.classificacao_idade}"/>
+                </f:facet>
+                <h:outputText value="#{classificacao.vlIdade}"/>
+            </h:column>
+
+        </h:dataTable>
+
+
+    </ui:define>
+
+</ui:composition>

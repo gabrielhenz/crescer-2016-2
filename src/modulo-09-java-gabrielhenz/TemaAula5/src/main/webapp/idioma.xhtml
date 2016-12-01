@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+
+    template="/templates/template.xhtml"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="form">
+
+        <h:messages id="messages"/>
+
+        <div class="form-group"> 
+            <h:outputLabel for="nome" value="#{bundle.idioma_nome}"></h:outputLabel>
+            <h:inputText id="nome" value="#{idiomaManager.idioma.nmIdioma}" styleClass="form-control"/>
+        </div>
+
+        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{atorManager.adicionar}">    
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+
+        <h:dataTable id="idiomas" value="#{idiomaManager.idiomas}" var="idioma" styleClass="table table-hover">
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.idioma_nome}"/>
+                </f:facet>
+                <h:outputText value="#{idioma.nmIdioma}"/>
+            </h:column>
+        </h:dataTable>
+
+
+    </ui:define>
+
+</ui:composition>

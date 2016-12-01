@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+
+    template="/templates/template.xhtml"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="form">
+
+        <h:messages id="messages">
+
+        </h:messages>
+
+        <div class="form-group"> 
+            <h:outputLabel for="titulo" value="#{bundle.filme_titulo}"></h:outputLabel>
+            <h:inputText id="titulo" value="#{filmeManager.filme.dsTitulo}" styleClass="form-control"/>
+        </div>
+
+        <div class="form-group"> 
+            <h:outputLabel for="genero" value="#{bundle.filme_genero}"></h:outputLabel>
+            <h:selectOneRadio id="genero" styleClass="form-control" value="#{filmeManager.idGenero}">
+                <f:selectItems value="#{generoManager.generos}" var="genero"
+                               itemLabel="#{genero.nmGenero}" itemValue="#{ator.idAtor}" /> 
+            </h:selectOneListbox>
+        </div>
+
+        <div class="form-group"> 
+            <h:outputLabel for="diretor" value="#{bundle.filme_diretor}"></h:outputLabel>
+            <h:inputText id="diretor" value="#{filmeManager.filme.dsDiretor}" styleClass="form-control"/>
+        </div>
+
+        <div class="form-group"> 
+            <h:outputLabel for="data-lancamento" value="#{bundle.filme_data_lancamento}"></h:outputLabel>
+            <h:inputText  id="data-lancamento" value="#{filmeManager.filme.dtLancamento}" styleClass="form-control">
+                <f:convertDateTime pattern="dd-MM-yyyy"/>
+            </h:inputText>
+        </div>
+        
+        <div class="form-group"> 
+            <h:outputLabel for="elenco" value="#{bundle.filme_elenco}"></h:outputLabel>
+            <h:selectOneRadio id="elenco" styleClass="form-control" value="#{filmeManager.idGenero}">
+                <f:selectItems value="#{elencoManager.elencos}" var="elenco"
+                               itemLabel="#{elenco.nmElenco}" itemValue="#{elenco.idElenco}" /> 
+            </h:selectOneListbox>
+        </div>
+        
+        <div class="form-group"> 
+            <h:outputLabel for="idioma" value="#{bundle.filme_idioma}"></h:outputLabel>
+            <h:selectOneRadio id="idioma" styleClass="form-control" value="#{filmeManager.idGenero}">
+                <f:selectItems value="#{idiomaManager.idiomas}" var="idioma"
+                               itemLabel="#{idioma.nmIdioma}" itemValue="#{idioma.idIdioma}" /> 
+            </h:selectOneListbox>
+        </div>
+
+        <div class="form-group"> 
+            <h:outputLabel for="classificacao" value="#{bundle.filme_classificacao}"></h:outputLabel>
+            <h:selectOneListbox id="classificacao" styleClass="form-control">
+                <ui:repeat value="#{filmeManager.classificacoes}" var="classificacao">
+                    <f:selectItem itemValue="#{classificacao.idClassificacao}" itemLabel="#{classificacao.nmClassificacao}" />
+                </ui:repeat>	 
+            </h:selectOneListbox>
+        </div>
+        
+        <div class="form-group"> 
+            <h:outputLabel for="classificacao" value="#{bundle.filme_classificacao}"></h:outputLabel>
+            <h:selectOneRadio id="classificacao" styleClass="form-control" value="#{filmeManager.idClassificacao}">
+                <f:selectItems value="#{classificacaoManager.classificacoes}" var="classificacao"
+                               itemLabel="#{idioma.nmIdioma}" itemValue="#{idioma.idIdioma}" /> 
+            </h:selectOneListbox>
+        </div>
+
+        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{filmeManager.adicionar}">    
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+
+        <h:dataTable id="filmes" value="#{filmeManager.filmes}" var="filme" styleClass="table table-hover">
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_titulo}"/>
+                </f:facet>
+                <h:outputText value="#{filme.dsTitulo}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_diretor}"/>
+                </f:facet>
+                <h:outputText value="#{filme.dsDiretor}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_data_lancamento}"/>
+                </f:facet>
+                <h:outputText value="#{filme.dtLancamento}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_genero}"/>
+                </f:facet>
+                <h:outputText value="#{filme.genero.nmGenero}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_elenco}"/>
+                </f:facet>
+                <ui:repeat value="#{filme.elenco.elencoAtores}" var="ator">
+                    <h:outputText value="#{ator.nmAtor}"/>
+                </ui:repeat>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_idioma}"/>
+                </f:facet>
+                <h:outputText value="#{filme.idioma.nmIdioma}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.filme_classificacao}"/>
+                </f:facet>
+                <h:outputText value="#{filme.classificacao.nmDescricao}"/>
+            </h:column>
+
+        </h:dataTable>
+
+
+    </ui:define>
+
+</ui:composition>

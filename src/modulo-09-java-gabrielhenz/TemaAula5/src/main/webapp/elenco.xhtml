@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition 
+
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+
+    template="/templates/template.xhtml"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:define name="form">
+
+        <h:messages id="messages">
+
+        </h:messages>
+
+        <div class="form-group"> 
+            <h:outputLabel for="nome" value="#{bundle.elenco_nome}"></h:outputLabel>
+            <h:inputText id="nome" value="#{elencoManager.elenco.nmElenco}" styleClass="form-control"/>
+        </div>
+
+        <div class="form-group"> 
+            <h:outputLabel for="atores" value="#{bundle.elenco_atores}"></h:outputLabel>
+            <h:selectManyCheckbox id="atores" styleClass="form-control" value="#{elencoManager.idAtores}">
+                <div class="checkbox">
+                    <f:selectItems value="#{elencoManager.elenco.atores}" var="ator"
+                               itemLabel="#{ator.nmAtor}" itemValue="#{ator.idAtor}" /> 
+                </div>
+            </h:selectManyCheckbox>
+        </div>
+
+        <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{elencoManager.adicionar}">    
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+
+        <h:dataTable id="elencos" value="#{elencoManager.elencos}" var="elenco" styleClass="table table-hover">
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.elenco_nome}"/>
+                </f:facet>
+                <h:outputText value="#{elenco.nmElenco}"/>
+            </h:column>
+
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="#{bundle.elenco_atores}"/>
+                </f:facet>
+                <ui:repeat value="#{elenco.atores}" var="ator">
+                    <h:outputText value="#{ator.nmAtor};"/>
+                    <h:outputText value="&#160;" />
+                </ui:repeat>
+            </h:column>
+
+        </h:dataTable>
+
+
+    </ui:define>
+
+</ui:composition>
