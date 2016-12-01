@@ -5,6 +5,7 @@
  */
 package com.mycompany.temaaula4.runs;
 
+import com.mycompany.temaaula3.MeuSQLUtils;
 import com.mycompany.temaaula4.dao.ClientDao;
 import com.mycompany.temaaula4.dao.ContractDao;
 import com.mycompany.temaaula4.entity.Client;
@@ -32,28 +33,31 @@ public class ContractRun {
                 "http://www.roverinformatica.com.br/", 
                 "Gabriel Henz contrato");
         
+        c.setClientIdClient(new ClientDao(em).findAll().get(0));
+        
         cDao.insert(c);
 
-        imprimirUsuarios(cDao.findAll());
+        imprimirContracts(cDao.findAll());
         
         c.setDsDescription("Contrato de efetivação na empresa CWI Software");
         
         cDao.update(c);
 
-        imprimirUsuarios(cDao.findAll());
+        imprimirContracts(cDao.findAll());
         
-        cDao.delete(c);
+//        cDao.delete(c);
+//        imprimirContracts(cDao.findAll());
         
-        imprimirUsuarios(cDao.findAll());
+        new MeuSQLUtils().exportarCsv("CONTRACT", "contract.csv");
         
         em.close();
         emf.close();
         
     }
     
-    static void imprimirUsuarios(List<Contract> contratos){
+    static void imprimirContracts(List<Contract> contratos){
         if(contratos.isEmpty()){
-            System.out.println("Nenhum cliente cadastrado.");
+            System.out.println("Nenhum contrato cadastrado.");
         } else {
             contratos.forEach((umContrato) -> {
                 System.out.println(umContrato.toString());

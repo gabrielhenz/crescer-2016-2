@@ -11,4 +11,8 @@
         <property name="driverClass" value="oracle.jdbc.OracleDriver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="jdbc/crescer" object-type="system-all" pool-name="cwiPool"/>
+<<<<<<< HEAD
+=======
+    <jdbc-resource enabled="true" jndi-name="Crescer" object-type="user" pool-name="cwiPool"/>
+>>>>>>> master
 </resources>

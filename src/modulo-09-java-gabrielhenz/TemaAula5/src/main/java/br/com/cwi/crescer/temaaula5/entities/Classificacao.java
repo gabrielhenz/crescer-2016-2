@@ -25,9 +25,15 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "CLASSIFICACAO")
+<<<<<<< HEAD
 //@NamedQueries({
 //    @NamedQuery(name = "Classificacao.findAll", query = "SELECT C FROM CLASSIFICACAO C")
 //})
+=======
+@NamedQueries({
+    @NamedQuery(name = "Classificacao.findAll", query = "SELECT C FROM CLASSIFICACAO C")
+})
+>>>>>>> master
 public class Classificacao implements Serializable {
 
     @Id

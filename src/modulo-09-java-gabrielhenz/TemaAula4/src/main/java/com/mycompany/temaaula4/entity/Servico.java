@@ -43,7 +43,7 @@ public class Servico implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_SERVICO")
-    @SequenceGenerator(name = "SEQ_SERVICO", sequenceName = "SEQ_SERVICO")
+    @SequenceGenerator(name = "SEQ_SERVICO", sequenceName = "SEQ_SERVICO", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "ID_SERVICO")
     private Long idServico;

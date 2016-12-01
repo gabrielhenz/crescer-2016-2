@@ -5,6 +5,7 @@
  */
 package br.com.cwi.crescer.temaaula5.managedbeans;
 
+<<<<<<< HEAD
 import br.com.cwi.crescer.temaaula5.beans.ClassificacaoBean;
 import br.com.cwi.crescer.temaaula5.beans.ElencoBean;
 import br.com.cwi.crescer.temaaula5.beans.FilmeBean;
@@ -15,6 +16,10 @@ import br.com.cwi.crescer.temaaula5.entities.Elenco;
 import br.com.cwi.crescer.temaaula5.entities.Filme;
 import br.com.cwi.crescer.temaaula5.entities.Genero;
 import br.com.cwi.crescer.temaaula5.entities.Idioma;
+=======
+import br.com.cwi.crescer.temaaula5.beans.FilmeBean;
+import br.com.cwi.crescer.temaaula5.entities.Filme;
+>>>>>>> master
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -33,6 +38,7 @@ public class FilmeManager {
 
     @EJB
     private FilmeBean filmeBean;
+<<<<<<< HEAD
 
     @EJB
     private GeneroBean generoBean;
@@ -52,12 +58,21 @@ public class FilmeManager {
     private String idIdioma;
     private String idElenco;
     private String idClassificacao;
+=======
+    
+    private Filme filme;
+    private List<Filme> filmes;
+>>>>>>> master
 
     @PostConstruct
     public void init() {
         this.filme = new Filme();
         this.filmes = filmeBean.findAll();
+<<<<<<< HEAD
         this.filmes.sort((a, b) -> a.getIdFilme().compareTo(b.getIdFilme()));
+=======
+        this.filmes.sort((a,b)-> a.getIdFilme().compareTo(b.getIdFilme()));
+>>>>>>> master
     }
 
     public Filme getFilme() {
@@ -72,6 +87,7 @@ public class FilmeManager {
         return filmes;
     }
 
+<<<<<<< HEAD
     public void setFilmes(List<Filme> filmes) {
         this.filmes = filmes;
     }
@@ -120,3 +136,16 @@ public class FilmeManager {
     }
 
 }
+=======
+    public void setPessoas(List<Filme> filmes) {
+        this.filmes = filmes;
+    }
+
+    public void adicionar() {
+        filmeBean.insert(filme);
+        this.init();
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Teste", "teste"));
+    }
+
+}
+>>>>>>> master

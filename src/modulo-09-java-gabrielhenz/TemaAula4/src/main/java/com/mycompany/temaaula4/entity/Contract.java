@@ -41,7 +41,7 @@ public class Contract implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_CONTRACT")
-    @SequenceGenerator(name = "SEQ_CONTRACT", sequenceName = "SEQ_CONTRACT")
+    @SequenceGenerator(name = "SEQ_CONTRACT", sequenceName = "SEQ_CONTRACT", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "ID_CONTRACT")
     private Long idContract;

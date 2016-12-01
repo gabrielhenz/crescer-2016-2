@@ -42,7 +42,7 @@ public class Usuario implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Id
     @GeneratedValue(strategy = SEQUENCE, generator = "SEQ_USUARIO")
-    @SequenceGenerator(name = "SEQ_USUARIO", sequenceName = "SEQ_USUARIO")
+    @SequenceGenerator(name = "SEQ_USUARIO", sequenceName = "SEQ_USUARIO", allocationSize = 1)
     @Basic(optional = false)
     @Column(name = "ID_USUARIO")
     private Long idUsuario;
