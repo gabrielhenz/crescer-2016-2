@@ -11,6 +11,15 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
-        <h1 th:text="${name}"></h1>
+
+        <form action="#" th:action="@{/pessoa/processForm}" th:object="${pessoa}" method="post">
+            <input type="text" th:field="*{nome}" placeholder="nome"/>
+            <input type="date" th:field="*{dataNascimento}"/>
+            <input type="submit" />
+        </form>
+
+        <div th:each="i : ${pessoas}">
+            <div th:text="${i.nome}"></div>
+        </div>
     </body>
 </html>

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,18 +31,17 @@ public class PessoaRest {
 
     @Autowired
     private PessoaService service;
-    
+
     @RequestMapping(method = RequestMethod.GET)
-    public List<Pessoa> list() {
-        return service.listAll();
+    public Iterable<Pessoa> findAll() {
+        return service.findAll();
     }
-    
-    @RequestMapping(method = RequestMethod.POST)
-    public List<Pessoa> add(@RequestBody Pessoa p){
-        if(p == null){
-            return new ArrayList<Pessoa>();
+
+    @RequestMapping(name = "/processForm", method = RequestMethod.POST)
+    public void save(@ModelAttribute(value = "pessoa") Pessoa p) {
+        if (p != null) {
+            p.setDataNascimento(new Date());
+            service.save(p);
         }
-        p.setData(new Date());
-        return service.add(p);
     }
 }

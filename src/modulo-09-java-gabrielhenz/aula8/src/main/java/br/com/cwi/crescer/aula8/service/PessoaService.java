@@ -6,11 +6,14 @@
 package br.com.cwi.crescer.aula8.service;
 
 import br.com.cwi.crescer.aula8.entity.Pessoa;
+import br.com.cwi.crescer.aula8.repository.PessoaRepository;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -20,14 +23,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class PessoaService {
     
-    private List<Pessoa> pessoas = new ArrayList<>();
+    @Autowired
+    private PessoaRepository repository;
     
-    public List<Pessoa> listAll() {
-        return pessoas;
+    public Iterable<Pessoa> findAll() {
+        return repository.findAll();
     }
     
-    public List<Pessoa> add(Pessoa p){
-        pessoas.add(p);
-        return pessoas;
+    public void save(Pessoa p){
+        repository.save(p);
     }
 }
