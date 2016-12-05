@@ -24,7 +24,7 @@
             <h:selectOneRadio id="genero" styleClass="form-control" value="#{filmeManager.idGenero}">
                 <f:selectItems value="#{generoManager.generos}" var="genero"
                                itemLabel="#{genero.nmGenero}" itemValue="#{ator.idAtor}" /> 
-            </h:selectOneListbox>
+            </h:selectOneRadio>
         </div>
 
         <div class="form-group"> 
@@ -44,7 +44,7 @@
             <h:selectOneRadio id="elenco" styleClass="form-control" value="#{filmeManager.idGenero}">
                 <f:selectItems value="#{elencoManager.elencos}" var="elenco"
                                itemLabel="#{elenco.nmElenco}" itemValue="#{elenco.idElenco}" /> 
-            </h:selectOneListbox>
+            </h:selectOneRadio>
         </div>
         
         <div class="form-group"> 
@@ -52,16 +52,7 @@
             <h:selectOneRadio id="idioma" styleClass="form-control" value="#{filmeManager.idGenero}">
                 <f:selectItems value="#{idiomaManager.idiomas}" var="idioma"
                                itemLabel="#{idioma.nmIdioma}" itemValue="#{idioma.idIdioma}" /> 
-            </h:selectOneListbox>
-        </div>
-
-        <div class="form-group"> 
-            <h:outputLabel for="classificacao" value="#{bundle.filme_classificacao}"></h:outputLabel>
-            <h:selectOneListbox id="classificacao" styleClass="form-control">
-                <ui:repeat value="#{filmeManager.classificacoes}" var="classificacao">
-                    <f:selectItem itemValue="#{classificacao.idClassificacao}" itemLabel="#{classificacao.nmClassificacao}" />
-                </ui:repeat>	 
-            </h:selectOneListbox>
+            </h:selectOneRadio>
         </div>
         
         <div class="form-group"> 
@@ -69,7 +60,7 @@
             <h:selectOneRadio id="classificacao" styleClass="form-control" value="#{filmeManager.idClassificacao}">
                 <f:selectItems value="#{classificacaoManager.classificacoes}" var="classificacao"
                                itemLabel="#{idioma.nmIdioma}" itemValue="#{idioma.idIdioma}" /> 
-            </h:selectOneListbox>
+            </h:selectOneRadio>
         </div>
 
         <h:commandButton type="submit" value="Enviar" styleClass="btn btn-success" action="#{filmeManager.adicionar}">    
