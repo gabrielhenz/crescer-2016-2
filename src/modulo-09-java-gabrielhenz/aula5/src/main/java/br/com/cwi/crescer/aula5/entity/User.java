@@ -29,7 +29,7 @@ public class User implements Serializable {
     @GeneratedValue(strategy = SEQUENCE, generator = SQ_NAME)
     @SequenceGenerator(name = SQ_NAME, sequenceName = SQ_NAME, allocationSize = 1)
     @Column(name = "ID_USER")
-    private Long id;
+    private Long idUser;
 
     @Basic(optional = false)
     @Column(name = "NM_USER")
@@ -43,19 +43,19 @@ public class User implements Serializable {
     @Column(name = "DS_SENHA")
     private String dsSenha;
 
-    public Long getId() {
-        return id;
+    public Long getIdUser() {
+        return idUser;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdUser(Long idUser) {
+        this.idUser = idUser;
     }
 
-    public String getNome() {
+    public String getNmUser() {
         return nmUser;
     }
 
-    public void setNome(String nmUser) {
+    public void setNmUser(String nmUser) {
         this.nmUser = nmUser;
     }
 

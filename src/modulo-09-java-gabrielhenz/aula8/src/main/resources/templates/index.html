@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+
+        <form action="#" th:action="@{/pessoa/processForm}" th:object="${pessoa}" method="post">
+            <input type="text" th:field="*{nome}" placeholder="nome"/>
+            <input type="date" th:field="*{dataNascimento}"/>
+            <input type="submit" />
+        </form>
+
+        <div th:each="i : ${pessoas}">
+            <div th:text="${i.nome}"></div>
+        </div>
+    </body>
+</html>

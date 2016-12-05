@@ -15,6 +15,7 @@ import br.com.cwi.crescer.temaaula5.entities.Elenco;
 import br.com.cwi.crescer.temaaula5.entities.Filme;
 import br.com.cwi.crescer.temaaula5.entities.Genero;
 import br.com.cwi.crescer.temaaula5.entities.Idioma;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -111,12 +112,19 @@ public class FilmeManager {
     
 
     public void adicionar() {
-        if (filme.getDsTitulo().isEmpty() || filme.getDsTitulo() == null) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Preencha o nome", "Preencha o nome"));
-        } else {
-            filmeBean.insert(filme);
-        }
+        filme.setGenero(this.generoBean.find(Long.parseLong(idGenero)));
+        filme.setIdioma(this.idiomaBean.find(Long.parseLong(idIdioma)));
+        filme.setElencoFilme(this.elencoBean.find(Long.parseLong(idElenco)));
+        filme.setClassificacao(this.classificacaoBean.find(Long.parseLong(idClassificacao)));
+        filmeBean.insert(filme);
         this.init();
+        FacesContext.getCurrentInstance()
+                .addMessage(
+                        null, 
+                        new FacesMessage(
+                                FacesMessage.SEVERITY_INFO, 
+                                "Preencha o nome", 
+                                "Preencha o nome"));
     }
 
 }
