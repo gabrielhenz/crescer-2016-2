@@ -38,10 +38,10 @@ public class PessoaRest {
     }
 
     @RequestMapping(name = "/processForm", method = RequestMethod.POST)
-    public void save(@ModelAttribute(value = "pessoa") Pessoa p) {
-        if (p != null) {
-            p.setDataNascimento(new Date());
-            service.save(p);
+    public void save(@RequestBody Pessoa pessoa) {
+        if (pessoa != null) {
+            pessoa.setDataNascimento(new Date());
+            service.save(pessoa);
         }
     }
 }
